@@ -1,0 +1,36 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[R.~Fielding and Gettys(2004)]{Reference1}
+J.~Mogul R.~Fielding and J.~Gettys.
+\newblock Hypertext transfer protocol -- http/1.1.
+\newblock \emph{Request for Comments 2616}, 1.4 Overall operation, September
+  2004.
+\newblock URL \url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1}.
+
+\bibitem[Estep(2013)]{Reference2}
+Eliot Estep.
+\newblock Mobile html5: Efficiency and performance of websockets and
+  server-sent events.
+\newblock \emph{Master thesis}, 3.3 Web techniques, June 2013.
+\newblock URL
+  \url{http://nordsecmob.aalto.fi/en/publications/theses2013/thesis_estep/}.
+
+\bibitem[Lubbers and Greco(2010)]{Reference15}
+Peter Lubbers and Frank Greco.
+\newblock Html5 web sockets: A quantum leap in scalability for the web.
+\newblock March 2010.
+\newblock URL \url{http://www.websocket.org/quantum.html}.
+
+\bibitem[Oberstein(2014)]{Reference17}
+Tobias Oberstein.
+\newblock Dissecting websocket's overhead.
+\newblock January 2014.
+\newblock URL
+  \url{http://tavendo.com/blog/post/dissecting-websocket-overhead/}.
+
+\end{thebibliography}

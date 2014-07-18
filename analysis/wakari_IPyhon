@@ -1,0 +1,47 @@
+-- IPython --
+
+Desciption 
+    - 
+
+Functionnalities
+    - Terminal consol
+    - Interactive shell Qt console
+        + Graph displayed in the shell
+    - Notebook 
+        + Support code, texts, mathematical expression, plots 
+        + Displayed in the browser
+    - Parallel computing ( I didn't fully understand it's usefulness )
+
+-- Wakari -- 
+
+Description
+    - Collaborative data analytic tool
+
+Functionalities
+    - Import datasets
+    - Create, share and import notebooks 
+        + Import and edit other people's notebooks
+        + The environment is handled, no libraries problems
+    
+---------------------------------------------------------------------------------
+        
+Usages
+    I think using wakari may be beyond the scope of my thesis.
+    
+    The website as I imagine it is a GUI for the user to choose : 
+        - The number of clients.
+        - The type of requests ( ping pong, fixed string, random strings.. )
+        - The number of websockets servers.
+
+    Then the following graphs will be displayed : 
+        - Bandwith in function of the number of requests
+        - CPU usage in function of the number of requets   
+
+    It would be great to retrieve the datasets generated in order to create a notebook.
+    Notebook which would be customable by the users..
+    I might consider it if I finish the rest of the thesis early.
+    But for now I think it is giving too much importance to the interface.
+    I would prefer spending this time analyzing and optimizing the load balancing and scalability on my implementation.
+    
+        
+

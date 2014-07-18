@@ -1,0 +1,42 @@
+Preliminary work
+    + Project plan redaction
+    + Paper study 
+    
+- Server side implementation
+    + Websockets general knowledge
+        * Websockets technologies analysis
+        * Implementation of a single websocket server
+    + Server farm implementation
+        * Infrastructure tools analysis [chef, puppet, ansible, salt]
+        * Analysis of the most appropriate infrastructure regarding scalability and redundancy
+        * Implementation of the script to deploy x nodes with the appropriate infrastructure
+    + Server farm specific to websockets implementation
+        * Websockets load balancing analysis
+        * Implementation of the script to deploy x nodes with appropriate load balancing/infrastructure scalability/redundancy
+    
+- Client side implementation
+    + Analysis of the benchmark libraries
+    + Analysis of the infrastructure needed (number of server)
+    + Analysis of the type of request sent by the client (ping ping, strings..)
+    + Implementation of a script to fire x request y with w server
+
+- Website implementation
+    + Analysis of the appropriate technologies for the website
+    + Analysis of the libraries to draw charts
+    + Analysis of the UI design
+    + Local implementation of the website
+    + Deployment of the website
+
+- Analysis of the results & improvement of the parallelization
+    + Analysis of the websocket code & load balancing regarding the parallel implementation
+    + Tests of the improvements made
+
+- Redaction of the thesis
+    + Introduction
+    + Scalability and load balancing review
+    + Experiment & results description
+    + Conclusion
+    + Form and orthograph review
+
+
+

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Thesis Gantt" company="" webLink="http://" view-date="2014-02-23" view-index="0" gantt-divider-location="535" resource-divider-location="300" version="2.0" locale="en_US">
+    <description/>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Name" width="33" order="0"/>
+        <field id="tpd4" name="Begin date" width="33" order="1"/>
+        <field id="tpd5" name="End date" width="33" order="2"/>
+        <option id="taskLabelLeft" value="name"/>
+        <option id="taskLabelRight" value=""/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="50" order="0"/>
+        <field id="1" name="Default role" width="50" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <calendar id="1" name="default">
+                <default-week sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+                <only-show-weekends value="true"/>
+                <overriden-day-types/>
+                <days/>
+            </calendar>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Preliminary work" color="#000000" meeting="false" start="2014-03-10" duration="32" complete="0" expand="true">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <task id="6" name="Project plan redaction" color="#8cb6ce" meeting="false" start="2014-03-10" duration="1" complete="0" expand="true"/>
+            <task id="144" name="assignment &amp; group project" meeting="false" start="2014-03-10" duration="32" complete="0" expand="true"/>
+            <task id="7" name="Paper study" color="#8cb6ce" meeting="false" start="2014-03-10" duration="6" complete="0" expand="true"/>
+        </task>
+        <task id="8" name="Server side implementation" color="#000000" meeting="false" start="2014-04-11" duration="38" complete="0" expand="true">
+            <depend id="156" type="2" difference="0" hardness="Strong"/>
+            <task id="26" name="Websockets general knowledge" meeting="false" start="2014-04-11" duration="7" complete="0" expand="true">
+                <depend id="32" type="2" difference="0" hardness="Strong"/>
+                <task id="28" name="Websockets technolgies analysis" meeting="false" start="2014-04-11" duration="3" complete="0" expand="true">
+                    <depend id="30" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="30" name="Implementation of a single websocket server" meeting="false" start="2014-04-14" duration="4" complete="0" expand="true"/>
+            </task>
+            <task id="32" name="Server farm implementation" meeting="false" start="2014-04-18" duration="14" complete="0" expand="true">
+                <depend id="72" type="2" difference="0" hardness="Strong"/>
+                <task id="33" name="Infrastructure tool analysis" color="#8cb6ce" meeting="false" start="2014-04-18" duration="2" complete="0" expand="true">
+                    <depend id="41" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="34" name="Scalability &amp; redundancy analysis" color="#8cb6ce" meeting="false" start="2014-04-18" duration="2" complete="0" expand="true">
+                    <depend id="41" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="41" name="Script implementation" meeting="false" start="2014-04-20" duration="12" complete="0" expand="true"/>
+            </task>
+            <task id="72" name="Server farm specific to websockets implementation" meeting="false" start="2014-05-02" duration="17" complete="0" expand="true">
+                <task id="76" name="Websockets load balancing analysis" meeting="false" start="2014-05-02" duration="4" complete="0" expand="true">
+                    <depend id="78" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="78" name="Script implemetation" meeting="false" start="2014-05-06" duration="13" complete="0" expand="true"/>
+            </task>
+        </task>
+        <task id="156" name="Rest week" color="#8cb6ce" meeting="false" start="2014-05-19" duration="7" complete="0" expand="true">
+            <depend id="84" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="84" name="Client side implemetation" color="#000000" meeting="false" start="2014-05-26" duration="14" complete="0" expand="true">
+            <depend id="96" type="2" difference="0" hardness="Strong"/>
+            <task id="90" name="Request type anallysis" meeting="false" start="2014-05-26" duration="2" complete="0" expand="true">
+                <depend id="86" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="88" name="Infrastructure analysis" meeting="false" start="2014-05-26" duration="2" complete="0" expand="true">
+                <depend id="86" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="86" name="Benchmark libraries analysis" meeting="false" start="2014-05-28" duration="1" complete="0" expand="true">
+                <depend id="92" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="92" name="Script implementation" meeting="false" start="2014-05-29" duration="11" complete="0" expand="true"/>
+        </task>
+        <task id="96" name="Website implementation" meeting="false" start="2014-06-09" duration="14" complete="0" expand="true">
+            <depend id="225" type="2" difference="0" hardness="Strong"/>
+            <task id="98" name="Web languages analysis" meeting="false" start="2014-06-09" duration="4" complete="0" expand="true">
+                <depend id="102" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="100" name="Chart libraries analysis" meeting="false" start="2014-06-09" duration="4" complete="0" expand="true">
+                <depend id="102" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="101" name="UI design analysis" meeting="false" start="2014-06-09" duration="4" complete="0" expand="true">
+                <depend id="102" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="102" name="Local implementation of the website" meeting="false" start="2014-06-13" duration="9" complete="0" expand="true">
+                <depend id="103" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="103" name="Deployment of the website" meeting="false" start="2014-06-22" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="225" name="rest week" meeting="false" start="2014-06-23" duration="7" complete="0" expand="true">
+            <depend id="112" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="112" name="Results analysis and improvement of the parallelization" color="#000000" meeting="false" start="2014-06-30" duration="26" complete="0" expand="true">
+            <depend id="119" type="2" difference="0" hardness="Strong"/>
+            <task id="115" name="Websocket code and load balancing analysis" meeting="false" start="2014-06-30" duration="16" complete="0" expand="true">
+                <depend id="116" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="116" name="Improvements" meeting="false" start="2014-07-16" duration="10" complete="0" expand="true"/>
+        </task>
+        <task id="141" name="Technical presentation" color="#8cb6ce" meeting="true" start="2014-06-09" duration="0" complete="0" expand="true"/>
+        <task id="119" name="Redaction of the thesis" meeting="false" start="2014-07-26" duration="15" complete="0" expand="true">
+            <depend id="251" type="2" difference="0" hardness="Strong"/>
+            <task id="122" name="Scalability and load balancing analysis" meeting="false" start="2014-07-26" duration="6" complete="0" expand="true">
+                <depend id="123" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="123" name="Experiments &amp; results" meeting="false" start="2014-08-01" duration="6" complete="0" expand="true">
+                <depend id="124" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="124" name="Conclusion" meeting="false" start="2014-08-07" duration="1" complete="0" expand="true">
+                <depend id="121" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="121" name="Introduction" meeting="false" start="2014-08-08" duration="1" complete="0" expand="true">
+                <depend id="125" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="125" name="Form and orthograph review" meeting="false" start="2014-08-09" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="251" name="Rest week" color="#8cb6ce" meeting="false" start="2014-08-10" duration="8" complete="0" expand="true">
+            <depend id="137" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="134" name="Thesis hand in" color="#8cb6ce" meeting="true" start="2014-08-18" duration="0" complete="0" expand="true"/>
+        <task id="137" name="Vivas preparation" meeting="false" start="2014-08-18" duration="9" complete="0" expand="true">
+            <depend id="136" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="136" name="Vivas" color="#8cb6ce" meeting="true" start="2014-08-27" duration="0" complete="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <taskdisplaycolumns>
+        <displaycolumn property-id="tpd2" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd7" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd8" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd6" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd10" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd11" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd9" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd1" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd0" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd3" order="0" width="172" visible="true"/>
+        <displaycolumn property-id="tpd4" order="1" width="172" visible="true"/>
+        <displaycolumn property-id="tpd5" order="2" width="172" visible="true"/>
+    </taskdisplaycolumns>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>

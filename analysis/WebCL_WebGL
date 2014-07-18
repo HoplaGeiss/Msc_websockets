@@ -1,0 +1,28 @@
+- OpenGL -- Open Graphic Library [wikipedia]
+
++ Cross language Application programming interface (API)
++ Renders 2D and 3D vectors
++ Multi plateform
+    - CPU, GPU, digital signal processors (DSP), field-programmable fate arrays (FPGA) and other processors. 
++ Open standard maintained by the Khronos Group
+
+-- WebGL -- Web graphic Library [wikipedia]
+
++ Javascript API to OpenGL
++ Rendering interactive 3D & 2D graphics within the browser without using plugins.
++ Khronos
+
+-- OpenCL -- Open Computing language [wikipedia]
+
++ Framework 
++ Special derived C language.
++ Multi plateform.
++ Khronos
+
+-- WebCL -- [khronos.org]
+
++ Javascript API to OpenCL framework.
++ Enables web application to use GPU and multicore CPU parallel processign from within a web browser.
++ Enables significant acceleration of application 
+    - Image and video processing for WebGL games.
++ Kronos

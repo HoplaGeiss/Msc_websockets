@@ -1,0 +1,31 @@
+Study of the different infrastructure organization tool available
+    - Puppet
+        + Built on Ruby
+        + Node agent installation required
+        + High numberof features
+
+
+    - Chef 
+        + Built on Ruby
+        + Node agent installation required
+        + Requires the installation of a workstation server to control the master node
+        + Knowledge of git required
+
+    - Ansible
+        + Built on Python
+        + No node agent needed, works exclusivly with ssh
+
+    - Salt
+        + new tool, quite buggy
+
+Questions  
+    - If I decide to use ansible or salt, in which language will the rest of the server code be in ?
+
+Conclusion
+    - Puppet/Chef more developpment oriented. 
+    - Puppet has more features and is easier to get started with.
+
+    - Ansible is more system management oriented.
+
+Sources 
+    - http://www.infoworld.com/d/data-center/review-puppet-vs-chef-vs-ansible-vs-salt-231308

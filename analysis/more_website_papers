@@ -1,0 +1,19 @@
+WebSocket cluster details
+    http://www.kaazing.com/about-us/resource-center/
+    http://adamnengland.wordpress.com/2013/01/30/node-js-cluster-with-socket-io-and-express-3/
+
+enterprise providing websocket clusters
+    http://mrotaru.wordpress.com/2012/11/12/websocket-server-handling-millions-of-concurrent-users-true-or-false/
+node.js
+    + server side language
+
+express.io 
+    + realtime web framework for node.js
+
+node.js websocket implementation
+    socket.io
+    engine.io
+    sockjs
+    einaros / ws
+    
+    https://medium.com/node-js-javascript/b63bfca0539
