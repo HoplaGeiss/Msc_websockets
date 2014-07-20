@@ -61,10 +61,36 @@
 	Number = {},
 	Numpages = {},
 	Pages = {66-73},
-	Title = {Graphics Programming on the Web, WebCL Course Note},
+	Title = {OpenCL: A parallel programming standard for heterogeneous computing systems},
 	Volume = {12},
 	Url = {http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5457293&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5457293},
 	Year = {2010}}
+	
+	@article{Reference6,
+	Author = {Won Jeon, Tasneem Brutch and Simon Gibbs},
+	Journal = {Tizen developer conference},
+	Month = {May},
+	Number = {},
+	Numpages = {},
+	Pages = {},
+	Title = {WebCL for Hardware-Accelerated Web Applications},
+	Volume = {},
+	Url = {http://dev.bowdenweb.com/html/api/webcl/webcl-for-hardware-accelerated-web-applications-dev-track-008.pdf},
+	Year = {2012}}
+	
+	@article{Reference7,
+	Author = {A. Barak and A. Shiloh},
+	Journal = {Mosix white paper},
+	Month = {},
+	Number = {},
+	Numpages = {},
+	Pages = {},
+	Title = {The VirtualCL (VCL) Cluster Platform},
+	Volume = {},
+	Url = {http://www.mosix.cs.huji.ac.il/vcl/VCL_wp.pdf},
+	Year = {2012}}
+	
+	
 	
 	
 
@@ -74,6 +100,7 @@
 
 @article{Reference17,
 	Author = {Tobias Oberstein},
+	Journal = {Tavendo},
 	Month = {January},
 	Title = {Dissecting WebSocket's Overhead},
 	Url = {http://tavendo.com/blog/post/dissecting-websocket-overhead/},
@@ -86,3 +113,11 @@
 	Title = {HTML5 Web Sockets: A Quantum Leap in Scalability for the Web},
 	Url = {http://www.websocket.org/quantum.html},
 	Year = {2010}}
+	
+	@article{Reference20,
+	Author = {Peter Bright},
+	Journal = {ars technica},
+	Month = {March},
+	Title = {Khronos publishes a range of specs to take GPU computing to the Web},
+	Url = {http://arstechnica.com/information-technology/2014/03/khronos-publishes-a-range-of-specs-to-take-gpu-computing-to-the-web-c/},
+	Year = {2014}}
