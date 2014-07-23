@@ -1,8 +1,8 @@
-/* ------
-/* RFC */
-/* ------
+/* ----------
+/* Journal */
+/* ----------
 
-@article{Reference1,
+  @article{Reference1,
 	Author = {R. Fielding, J. Mogul and J. Gettys},
 	Journal = {Request for Comments 2616},
 	Month = {September},
@@ -14,11 +14,7 @@
 	Url = {http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1},
 	Year = {2004}}
 	
-/* ----------
-/* Journal */
-/* ----------
-
-@article{Reference2,
+  @article{Reference2,
 	Author = {Eliot Estep},
 	Journal = {Master thesis},
 	Month = {June},
@@ -90,7 +86,66 @@
 	Url = {http://www.mosix.cs.huji.ac.il/vcl/VCL_wp.pdf},
 	Year = {2012}}
 	
+	@article{Reference8,
+	Author = {Nathan T Hayes},
+	Journal = {Sunfish white paper},
+	Month = {February},
+	Number = {},
+	Numpages = {},
+	Pages = {},
+	Title = {High Performance Parallel Computing in the Motion Picture Industry},
+	Volume = {},
+	Url = {http://sunfishstudio.com/downloads/MeridianWhitePaper.pdf},
+	Year = {2012}}
 	
+	@article{Reference9,
+	Author = {Yuan Shi},
+	Journal = {},
+	Month = {October},
+	Number = {},
+	Numpages = {},
+	Pages = {},
+	Title = {Reevaluating Amdahl's Law and Gustafson's Law},
+	Volume = {},
+	Url = {http://spartan.cis.temple.edu/shi/public_html/docs/amdahl/amdahl.html},
+	Year = {1996}}
+	
+	@article{Reference10,
+	Author = {Gene M. Amdahl},
+	Journal = {AFIPS Conference Proceedings},
+	Month = {},
+	Number = {},
+	Numpages = {},
+	Pages = {483--485},
+	Title = {Validity of the single processor approach to achieving large scale computing capabilities},
+	Volume = {},
+	Url = {http://www.futurechips.org/wp-content/uploads/2011/06/5_amdahl.pdf},
+	Year = {1967}}
+	
+	@article{Reference11,
+	Author = {Nikolai Qveflander},
+	Journal = {Master thesis},
+	Month = {},
+	Number = {},
+	Numpages = {},
+	Pages = {},
+	Title = {Pushing real time data using HTML5 WebSockets},
+	Volume = {},
+	Url = {http://www.diva-portal.org/smash/get/diva2:354621/FULLTEXT01.pdf},
+	Year = {2010}}
+		
+	@article{Reference12,
+	Author = {I. Fette and A. Melkinov},
+	Journal = {Request for Comments 6455},
+	Month = {December 2011},
+	Number = {},
+	Numpages = {},
+	Pages = {},
+	Title = {The WebSocket Protocol},
+	Volume = {},
+	Url = {http://tools.ietf.org/html/rfc6455},
+	Year = {2011}}
+
 	
 	
 
@@ -98,7 +153,7 @@
 /* WEB PAGES */
 /* ------------
 
-@article{Reference17,
+  @article{Reference30,
 	Author = {Tobias Oberstein},
 	Journal = {Tavendo},
 	Month = {January},
@@ -107,17 +162,63 @@
 	Year = {2014}}
 
 
-@article{Reference15,
+  @article{Reference32,
 	Author = {Peter Lubbers and Frank Greco},
 	Month = {March},
 	Title = {HTML5 Web Sockets: A Quantum Leap in Scalability for the Web},
 	Url = {http://www.websocket.org/quantum.html},
 	Year = {2010}}
 	
-	@article{Reference20,
+	@article{Reference33,
 	Author = {Peter Bright},
 	Journal = {ars technica},
 	Month = {March},
 	Title = {Khronos publishes a range of specs to take GPU computing to the Web},
 	Url = {http://arstechnica.com/information-technology/2014/03/khronos-publishes-a-range-of-specs-to-take-gpu-computing-to-the-web-c/},
 	Year = {2014}}
+	
+	@article{Reference34,
+	Author = {Aaeter Suleman},
+	Journal = {Future chips},
+	Month = {June},
+	Title = {Parallel programming: When Amdahl's law is inapplicable},
+	Url = {http://www.futurechips.org/thoughts-for-researchers/parallel-programming-gene-amdahl-said.html},
+	Year = {2011}}
+	
+	
+	@article{Reference35,
+	Author = {Tomislav Capan},
+	Journal = {toptal},
+	Month = {February},
+	Title = {Why the hell would I use Node.js},
+	Url = {http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js},
+	Year = {2013}}
+	
+	@article{Reference36,
+	Author = {Deniz Ozger},
+	Journal = {medium},
+	Month = {January},
+	Title = {Finding the right Node.js WebSocket implementation},
+	Url = {https://medium.com/@denizozger/finding-the-right-node-js-websocket-implementation-b63bfca0539},
+	Year = {2014}}
+	
+	@article{Reference37,
+	Author = {Mikito Takada},
+	Journal = {Mixu's tech},
+	Month = {February},
+	Title = {Understanding the node.js event loop},
+	Url = {http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/},
+	Year = {2011}}
+	
+	@article{Reference38,
+	Author = {Jonathan Gros-Dubois},
+	Journal = {Github},
+	Month = {September},
+	Title = {Highly scalable realtime WebSocket engine based on Engine.io},
+	Url = {https://github.com/topcloud/socketcluster},
+	Year = {2013}}
+	
+
+	
+
+	

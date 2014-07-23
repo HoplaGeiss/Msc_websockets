@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -20,17 +20,136 @@ Eliot Estep.
 \newblock URL
   \url{http://nordsecmob.aalto.fi/en/publications/theses2013/thesis_estep/}.
 
-\bibitem[Lubbers and Greco(2010)]{Reference15}
+\bibitem[Eero~Aho(2012)]{Reference3}
+Tomi Aarnio Janne Pietiäinen Jari~Nikara Eero~Aho, Kimmo~Kuusilinna.
+\newblock Towards real-time applications in mobile web browsers.
+\newblock \emph{Embedded Systems for Real-time Multimedia}, pages 57--66,
+  October 2012.
+\newblock URL
+  \url{http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6507030}.
+
+\bibitem[Bourges-Sévenier(2012)]{Reference4}
+Mikaël Bourges-Sévenier.
+\newblock Graphics programming on the web, webcl course note.
+\newblock \emph{Special Interest Group on GRAPHics and Interactive Technique
+  conference}, October 2012.
+\newblock URL
+  \url{http://khronosgroup.github.io/siggraph2012course/WebCL/WebCL%20Course%20Notes.pdf}.
+
+\bibitem[John E.~Stone and Shi(2010)]{Reference5}
+David~Gohara John E.~Stone and Guochun Shi.
+\newblock Opencl: A parallel programming standard for heterogeneous computing
+  systems.
+\newblock \emph{Computing in Science \& Engineering}, 12:\penalty0 66--73, June
+  2010.
+\newblock URL
+  \url{http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5457293&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5457293}.
+
+\bibitem[Won~Jeon and Gibbs(2012)]{Reference6}
+Tasneem~Brutch Won~Jeon and Simon Gibbs.
+\newblock Webcl for hardware-accelerated web applications.
+\newblock \emph{Tizen developer conference}, May 2012.
+\newblock URL
+  \url{http://dev.bowdenweb.com/html/api/webcl/webcl-for-hardware-accelerated-web-applications-dev-track-008.pdf}.
+
+\bibitem[Barak and Shiloh(2012)]{Reference7}
+A.~Barak and A.~Shiloh.
+\newblock The virtualcl (vcl) cluster platform.
+\newblock \emph{Mosix white paper}, 2012.
+\newblock URL \url{http://www.mosix.cs.huji.ac.il/vcl/VCL_wp.pdf}.
+
+\bibitem[Hayes(2012)]{Reference8}
+Nathan~T Hayes.
+\newblock High performance parallel computing in the motion picture industry.
+\newblock \emph{Sunfish white paper}, February 2012.
+\newblock URL \url{http://sunfishstudio.com/downloads/MeridianWhitePaper.pdf}.
+
+\bibitem[Shi(1996)]{Reference9}
+Yuan Shi.
+\newblock Reevaluating amdahl's law and gustafson's law.
+\newblock October 1996.
+\newblock URL
+  \url{http://spartan.cis.temple.edu/shi/public_html/docs/amdahl/amdahl.html}.
+
+\bibitem[Amdahl(1967)]{Reference10}
+Gene~M. Amdahl.
+\newblock Validity of the single processor approach to achieving large scale
+  computing capabilities.
+\newblock \emph{AFIPS Conference Proceedings}, pages 483--485, 1967.
+\newblock URL
+  \url{http://www.futurechips.org/wp-content/uploads/2011/06/5_amdahl.pdf}.
+
+\bibitem[Qveflander(2010)]{Reference11}
+Nikolai Qveflander.
+\newblock Pushing real time data using html5 websockets.
+\newblock \emph{Master thesis}, 2010.
+\newblock URL
+  \url{http://www.diva-portal.org/smash/get/diva2:354621/FULLTEXT01.pdf}.
+
+\bibitem[Fette and Melkinov(2011)]{Reference12}
+I.~Fette and A.~Melkinov.
+\newblock The websocket protocol.
+\newblock \emph{Request for Comments 6455}, December 2011 2011.
+\newblock URL \url{http://tools.ietf.org/html/rfc6455}.
+
+\bibitem[Oberstein(2014)]{Reference30}
+Tobias Oberstein.
+\newblock Dissecting websocket's overhead.
+\newblock \emph{Tavendo}, January 2014.
+\newblock URL
+  \url{http://tavendo.com/blog/post/dissecting-websocket-overhead/}.
+
+\bibitem[Lubbers and Greco(2010)]{Reference32}
 Peter Lubbers and Frank Greco.
 \newblock Html5 web sockets: A quantum leap in scalability for the web.
 \newblock March 2010.
 \newblock URL \url{http://www.websocket.org/quantum.html}.
 
-\bibitem[Oberstein(2014)]{Reference17}
-Tobias Oberstein.
-\newblock Dissecting websocket's overhead.
-\newblock January 2014.
+\bibitem[Bright(2014)]{Reference33}
+Peter Bright.
+\newblock Khronos publishes a range of specs to take gpu computing to the web.
+\newblock \emph{ars technica}, March 2014.
 \newblock URL
-  \url{http://tavendo.com/blog/post/dissecting-websocket-overhead/}.
+  \url{http://arstechnica.com/information-technology/2014/03/khronos-publishes-a-range-of-specs-to-take-gpu-computing-to-the-web-c/}.
+
+\bibitem[Suleman(2011)]{Reference34}
+Aaeter Suleman.
+\newblock Parallel programming: When amdahl's law is inapplicable.
+\newblock \emph{Future chips}, June 2011.
+\newblock URL
+  \url{http://www.futurechips.org/thoughts-for-researchers/parallel-programming-gene-amdahl-said.html}.
+
+\bibitem[Capan(2013)]{Reference35}
+Tomislav Capan.
+\newblock Why the hell would i use node.js.
+\newblock \emph{toptal}, February 2013.
+\newblock URL
+  \url{http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js}.
+
+\bibitem[Ozger(2014)]{Reference36}
+Deniz Ozger.
+\newblock Finding the right node.js websocket implementation.
+\newblock \emph{medium}, January 2014.
+\newblock URL
+  \url{https://medium.com/@denizozger/finding-the-right-node-js-websocket-implementation-b63bfca0539}.
+
+\bibitem[Takada(2011)]{Reference37}
+Mikito Takada.
+\newblock Understanding the node.js event loop.
+\newblock \emph{Mixu's tech}, February 2011.
+\newblock URL
+  \url{http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/}.
+
+\bibitem[Gros-Dubois(2013)]{Reference38}
+Jonathan Gros-Dubois.
+\newblock Highly scalable realtime websocket engine based on engine.io.
+\newblock \emph{Github}, September 2013.
+\newblock URL \url{https://github.com/topcloud/socketcluster}.
+
+\bibitem[Ref(2013)]{Reference39}
+The secret to 10 million concurrent connections.
+\newblock \emph{highscalabilty.com}, May 2013.
+\newblock URL
+  \url{http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html}.
 
 \end{thebibliography}

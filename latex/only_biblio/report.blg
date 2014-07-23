@@ -3,19 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: report.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
-Warning--I didn't find a database entry for "Reference3"
-Warning--I didn't find a database entry for "Reference4"
-Warning--I didn't find a database entry for "Reference5"
-Warning--I didn't find a database entry for "Reference6"
-Warning--I didn't find a database entry for "Reference7"
-Warning--I didn't find a database entry for "Reference8"
-Warning--I didn't find a database entry for "Reference9"
-Warning--I didn't find a database entry for "Reference10"
-Warning--I didn't find a database entry for "Reference11"
-Warning--I didn't find a database entry for "Reference12"
 Warning--I didn't find a database entry for "Reference13"
 Warning--I didn't find a database entry for "Reference14"
+Warning--I didn't find a database entry for "Reference15"
 Warning--I didn't find a database entry for "Reference16"
+Warning--I didn't find a database entry for "Reference17"
 Warning--I didn't find a database entry for "Reference18"
 Warning--I didn't find a database entry for "Reference19"
 Warning--I didn't find a database entry for "Reference20"
@@ -26,47 +18,70 @@ Warning--I didn't find a database entry for "Reference24"
 Warning--I didn't find a database entry for "Reference25"
 Warning--I didn't find a database entry for "Reference26"
 Warning--I didn't find a database entry for "Reference27"
-Warning--empty journal in Reference15
-Warning--empty journal in Reference17
-You've used 4 entries,
+Warning--I didn't find a database entry for "Reference28"
+Warning--I didn't find a database entry for "Reference29"
+Warning--I didn't find a database entry for "Reference31"
+Warning--I didn't find a database entry for "Reference40"
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1233 of file unsrtnat.bst
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in Reference9
+Warning--empty journal in Reference32
+Warning--empty author in Reference39
+You've used 21 entries,
             2481 wiz_defined-function locations,
-            625 strings with 5616 characters,
-and the built_in function-call counts, 1218 in all, are:
-= -- 106
-> -- 44
-< -- 4
-+ -- 20
-- -- 12
-* -- 76
-:= -- 207
-add.period$ -- 16
-call.type$ -- 4
-change.case$ -- 8
-chr.to.int$ -- 4
-cite$ -- 6
-duplicate$ -- 72
-empty$ -- 113
-format.name$ -- 20
-if$ -- 251
+            726 strings with 8841 characters,
+and the built_in function-call counts, 6387 in all, are:
+= -- 591
+> -- 188
+< -- 22
++ -- 94
+- -- 52
+* -- 381
+:= -- 1031
+add.period$ -- 83
+call.type$ -- 21
+change.case$ -- 42
+chr.to.int$ -- 21
+cite$ -- 25
+duplicate$ -- 397
+empty$ -- 625
+format.name$ -- 84
+if$ -- 1372
 int.to.chr$ -- 1
-int.to.str$ -- 5
-missing$ -- 4
-newline$ -- 32
-num.names$ -- 12
-pop$ -- 32
+int.to.str$ -- 22
+missing$ -- 21
+newline$ -- 133
+num.names$ -- 60
+pop$ -- 167
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 21
 quote$ -- 0
-skip$ -- 45
+skip$ -- 243
 stack$ -- 0
-substring$ -- 8
-swap$ -- 10
-text.length$ -- 0
+substring$ -- 114
+swap$ -- 74
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 2
-while$ -- 8
+type$ -- 147
+warning$ -- 3
+while$ -- 47
 width$ -- 0
-write$ -- 63
-(There were 25 warnings)
+write$ -- 302
+(There were 9 error messages)
