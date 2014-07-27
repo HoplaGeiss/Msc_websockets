@@ -1,47 +1,68 @@
 This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
-I found no \bibdata command---while reading file Thesis.aux
-I found no \bibstyle command---while reading file Thesis.aux
-You've used 3 entries,
-            0 wiz_defined-function locations,
-            89 strings with 546 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+The style file: unsrtnat.bst
+Database file #1: Bibliography.bib
+Warning--I didn't find a database entry for "Reference20"
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1233 of file unsrtnat.bst
+Warning--empty journal in Reference32
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in Reference9
+You've used 17 entries,
+            2481 wiz_defined-function locations,
+            668 strings with 7716 characters,
+and the built_in function-call counts, 5330 in all, are:
+= -- 493
+> -- 167
+< -- 19
++ -- 80
+- -- 46
+* -- 319
+:= -- 865
+add.period$ -- 68
+call.type$ -- 17
+change.case$ -- 34
+chr.to.int$ -- 17
+cite$ -- 19
+duplicate$ -- 325
+empty$ -- 511
+format.name$ -- 75
+if$ -- 1144
+int.to.chr$ -- 1
+int.to.str$ -- 18
+missing$ -- 17
+newline$ -- 110
+num.names$ -- 51
+pop$ -- 134
+preamble$ -- 1
+purify$ -- 17
 quote$ -- 0
-skip$ -- 0
+skip$ -- 202
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 105
+swap$ -- 63
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
+type$ -- 119
+warning$ -- 2
+while$ -- 41
 width$ -- 0
-write$ -- 0
-(There were 2 error messages)
+write$ -- 248
+(There were 9 error messages)

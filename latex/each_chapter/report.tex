@@ -1,0 +1,45 @@
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+
+\usepackage[square, numbers, comma, sort&compress]{natbib} 
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks = true ,
+	urlcolor = black ,
+	linkcolor = black
+}
+\usepackage{float}
+\geometry{hmargin=1cm,vmargin=2cm}
+\setlength\parindent{0pt}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{Gabriel Muller}
+\rfoot{\thepage}
+\cfoot{Experiment}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.8pt}
+
+
+\begin{document}
+
+
+\begin{center}
+\MakeUppercase{Gabriel Muller | Cranfield | Experiment} 
+\end{center}
+
+\rule{\linewidth}{1pt}
+\begin{center}
+\huge{Experiment}
+\end{center}
+\rule{\linewidth}{1pt}\\
+
+\input{./Chapters/Chapter3} % Experiment 
+
+%\lhead{\emph{Bibliography}}  % Change the left side page header to "Bibliography"
+\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliography{Bibliography}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+
+
+\end{document}
