@@ -58,7 +58,7 @@ All the same, even if OpenCL's API hides the trickiest part of parallel programm
 
 CPU and GPU are called “compute devices”. A single host regroups one or more compute devices and has its own memory. Each compute device is composed of one or more cores also called “compute units”. Each compute unit has its own memory and is divided into one or more single-instruction multiple-data (SIMD) threads or “processing elements” with its own memory. \citep{Reference4}\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/plateform_model.png}
 	\caption[plateform_model]{Plateform model \citep{Reference4}}
@@ -70,7 +70,7 @@ CPU and GPU are called “compute devices”. A single host regroups one or more
 
 OpenCL defines 4 types of memory spaces within a compute device. A large high-latency “global” memory corresponding to the device RAM. This is a none cached memory  where the data is stored and is available to all items. A small low-latency read-only “constant” memory which is cached. A shared “local” memory accessible from multiple processing elements within the same compute unit and a “private” memory accessible within each processing element. This last type of memory is very fast and is the register of the items. The last and least used  kind of memory is texture memory, which is similar to global memory but is cached. \citep{Reference4}\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.6\textwidth]{./Figures/memory_model.png}
 	\caption[memory_model]{Memory model \citep{Reference4}}
@@ -83,7 +83,7 @@ In conclusion, OpenCL provides a fairly easy way to write parallel code but to r
 
 Finally, at an even lower level, work-items are scheduled in work – groups. This is the smallest unit of parallelism on a device. Individual work-items in a work – group  start together at the same program address, but they have their own address counter and register state and are therefore free to branch and execute independently. \citep{Reference4}\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/id.png}
 	\caption[id]{ID \citep{Reference4}}
@@ -162,7 +162,7 @@ CHANGE NUMBER  add N → oo
 
 Nathan T. Hayes's paper for Sunfish Studio \citep{Reference8} studies the how parallel computing can profit the motion picture industrie. The following chart present the maximum speedup which can be expected from an application in function of the pourcentage of parallel code in the programme.\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.5\textwidth]{./Figures/amdahl.png}
 	\caption[amdahl]{Amdahl law \citep{Reference8}}
@@ -188,7 +188,7 @@ However later studies tends to contest the legimity of both laws. Yuan Shi's pap
 Figures x, shows a web application where each independent services have already been splitted on different servers. Assuming the hardware is also optimized, this application cannot be increased further by scaling up techniques. The only way to increase performance is to scale out and use for example three  servers for the web services. However this introduces a new problem, a third party must command these servers. This server also called load balancer is in charge of distributing the work between the worker and completely hides the complexity to the user.\\
 
 \begin{comment}
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/scaling_out.png}
 	\caption[scaling_out]{Scaling out \citep{Reference1}}
@@ -200,3 +200,4 @@ Figures x, shows a web application where each independent services have already 
 \subsection{Load balancing}
 
 Once the system is spread across a cluster, the final step to distribute the application is to plan how requests are dispatched across the available ressources.\\
+

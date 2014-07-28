@@ -23,7 +23,7 @@ Because HTTP was not designed for real time communication several workarounds ha
 
 Since HTTP's release in 1991, client server communication have undergone continuous upgrades. In the early twenties, most web pages were static. As a consequence, the client server communication were rather limited. Typically, the client would send from time to time a request to the server, the server would then answer back. All communication would then stop until the client triggered a new event.\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/client_server_communication.png}
 	\caption[client_server_communication]{Client server communication}
@@ -37,10 +37,9 @@ The notion of dynamic web appeared in 2005 with the apparition of technologies l
 Polling was the first attempt for real-time communication. Instead of waiting for the client to manually ask for a page update, the browser was sends regular HTTP GET requests to the server. This technique could be efficient if the exact interval of update on the server side was known.\\
 
 However real time information are unpredictable and in high updates rate situation like for example stock prices, news reports or tickets sales the response could be stale by the time the browser renders the page \citep{Reference32}.\\
-
 Also in low updates rate situation even if no data is available, the server will send an empty response. Resulting in a large amount of unnecessary connections beeing established which over time and with the clients increase leads to decreased overall network throughput \citep{Reference2}. \\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/polling.png}
 	\caption[polling]{polling}
@@ -55,7 +54,7 @@ Long-polling is similar to polling, except that the server keeps the HTTP reques
 
 However, in situations with high-message volume, long- polling does not provide increased performance benefits over regular polling. Performance could actually be decreased if long-polling requests turn into continuous, unthrottled loops of regular polling requests.\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/long_polling.png}
 	\caption[long_polling]{Long polling}
@@ -68,7 +67,7 @@ Streaming is based on a persistent HTTP connection. The communication still begi
 
 Wouldn't it be because of proxies, streaming would be a perfectly adapted for real time communication. Because streaming is done over HTTP,  proxy server may choose to buffer server responses and thus increasing greatly the latency of the message delivery. Therefore in case a proxy is detected most Comet-like solution fall back to long polling \citep{Reference2}.\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/streaming.png}
 	\caption[streaming]{Streaming}
@@ -134,7 +133,7 @@ As can be inferred from the 2 previous subsections, the websockets protocol is d
 
 The study conducted by Tobias Oberstein \citep{Reference30} looks into the overheads of websockets. As a matter of fact the overhead induced purely by WebSockets is extremely low. As can be seen in the figure \ref{fig:frame_overhead}, depending on the size of the payload the overhead varies between 8 and 20 bytes.\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.5\textwidth]{./Figures/frame_overhead.png}
 	\caption[frame_overhead]{Frame overhead \citep{Reference30}}
@@ -144,14 +143,14 @@ The study conducted by Tobias Oberstein \citep{Reference30} looks into the overh
 
 However, as pointed out in the article efficiency is lost on all other layers the websocket protocol relies on. Figure \ref{fig:tls_overhead} and \ref{fig:tcp_overhead} show respectively the overhead induced by pure tcp/ip and tls protocols.\\
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/tls_overhead.png}
 	\caption[tls_overhead]{TLS overhead \citep{Reference30}}
 	\label{fig:tls_overhead}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.9\textwidth]{./Figures/tcp_overhead.png}
 	\caption[tcp_overhead]{TCP overhead \citep{Reference30}}
@@ -166,7 +165,7 @@ In case small payloads can not be avoided a possible solution is to serialize th
 So instead of sending the each messages using the WebSocket protocol like it is done in figure x. The individual messages are put in a queue and batched in a single Websocket message like in figure y.
 
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.7\textwidth]{./Figures/separate_websocket.png}
 	\caption[separate_websocket]{WebSocket messages sent individualy \citep{Reference30}}

@@ -3,13 +3,15 @@
 %% ---------------------------------------------------------------- 
 
 % Set up the document
-\documentclass[a4paper, 12pt, twoside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
+%\documentclass[a4paper, 12pt, twoside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
+\documentclass[a4paper, oneside, 12pt]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
 \graphicspath{{Figures/}}  % Location of the graphics files (set up for graphics to be in PDF format)
 
 % Include any extra LaTeX packages required
 \usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
 \usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
 \usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
+\usepackage{float}
 \hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
 
 %% ----------------------------------------------------------------
@@ -41,7 +43,7 @@
 % Declaration Page required for the Thesis, your institution may give you a different text to place here
 \Declaration{
 
-I, AUTHOR NAME, declare that this thesis titled, `THESIS TITLE' and the work presented in it are my own. I confirm that:
+I, Gabriel L. Muller, declare that this thesis titled, HTML5 WebSocket protocol and its application to distributed computing and the work presented in it are my own. I confirm that:
 
 \begin{itemize} 
 \item[\tiny{$\blacksquare$}] This work was done wholly or mainly while in candidature for a research degree at this University.
@@ -59,11 +61,13 @@ I, AUTHOR NAME, declare that this thesis titled, `THESIS TITLE' and the work pre
 \end{itemize}
  
  
-Signed:\\
-\rule[1em]{25em}{0.5pt}  % This prints a line for the signature
+%Signed:\\
+%\rule[1em]{25em}{0.5pt}  % This prints a line for the signature
  
-Date:\\
-\rule[1em]{25em}{0.5pt}  % This prints a line to write the date
+%Date:\\
+%\rule[1em]{25em}{0.5pt}  % This prints a line to write the date
+
+
 }
 \clearpage  % Declaration ended, now start a new page
 
@@ -86,6 +90,7 @@ Date:\\
 % The Abstract Page
 \chapter{Abstract}
 
+%\input{./Chapters/Abstract}
 The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
 
 
@@ -97,7 +102,7 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 % The Acknowledgements page, for thanking everyone
 \chapter{Acknowledgements}
 
-The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
+\input{./Chapters/Acknowledgements} 
 
 
 \clearpage  % End of the Acknowledgements
@@ -130,34 +135,13 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 }
 
 %% ----------------------------------------------------------------
-\clearpage  % Start a new page
-\lhead{\emph{Physical Constants}}  % Set the left side page header to "Physical Constants"
-\listofconstants{lrcl}  % Include a list of Physical Constants (a four column table)
-{
-% Constant Name & Symbol & = & Constant Value (with units) \\
-Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
-
-}
-
-%% ----------------------------------------------------------------
-\clearpage  %Start a new page
-\lhead{\emph{Symbols}}  % Set the left side page header to "Symbols"
-\listofnomenclature{lll}  % Include a list of Symbols (a three column table)
-{
-% symbol & name & unit \\
-$a$ & distance & m \\
-$P$ & power & W (Js$^{-1}$) \\
-& & \\ % Gap to separate the Roman symbols from the Greek
-$\omega$ & angular frequency & rads$^{-1}$ \\
-}
-%% ----------------------------------------------------------------
 % End of the pre-able, contents and lists of things
 % Begin the Dedication page
 
 \setstretch{1.3}  % Return the line spacing back to 1.3
 
 \pagestyle{empty}  % Page style needs to be empty for this page
-\dedicatory{For/Dedicated to/To my\ldots}
+%\dedicatory{For/Dedicated to/To my\ldots}
 
 \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
 
@@ -173,7 +157,7 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 
 \input{./Chapters/Chapter2} % literrature review
 
-%\input{./Chapters/Chapter3} % Experimental Setup
+\input{./Chapters/Chapter3} % Experimental Setup
 
 %\input{./Chapters/Chapter4} % Experiment 1
 

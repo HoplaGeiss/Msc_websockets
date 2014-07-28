@@ -37,7 +37,7 @@
 %\vskip 60\p@
 {\normalsize #1}
 \vfil\vfil\null
-%\cleardoublepage
+\cleardoublepage
 }
 
 \newcommand\btypeout[1]{\bhrule\typeout{\space #1}\bhrule}
