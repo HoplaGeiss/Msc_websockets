@@ -208,8 +208,8 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT Thesis.lot
 INPUT Thesis.lot
 OUTPUT Thesis.lot
-INPUT ./Chapters/Chapter.tex
-INPUT ./Chapters/Chapter.tex
+INPUT ./Chapters/Chapter1.tex
+INPUT ./Chapters/Chapter1.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./Figures/client_server_communication.png
 INPUT ./Figures/client_server_communication.png
@@ -264,11 +264,6 @@ INPUT ./Figures/1_client.png
 INPUT ./Figures/2_client.png
 INPUT ./Figures/2_client.png
 INPUT ./Figures/2_client.png
-INPUT ./Appendices/AppendixA.tex
-INPUT ./Appendices/AppendixA.tex
-INPUT ./Figures/client_code.png
-INPUT ./Figures/client_code.png
-INPUT ./Figures/client_code.png
 INPUT Thesis.bbl
 INPUT Thesis.bbl
 INPUT Thesis.aux
