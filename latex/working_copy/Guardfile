@@ -3,4 +3,5 @@ guard :shell do
   watch (/Chapters\/.*.tex/) {`pdflatex Thesis.tex </dev/null`}
   watch (/Thesis\.tex/) {`pdflatex Thesis.tex </dev/null`}
   watch (/Thesis\.cls/) {`pdflatex Thesis.tex </dev/null`}
+  watch (/Bibliography\.bib/) {`pdflatex Thesis.tex </dev/null`}
 end

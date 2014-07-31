@@ -1,0 +1,253 @@
+\chapter{Experiment} 
+\label{Chapter4} 
+\lhead{Chapter 4. \emph{Experiment}} 
+
+\section{Client throughout}
+
+\subsection{Client scalability}
+
+SocketCluster-client makes the instanciation of a WebSocket clients on one core
+quite straightforward. To deploy it on all available nodes, node.js
+\texttt{fork()} function is used. A client code example is given in appendix
+\ref{fig:WS_client_simplePing}.
+
+The first experiment is a safety test. It checks if \texttt{fork()} distributes
+evenly the work among the cores.
+
+\begin{center}
+  \begin{tabular}{ | l | l |}
+  \hline
+  \multicolumn{2}{|c|}{Parameters} \\
+  \hline
+    Instance type &  amazon s3 m3.2xlarge\\ 
+    Experiment time & 120 s \\
+    Number of new communication created at each iteration & 15 \\
+    Client creation period & 1 s \\
+    Type of ping & random number \\ 
+    Ping period & 2.5 s \\ 
+  \hline
+  \end{tabular}
+\end{center}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/1_client.png}
+		\includegraphics[width=\textwidth]{./Figures/2_client.png}
+	\caption[Client throughout]{Client throughout}
+	\label{fig:1+2_client}
+\end{figure}
+
+
+From figure \ref{fig:1+2_client} can be inferred that the client
+implementation works flawlessly. Adding a second core enables twice as much
+communication  to be established.
+
+\subsection{browser testing}
+
+As mentionned in appendix \ref{fig:index_script}, by opering minor changes in
+the \texttt{index.html} file, the browser can be configured to display in real
+time the number of pings received by a particular worker. If the experiment is
+running locally, typing \texttt{localhost:8080} in the url will link the
+browser to one worker.\\
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.9\textwidth]{./Figures/browser.png}
+	\caption[Browser connection to SocketCluster]{Browser connection to SocketCluster}
+	\label{fig:browser}
+\end{figure}
+
+By doing so we can embody a user connected to our WebSocket server and have a
+better idea of the reactivity of the server.
+
+% --------------
+% second section
+% --------------
+
+\section{Comparaison with engine.io}
+
+SocketCluster has been created to ease the creation of multi - core WebSocket
+server. Logicaly the first experiment carried out on the server was to compare
+a WebSocket to a traditionnal Engine.io server. 
+
+Engine.io and SocketCluster codes can be found in appendix \ref{SocketCluster} and \ref{engine}. 
+
+\begin{center}
+  \begin{tabular}{ | l | l |}
+  \hline
+  \multicolumn{2}{|c|}{Parameters} \\
+  \hline
+    Instance type &  amazon ec2 m3.2xlarge\\ 
+    Experiment time & 60 s \\
+    Number of new communication created at each iteration & 20 \\
+    Client creation period & 1 s \\
+    Type of ping & random number \\ 
+    Ping period & 2.5 s \\ 
+    Number of clients & 2 \\
+  \hline
+  \end{tabular}
+\end{center}
+
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/WS_client_comparaison.png}
+		\includegraphics[width=\textwidth]{./Figures/WS_server_comparaison.png}
+	\caption[WebSocket implementation]{WebSocket implementation}
+	\label{fig:WS_comparaison}
+\end{figure}
+
+In this experience, two clients are used to achieve a maximum of 2400 WebSocket
+communications.  The server was configured to use one storage, one load
+balancer and one worker. While the store processor is quite idle, the two other
+processors on the other hand are almost used at full capacity.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/engine_client_comparaison.png}
+		\includegraphics[width=\textwidth]{./Figures/engine_server_comparaison.png}
+	\caption[Engine.io implementation]{Engine.io implementation}
+	\label{fig:engine_comparaison}
+\end{figure}
+
+Surprisingly, pure engine.io implementation seems to be more efficient. Clients
+are hitting a maximum of 50\% processor usage compared to 90\% for WebSockets.
+
+On the server side also, engine.io processor peaks at 75\% compared to almost
+100\% for WebSockets. Also even if both code have been deployed on similar
+virtual machines: \texttt{amazon ec2 m3.2xlarge} the engine.io server is
+running only only on one core compared to three for SocketCluster (one storage,
+one load balancer and one worker). This seems to show, SocketCluster is not
+adapted to low number of communication.
+
+An interesting experiment worth doing at this point, is to try to use
+SocketCluster on one core.
+
+% -------------
+% Third section
+% -------------
+
+\section{SocketCluster context switching}
+
+For this experiment a single core  virtual machine is used for the server:
+\texttt{amazon ec2 m3.medium}.
+
+\begin{center}
+  \begin{tabular}{ | l | l |}
+  \hline
+  \multicolumn{2}{|c|}{Parameters} \\
+  \hline
+    Server instance type &  amazon ec2 m3.medium\\ 
+    Client instance type &  amazon ec2 m3.2xlarge\\
+    Experiment time & 80 s \\
+    Number of new communication created at each iteration & 40 \\
+    Client creation period & 1 s \\
+    Type of ping & random number \\ 
+    Ping period & 2.5 s \\ 
+    Number of clients & 2 \\
+  \hline
+  \end{tabular}
+\end{center}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/WS_client_context.png}
+		\includegraphics[width=\textwidth]{./Figures/WS_server_context.png}
+	\caption[Contexting switching]{Context switching}
+	\label{fig:context}
+\end{figure}
+
+At the first glimpse, anyone can immediately tell there is a problem with the server
+graph. The Load seems to vary randomly at an average of 40\%. What really happens, is
+that most WebSocket connections are dropped shortly after beeing created or they 
+not even created. The problem is a single core needs to handle four threads. So each
+time another application is called the context changes. The result is even worse case of 
+a multi-procesor server, because threads then are balanced between processor. Threads 
+are heavy weight units, moving them introduces consequent overheads.\\
+
+to conclude, this experiment prooves SocketCluster is not aimed to be used with
+project which imvolve more threads than available cores.\\
+
+% --------------
+% Fourth section
+% --------------
+
+\section{}
+
+
+\textbf{Client code}
+
+The client code used in all this part is the same. Two clients are used to
+produce a maximum of 2400 WebSocket communications.
+
+
+\begin{center}
+  \begin{tabular}{ | l | l |}
+  \hline
+  \multicolumn{2}{|c|}{Parameters} \\
+  \hline
+    Instance type &  amazon ec2 m3.2xlarge\\ 
+    Experiment time & 60 s \\
+    Number of new communication created at each iteration & 20 \\
+    Client creation period & 1 s \\
+    Type of ping & random number \\ 
+    Ping period & 2.5 s \\ 
+    Number of clients & 2 \\
+  \hline
+  \end{tabular}
+\end{center}
+
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/WS_client_rising.png}
+	\caption[Simple WebSocket client]{client code}
+	\label{fig:WS_client_rising}
+\end{figure}
+
+\textbf{Server code}
+
+The first test is run a server using a one store, one load balancer and one
+worker.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/WS_server_1rising.png}
+	\caption[WebSocket server on three cores]{Server with 3 cores}
+	\label{fig:WS_server_1rising}
+\end{figure}
+
+figure \ref{fig:WS_server_1rising} clearly shows the worker and loadbalancer
+cores are almost used to their full extent. In order to handle more communication more
+cores should be added. 
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/WS_server_2rising.png}
+	\caption[WebSocket server on five cores]{server with 5 cores}
+	\label{fig:WS_server_2rising}
+\end{figure}
+
+In this experiment two more cores have been thrown to work. Load balancers and
+workers nicely balance the work between themselves and the maximum load drops to 50\%.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{./Figures/WS_server_3rising.png}
+	\caption[WebSocket server on seven cores]{server with 7 cores}
+	\label{fig:WS_server_3rising}
+\end{figure}
+
+this last test is less conclusive. With a total of 3 cores for load balancers
+and three for workers the processors load varies between 30\% and 50\%
+depending on the task.\\
+
+Adding too many cores is a waste of ressources, this stresses the importance of
+finding a load balancer/worker/store ratio rule.
+
+
+B] section most influence frequence pings / size message / number communications
+
+c] General rule
+
+load balancer / store / worker
