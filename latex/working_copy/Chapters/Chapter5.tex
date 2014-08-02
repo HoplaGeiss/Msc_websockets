@@ -1,0 +1,38 @@
+\chapter{Conclusion} 
+\label{Chapter5} 
+\lhead{Chapter 5. \emph{Conclusion}} 
+
+After studying the current landscape of research around WebSocket 
+in a ditributed environment, this thesis focuses on the benchmarking 
+of the node.js's real time engine SocketCluster.\\
+
+SocketCluster is a promising library still actively under development.
+It efficiently provides a highly scalable WebSocket server that make
+use of all available CPU cores on an instance. It removes the limitation
+of having to run Node.js code on single cores.\\
+
+Experiments carried out on SocketCluster revealed two main limitations.  If
+running on comparable hardware, a SocketCluster worker will be less efficient
+then a basic engine.io implementation. Also SocketCluster efficiency
+dramatically drops if run with more process then available cores because of
+context switching.\\
+
+Anyway, SocketCluster should be used in highly parallel environment and
+therefore these limitations rarely appply. SocketCluster theoriticaly  enables
+user to scale an application vertically  without limits. N being the number of
+cores the server has, SocketCluster has been prooved to be at least
+$\frac{N}{2}$ more efficient then a basic node.js implementation.  As the
+number of cores rises, it looks like the performance could be slightly better
+then $\frac{N}{2}$. The load balancers begins to missbehave and performances
+are limitted by a few overloaded load balancers. However, it is probably only a
+question of time until a patch fixes this issue.\\
+
+While benchmarking SocketCluster, useful SocketCluster features were
+considered.  System administrator could benefit from a realtime monitoring tool
+to check the state of each threads and thus help them manage the size of the
+cluster. The monitoring tool could even be linked with an algorithm to
+automatically append or delete threads.  SocketCluster would then be an autonom
+entity. Scaling on its own without any human interaction.\\
+
+
+

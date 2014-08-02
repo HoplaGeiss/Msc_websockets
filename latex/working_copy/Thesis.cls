@@ -157,7 +157,7 @@
 
 \degree      {Master of Science}
 
-\authors     {Gabriel MULLER}
+\authors     {Gabriel L. MULLER}
 
 \university  {Cranfield University}
 

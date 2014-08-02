@@ -2,13 +2,12 @@
 \label{Chapter3} 
 \lhead{Chapter 3. \emph{Design and implementation}} 
 
-
-Current research around WebSocket are centered on distributed computing. Either
+Current research around WebSocket are centered around distributed computing. Either
 on CPUs architecture, GPUs architecture or heterogeneous architecture. For the
 time being, clustering WebSocket servers is rather difficult and reserved to
 researcher or specialized companies. Actually in Node.js, there is hardly any
 library to simply and efficiently implement a multi-core server.  Node.js
-single thread nature is a double edge sword. On one side it will allow more
+single thread nature is a double edge sword. On one side it allows more
 concurrent connections to be established but it also means special attention
 needs to be given to run the code on all the servers cores. SocketCluster is
 brand new real-time engine aiming exactly at that.  At this point of my thesis
@@ -16,9 +15,9 @@ I had to make a choice between either the theoretical study of WebSocket
 clusters or the benchmarking of SocketCluster. After contacting Jonathan
 Gros-Dubois, the creator of SocketCluster, I made up my mind for the latter.
 Indeed, SocketCluster being under development the tests carried out so far are
-rather sparse. 
+rather sparse. \\
 
-SocketCluster
+\section{SocketCluster library}
 
 As described on the github project  \citep{Reference38}, SocketCluster is a
 fast, highly scalable HTTP and WebSocket server. It facilitates the creation of
@@ -28,42 +27,60 @@ server as a single thread.  SocketCluster's focus is on vertical scaling. If N
 is the number of cores available on the server, then SocketCluster is N time
 than any comparable single-threaded WebSocket server. Under the hood, the
 application deploys itself on all available cores as a cluster of process. The
-process can be grouped in three categories: stores, workers and load balancers.
-The experiments carried out in the next chapter aim at establishing a ratio
-rule depending on the number of clients connected and the type of messages they
-send.\\ 
+process can be grouped in three categories: stores, workers and load balancers.\\
 
-U-limit
+\section{Challenges encountered using SocketCluster}
 
-My first experiments with WebSockets were far from satisfactory. Past at total
-512 communication, new sockets were inexplicably crashing. This comes from a
-system limit set up on linux operating systems. By default the maximum number
-of file that can be sent over tcp is 1024.\\ 
+At first my experiments with SocketCluster were far from satisfactory. Past a
+total of 512 communications channel, new sockets were inexplicably crashing.\\
 
-Fortunately, this limit can easily be increased by appending this line:
-\begin{comment}
-ubuntu soft nofile number_of_file in
-/etc/security/limits.conf.\\
-\end{comment}
+\textbf{U-limit}
 
-C 10K Problem
+This comes from a system limit set up on linux operating systems. By default
+the maximum number of file that can be sent over tcp is 1024. \\
 
-The C 10K is a challenge issued in 1999 by Dan Kegel it consist in reaching 10
-000 concurent client connections. Engineers solved this problem by fixing
-operating systems kernel and creating new single threaded programming languages
-like Node.js. Today's objective is rather to achieve 10 000 000 concurrent
-connections like mentioned in the exellent article in highscalability.com
-\citep{Reference39}. Such amount of connections is beyond the scope of this
-thesis, but apparently the solution to improve the number of connections is to
-move heavy lifting from the kernel to the application itself.\\
+Fortunately, this limit can be increased by appending this line: \texttt{ubuntu
+soft nofile "number of file"} in \texttt{/etc/security/limits.conf}\\
 
-Monitoring tool
+Once this probem was fixed I looked into experiment to carry out, Jonathan Gros-Dubois
+advised me to focus on concurrent connections experiments.\\
 
-Generally monitoring tools are recording the average CPU usage. Some can be
-configured to record  processor usage on each cores. But ideally our experiment
-would require to record the processor usage for each threads.  For this purpose
-and to have more control over the data, I choose not to use an out of the box
-tool. I am using top's batch mode to output the processor usage in a file.
-After what I am doing some bash operation to formate the data properly. And
-finally I am plotting the graphs with gnuplot.\\
+\textbf{C 10K Problem}
+
+The C 10K is an historic challenge issued in 1999 by Dan Kegel it consist in
+reaching 10 000 concurent client connections. Engineers solved this problem by
+fixing operating systems kernel and creating new single threaded programming
+languages like Node.js. \\
+
+Therefore one of my objectives while testing SocketCluster was to see how many
+concurrent connections it can handle.\\
+
+However this should not be a problem for this library, contemporan objective is
+rather to achieve 10 000 000 concurrent connections like mentioned in the
+exellent article in highscalability.com \citep{Reference39}. Such amount of
+connections is beyond the scope of this thesis, but apparently the solution to
+improve the number of connections is to move heavy lifting from the kernel to
+the application itself.\\
+
+Another topic to consider before begin experimenting was how to monitor the
+application.\\ 
+
+\section{Monitoring tool}
+
+Monitoring tool can be divided in two categories. Basic Real time monitoring
+and more more conveniant tool saving statics in spreedsheets and eventually
+even directly plotting graphs. Most of them can be configured to record
+processor load on each cores. But ideally SocketCluster experiments would
+require to record each threads load's. This way, if run less process than
+available cores are beeing run the exact usage of each thread can still be 
+found.\\
+
+For this reason and also afterwards to have more freedom on how data is beeing
+processed, out of the box tool have been cast aside for more basic tools like top 
+and htop. htop has been used to vizualize data in real time and check if the 
+experiment was running flawlessly. top has been used in batched mode to output
+the data in files.\\ 
+
+In a latter phase, bash operation is used to format the raw data extracted from 
+top's file. And finally, graphs are plotted with gnuplot.\\
 

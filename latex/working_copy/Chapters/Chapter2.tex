@@ -315,17 +315,19 @@ Assuming P is the portion of a program that can be parallelized and 1 - P  is
 the portion that remains serial, then the maximum speedup that can be achieved
 using N processors is: 
 
-$$speedup = \frac{1}{(1-P) + \frac{P}{N}} $$
+$$speedup(N) = \frac{1}{(1-P) + \frac{P}{N}} $$
 
 If 70\% of the program can be run in parallel (P = 0.7) the maximum expected
 speedup with 4 processors would be:
 
-$$speedup = \frac{1}{(1-0.7) + \frac{0.7}{N}} = 2.1$$
+$$speedup(N) = \frac{1}{(1-0.7) + \frac{0.7}{N}}$$
+
+$$speedup(4) = 2.1$$
 
 When the number of processors reaches a certain point, the speed up will be:
 
 
-$$\lim\limits_{n \to \infty} speedup= \frac{1}{1-P} = 3.3$$\\
+$$\lim\limits_{N \to \infty} speedup(N)= \frac{1}{1-P} = 3.3$$\\
 
 
 Nathan T. Hayes's paper for Sunfish Studio \citep{Reference8} studies how
@@ -342,8 +344,6 @@ function of the pourcentage of parallel code in the programme.\\
 
 The figures speak for itslelf, to envisage parallel computing, the portion of
 parallel code must be very high.
-
-SPEAK ABOUT EMBARASSING PARALLELISM ?
 
 However, Amdahl's law is based on assumption which are hardly verified in
 pratique. Following are sumed up reasons not to give to much importance to
