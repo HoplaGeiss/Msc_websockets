@@ -3,85 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: report.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
-Warning--I didn't find a database entry for "Reference13"
-Warning--I didn't find a database entry for "Reference14"
-Warning--I didn't find a database entry for "Reference15"
-Warning--I didn't find a database entry for "Reference16"
-Warning--I didn't find a database entry for "Reference17"
-Warning--I didn't find a database entry for "Reference18"
-Warning--I didn't find a database entry for "Reference19"
-Warning--I didn't find a database entry for "Reference20"
-Warning--I didn't find a database entry for "Reference21"
-Warning--I didn't find a database entry for "Reference22"
-Warning--I didn't find a database entry for "Reference23"
-Warning--I didn't find a database entry for "Reference24"
-Warning--I didn't find a database entry for "Reference25"
-Warning--I didn't find a database entry for "Reference26"
-Warning--I didn't find a database entry for "Reference27"
-Warning--I didn't find a database entry for "Reference28"
-Warning--I didn't find a database entry for "Reference29"
-Warning--I didn't find a database entry for "Reference31"
-Warning--I didn't find a database entry for "Reference40"
-Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
-while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
-while executing---line 1233 of file unsrtnat.bst
-Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
-while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
-while executing---line 1315 of file unsrtnat.bst
-Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
-while executing---line 1315 of file unsrtnat.bst
-Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
-while executing---line 1315 of file unsrtnat.bst
-Warning--empty journal in Reference9
-Warning--empty journal in Reference32
-Warning--empty author in Reference39
-You've used 21 entries,
+You've used 2 entries,
             2481 wiz_defined-function locations,
-            726 strings with 8841 characters,
-and the built_in function-call counts, 6387 in all, are:
-= -- 591
-> -- 188
-< -- 22
-+ -- 94
-- -- 52
-* -- 381
-:= -- 1031
-add.period$ -- 83
-call.type$ -- 21
-change.case$ -- 42
-chr.to.int$ -- 21
-cite$ -- 25
-duplicate$ -- 397
-empty$ -- 625
-format.name$ -- 84
-if$ -- 1372
+            567 strings with 4840 characters,
+and the built_in function-call counts, 631 in all, are:
+= -- 55
+> -- 22
+< -- 2
++ -- 10
+- -- 6
+* -- 40
+:= -- 111
+add.period$ -- 8
+call.type$ -- 2
+change.case$ -- 4
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 36
+empty$ -- 57
+format.name$ -- 10
+if$ -- 128
 int.to.chr$ -- 1
-int.to.str$ -- 22
-missing$ -- 21
-newline$ -- 133
-num.names$ -- 60
-pop$ -- 167
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 20
+num.names$ -- 6
+pop$ -- 12
 preamble$ -- 1
-purify$ -- 21
+purify$ -- 2
 quote$ -- 0
-skip$ -- 243
+skip$ -- 24
 stack$ -- 0
-substring$ -- 114
-swap$ -- 74
-text.length$ -- 2
+substring$ -- 4
+swap$ -- 6
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 147
-warning$ -- 3
-while$ -- 47
+type$ -- 14
+warning$ -- 0
+while$ -- 4
 width$ -- 0
-write$ -- 302
-(There were 9 error messages)
+write$ -- 37

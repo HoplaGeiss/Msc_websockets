@@ -9,10 +9,10 @@
 SocketCluster-client makes the instantiation of a WebSocket clients on one core
 quite straightforward. To deploy it on all available nodes, node.js
 \texttt{fork()} function is used. A client code example is given in appendix
-\ref{fig:WS_client_simplePing}.
+\ref{fig:WS_client_simplePing}.\\
 
 The first experiment is a safety test. It checks if \texttt{fork()} distributes
-evenly the work among the cores.
+evenly the work among the cores.\\
 
 \begin{center}
   \begin{tabular}{ | l | l |}
@@ -40,7 +40,7 @@ evenly the work among the cores.
 
 From Figure \ref{fig:1+2_client} it can be inferred that the client
 implementation works flawlessly. Adding a second core enables twice as much
-communication  to be established.
+communication  to be established.\\
 
 \subsection{browser testing}
 
@@ -48,7 +48,7 @@ As mentioned in Appendix \ref{fig:index_script}, by operating minor changes in
 the \texttt{index.html} file, the browser can be configured to display in real
 time the number of pings received by a particular worker. If the experiment is
 running locally, typing \texttt{localhost:8080} in the url will link the
-browser to one worker.
+browser to one worker.\\
 
 \begin{figure}[H]
 	\centering
@@ -68,9 +68,9 @@ better idea of the reactivity of the server.
 
 SocketCluster has been created to ease the creation of multi-core WebSocket
 server. Logically the first experiment carried out on the server was to compare
-a WebSocket to a traditional Engine.io server. 
+a WebSocket to a traditional Engine.io server. \\
 
-Engine.io and SocketCluster codes can be found in Appendix \ref{SocketCluster} and \ref{engine}. 
+Engine.io and SocketCluster codes can be found in Appendix \ref{SocketCluster} and \ref{engine}. \\
 
 \begin{center}
   \begin{tabular}{ | l | l |}
@@ -92,8 +92,8 @@ Engine.io and SocketCluster codes can be found in Appendix \ref{SocketCluster} a
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=.9\textwidth]{./Figures/WS_client_comparaison.png}
-		\includegraphics[width=.9\textwidth]{./Figures/WS_server_comparaison.png}
+		\includegraphics[width=\textwidth]{./Figures/WS_client_comparaison.png}
+		\includegraphics[width=\textwidth]{./Figures/WS_server_comparaison.png}
 	\caption[WebSocket implementation]{WebSocket implementation}
 	\label{fig:WS_comparaison}
 \end{figure}
@@ -101,7 +101,7 @@ Engine.io and SocketCluster codes can be found in Appendix \ref{SocketCluster} a
 In this experience, two clients are used to achieve a maximum of 2400 WebSocket
 communications.  The server was configured to use one storage, one load
 balancer and one worker. While the store processor is quite idle, the two other
-processors on the other hand are almost used at full capacity.
+processors on the other hand are almost used at full capacity.\\
 
 \textbf{Engine.io implementation}
 \begin{figure}[H]
@@ -113,17 +113,17 @@ processors on the other hand are almost used at full capacity.
 \end{figure}
 
 Surprisingly, pure engine.io implementation seems to be more efficient. Clients
-are hitting a maximum of 50\% processor usage compared to 90\% for WebSockets.
+are hitting a maximum of 50\% processor usage compared to 90\% for WebSockets.\\
 
 On the server side, engine.io processor peaks at 75\% compared to almost
 100\% for WebSockets. Also even if both code have been deployed on similar
 virtual machines: \texttt{amazon ec2 m3.2xlarge} the engine.io server is
 running only on one core compared to three for SocketCluster (one storage,
 one load balancer and one worker). This seems to show, SocketCluster is not
-adapted to low number of communication.
+adapted to low number of communication.\\
 
 An interesting study worth doing at this point, is to try to use
-SocketCluster on one core.
+SocketCluster on one core.\\
 
 % -------------
 % Third section
@@ -132,7 +132,7 @@ SocketCluster on one core.
 \section{SocketCluster context switching}
 
 For this experiment a single core  virtual machine is used for the server:
-\texttt{amazon ec2 m3.medium}.
+\texttt{amazon ec2 m3.medium}.\\
 
 \begin{center}
   \begin{tabular}{ | l | l |}
@@ -165,10 +165,10 @@ that most WebSocket connections are dropped shortly after being created or they
 not are even created. The problem is a single core needs to handle four threads. So each
 time another application is called the context changes. The result is even worse in the case of 
 a multi-processor server, because threads are then balanced between processors. Threads 
-are heavy weight units, moving them introduces consequent overheads.
+are heavy weight units, moving them introduces consequent overheads.\\
 
 In conclusion, this experiment proves SocketCluster is not aimed to be used with
-project which involve more threads than available cores.
+project which involve more threads than available cores.\\
 
 % --------------
 % Fourth section
@@ -177,12 +177,12 @@ project which involve more threads than available cores.
 \section{Horizontal scaling of SocketCluster }
 
 This section evaluates the performances of SocketCluster for a growing number
-of processors. 
+of processors. \\
 
 \textbf{Client code}
 
 The client code used in all this part is the same. Two clients are used to
-produce a maximum of 2400 WebSocket communications.
+produce a maximum of 2400 WebSocket communications.\\
 
 
 \begin{center}
@@ -212,7 +212,7 @@ produce a maximum of 2400 WebSocket communications.
 \textbf{Experiment on three cores}
 
 The first test is run a server using a one store, one load balancer and one
-worker.
+worker.\\
 
 \begin{figure}[H]
 	\centering
@@ -223,13 +223,13 @@ worker.
 
 Figure \ref{fig:WS_server_1rising} clearly shows the worker and load balancer
 cores are almost used to their full extent. In order to handle more communication more
-cores should be added. 
+cores should be added. \\
 
 \textbf{Experiment on five cores}
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=.9\textwidth]{./Figures/WS_server_2rising.png}
+		\includegraphics[width=\textwidth]{./Figures/WS_server_2rising.png}
 	\caption[WebSocket server on five cores]{server with five cores}
 	\label{fig:WS_server_2rising}
 \end{figure}
@@ -248,23 +248,21 @@ workers nicely balance the work between themselves and the maximum load drops to
 
 This last test is less conclusive. With a total of 3 cores for load balancers
 and three for workers the processors load varies between 30\% and 50\%
-depending on the task.
+depending on the task.\\
 
 As expected, in the long run by adding more processor SocketCluster's
 performance get better then engine.io. However in case n is the number of
 available processor, SocketCluster is not n times more performant then
-engine.io.
-
-\newpage
+engine.io.\\
 
 Actually in this experiment it seems that an equivalent number of workers and
 load balancers are needed for the application to run seamlessly. In case the
 application doesn't use a store, to gain twice as much computational power, twice
 as many processor are required. This makes SocketCluster $\frac{n}{2}$ time
-more efficient then engine.io.
+more efficient then engine.io.\\
 
 Furthermore, it showed adding too many cores is a waste of resources. This
-stresses the importance of finding a load balancer/worker/store ratio rule.
+stresses the importance of finding a load balancer/worker/store ratio rule.\\
 
 % -------------
 % Fifth section
@@ -273,10 +271,10 @@ stresses the importance of finding a load balancer/worker/store ratio rule.
 
 This section aims at determining which parameter between the number of
 WebSocket communications, the period of the pings and the size of the message
-exchanged has the most influence on the server processor usage. 
+exchanged has the most influence on the server processor usage. \\
 
 The library \texttt{delivery} has been used to transfer file over WebSocket.
-The code can be found in Appendix \ref{fig:WS_server_delivery}.
+The code can be found in Appendix \ref{fig:WS_server_delivery}.\\
 
 \begin{center}
   \begin{tabular}{ | l | l |}
@@ -292,14 +290,12 @@ The code can be found in Appendix \ref{fig:WS_server_delivery}.
   \end{tabular}
 \end{center}
 
-\newpage
-
 \textbf{Reference experiment}
 
 This first experience will be taken as a reference for the next ones. It has
 been carried out with 2 clients establishing together a total of 2400
 communications. The period of the pings is in average four seconds and the
-size of the file exchanged is 81 bytes.
+size of the file exchanged is 81 bytes.\\
 
 \begin{figure}[H]
 	\centering
@@ -309,16 +305,14 @@ size of the file exchanged is 81 bytes.
 	\label{fig:base_influence}
 \end{figure}
 
-\newpage
-
 \textbf{Pings' period experiment}
 
 In this experiment, the average time separating two pings has been decreased
-from four to three seconds.
+from four to three seconds.\\
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=.9\textwidth]{./Figures/ping_server_influence.png}
+		\includegraphics[width=\textwidth]{./Figures/ping_server_influence.png}
 	\caption[Pings' period experiment]{Pings' period experiment}
 	\label{fig:ping_server_influence}
 \end{figure}
@@ -327,11 +321,11 @@ from four to three seconds.
 
 The following Figure stresses the influence of the number of WebSocket communication
 channel. To obtain more communication, a third client has been added compared to 
-the reference experience \ref{fig:base_influence}.
+the reference experience \ref{fig:base_influence}.\\
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=.9\textwidth]{./Figures/communication_server_influence.png}
+		\includegraphics[width=\textwidth]{./Figures/communication_server_influence.png}
 	\caption[Amount of WebSocket communication experiment]{Amount of WebSocket communication experiment}
 	\label{fig:communication_server_influence}
 \end{figure}
@@ -339,7 +333,7 @@ the reference experience \ref{fig:base_influence}.
 \textbf{Size of exchanged files experiment}
 
 This last graph underlines the influence of the size of files. The file transferred in this experiment is
-500 kbytes compared to 1 kbytes for the reference experience.
+500 kbytes compared to 1 kbytes for the reference experience.\\
 
 \begin{figure}[H]
 	\centering
@@ -350,7 +344,7 @@ This last graph underlines the influence of the size of files. The file transfer
 
 
 In conclusion, it seems that the size of the exchanged files isn't as important
-as the rate of pings and the number of WebSockets communications.
+as the rate of pings and the number of WebSockets communications.\\
 
 % -------------
 % sixth section
@@ -362,7 +356,7 @@ This study was done to investigate the number of connections a
 single server can handle. As seen in the previous section, the number of
 connections is tightly bound to the parameters used to simulated the clients
 interactions with the server.  Lets suppose each client receives a small file
-from the server every 2.5 seconds in average.
+from the server every 2.5 seconds in average.\\
 
 \begin{center}
   \begin{tabular}{ | l | l |}
@@ -392,7 +386,7 @@ from the server every 2.5 seconds in average.
 This experiment has been carried out on the biggest server made available by
 amazon ec2.  SocketCluster will hardly be used in this conditions during normal
 usages.  It is way cheaper to make clusters of SocketClusters server then to
-use a beastly server like this one.
+use a beastly server like this one.\\
 
 This experiment confirmed SocketCluster is able to support around 25 000
 concurrent connections. It also pointed out an imperfection of SocketCluster.
@@ -402,9 +396,10 @@ balancers' load is quite high. Adding more communication will result in
 communication to be dropped, as a result the second experiment has been carried
 out with more load balancers. But the previous figures clearly show that some
 load balancer are still using way too much computing power and some on the
-other hand are almost idle.
+other hand are almost idle.\\
 
-This points out a bad load balancing between the load balancers themselves.
+This points out a bad load balancing between the load balancers themselves.\\
+
 
 
 

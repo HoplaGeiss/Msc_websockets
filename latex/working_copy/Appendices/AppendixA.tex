@@ -1,6 +1,7 @@
+
 \chapter{SocketCluster}
 \label{SocketCluster}
-% \lhead{Appendix A. \emph{SocketCluster}}
+\lhead{Appendix A. \emph{SocketCluster}}
 \section{Simple ping-pong exchange}
 \textbf{Client code}
 
@@ -40,9 +41,9 @@ worker had during the whole experiment.
 In this example, the goal is to exchange a file using the WebSocket protocol.
 For this purpose, the node.js \texttt{delivery} library is used.
 
-New clients are created on the same model as the previous exmample. Each new
+New clients are created on the same model as the previous example. Each new
 client is stored in the \texttt{clients} array. Each clients are also
-perdiodically sending pings. The only add on is the \texttt{map} function to
+periodically sending pings. The only add on is the \texttt{map} function to
 enable the each socket to retrieve the document sent by the server. 
 
 \begin{figure}[H] \centering
@@ -62,3 +63,4 @@ example.
 	\caption[Server code for file transfers with Websocket]{Server sending files}
 	\label{fig:WS_server_delivery}
 \end{figure}
+

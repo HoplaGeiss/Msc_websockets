@@ -11,8 +11,10 @@
 	Pages = {},
 	Title = {Hypertext Transfer Protocol -- HTTP/1.1 },
 	Volume = {1.4 Overall operation},
-	Url = {http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1},
+	Url = {\href{http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1}{khronos}},
 	Year = {2004}}
+	
+		
 	
   @article{Reference2,
 	Author = {Eliot Estep},
@@ -50,9 +52,11 @@
 	Url = {http://khronosgroup.github.io/siggraph2012course/WebCL/WebCL%20Course%20Notes.pdf},
 	Year = {2012}}
 	
+
+	
 	@article{Reference5,
 	Author = {John E. Stone, David Gohara, and Guochun Shi},
-	Journal = {Computing in Science & Engineering},
+	Journal = {Computing in Science \& Engineering},
 	Month = {June},
 	Number = {},
 	Numpages = {},
@@ -216,6 +220,15 @@
 	Month = {September},
 	Title = {Highly scalable realtime WebSocket engine based on Engine.io},
 	Url = {https://github.com/topcloud/socketcluster},
+	Year = {2013}}
+	
+	
+	@article{Reference39,
+	Author = {},
+	Journal = {highscalabilty.com},
+	Month = {May},
+	Title = {The secret to 10 million concurrent connections},
+	Url = {http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html},
 	Year = {2013}}
 	
 

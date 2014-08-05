@@ -1,105 +1,94 @@
-\chapter{Experiment} 
+
+\chapter{Design and Implementation} 
 \label{Chapter3} 
-\lhead{Chapter 3. \emph{Experiment}} 
+\lhead{Chapter 3. \emph{Design and implementation}} 
 
-\section{Client side}
+Current research around WebSocket is centered around distributed computing. Either
+on CPUs architecture, GPUs architecture or heterogeneous architecture. For the
+time being, clustering WebSocket servers is rather difficult and reserved to
+researcher or specialized companies. Actually in Node.js, there is hardly any
+library to simply and efficiently implement a multi-core server.  Node.js
+single thread nature is a double edge sword. On one side it allows more
+concurrent connections to be established but it also means special attention
+needs to be given to run the code on all the servers cores. SocketCluster is a
+brand new real-time engine aiming exactly at that.  At this point of my thesis
+I had to make a choice between either the theoretical study of WebSocket
+clusters or the benchmarking of SocketCluster. After contacting Jonathan
+Gros-Dubois, the creator of SocketCluster, I made up my mind for the latter.
+Indeed, SocketCluster being under development the tests carried out so far are
+rather sparse. \\
 
-\subsection{Client server} 
+\section{SocketCluster library}
 
-SocketCluster-client makes the instanciation of a WebSocket clients on one core
-quite straightforward. To deploy it on all available nodes, node.js
-\texttt{fork()} function is used. A client code example is given in appendix
-INSERERLA REF   ref{client}.
+As described on the github project  \citep{Reference38}, SocketCluster is a
+fast, highly scalable HTTP and WebSocket server. It facilitates the creation of
+multi-process real-time application that make use of all CPU cores on a
+machine/instance. Therefore removing the limitations of having to run a Node.js
+server as a single thread.  SocketCluster's focus is on vertical scaling. If N
+is the number of cores available on the server, then SocketCluster is N time
+than any comparable single-threaded WebSocket server. Under the hood, the
+application deploys itself on all available cores as a cluster of process. The
+process can be grouped in three categories: stores, workers and load balancers.\\
 
-The first experiment is a safety test. It checks if \texttt{fork()} distributes
-evenly the work among the cores.
+\section{Challenges encountered using SocketCluster}
 
-\begin{center}
-  \begin{tabular}{ | l | l |}
-  \hline
-  \multicolumn{2}{|c|}{Parameters} \\
-  \hline
-    Instance type &  amazon s3 m3.2xlarge\\ 
-    Experiment time & 120 s \\
-    Number of new communication created at each iteration & 15 \\
-    Client creation period & 1 s \\
-    Type of ping & random number \\ 
-    Ping period & 2.5 s \\ 
-  \hline
-  \end{tabular}
-\end{center}
+At first my study of SocketCluster was far from satisfactory. Past a
+total of 512 communications channel, new sockets were inexplicably crashing.\\
 
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=0.49\textwidth]{./Figures/1_client.png}
-		\includegraphics[width=0.49\textwidth]{./Figures/2_client.png}
-	\caption[1+2_client]{client throughout}
-	\label{fig:1+2_client}
-\end{figure}
+\textbf{U-limit}
+
+This comes from a system limit set up on linux operating systems. By default
+the maximum number of file that can be sent over tcp is 1024. \\
+
+Fortunately, this limit can be increased by appending this line: \texttt{ubuntu
+soft nofile "number of file"} in \texttt{/etc/security/limits.conf}\\
+
+Once this problem was fixed I looked into a benchmark to carry out, Jonathan Gros-Dubois
+advised me to focus on concurrent connections tests.\\
+
+\textbf{C 10K Problem}
+
+The C 10K is an historic challenge issued in 1999 by Dan Kegel. It consist of
+reaching 10 000 concurrent client connections. Engineers solved this problem by
+fixing operating systems kernel and creating new single threaded programming
+languages like Node.js. \\
+
+Therefore one of my objectives while testing SocketCluster was to see how many
+concurrent connections it can handle.\\
+
+However this should not be a problem for this library, contemporary objective is
+rather to achieve 10 000 000 concurrent connections like mentioned in the
+excellent article in highscalability.com \citep{Reference39}. Such amount of
+connections is beyond the scope of this thesis, but apparently the solution to
+improve the number of connections is to move heavy lifting from the kernel to
+the application itself.\\
+
+Another topic to consider before begin testing was how to monitor the
+application.\\ 
+
+\section{Monitoring tool}
+
+Monitoring tools can be divided in two categories. Basic Real time monitoring
+and more convenient tool saving statics in spreadsheets and eventually
+even directly plotting graphs. Most of them can be configured to record
+processor load on each cores. But ideally SocketCluster tests would
+require to record each threads load's. This way, if run less process than
+available cores are being run the exact usage of each thread can still be 
+found.\\
+
+For this reason and also to have more freedom on how data is being
+processed, out of the box tool have been cast aside for more basic tools like top 
+and htop. htop has been used to visualize data in real time and check if the 
+test was running flawlessly. top has been used in batched mode to output
+the data in files.\\ 
+
+In a latter phase, bash operation is used to format the raw data extracted from 
+top's file. And finally, graphs are plotted with gnuplot.\\
 
 
-From figure \ref{fig:1+2_client} can be inferred that the client
-implementation works flawlessly. Adding a second core enables twice as much
-communication  to be established.
-
-\subsection{Client browser}
-
-Browsers can be configured to connect to one of the SocketCluster worker. For
-example if the experiment is run locally, typing \texttt{localhost:8080} in the
-url will make the browser listen to the port 8080. After what sending ping
-thanks to \texttt{socket.emit('ping')} can help to check the throughout
-performance. It also displays the growing number of pings a working has sent
-since begenning of the experiment.
-
-INSERT GRAPH
-
-\section{Server side}
-
-\subsection{Traditonnal engine.io implementation}
-
-SocketCluster has been created to ease the creation of multi - core WebSocket
-server. Logicaly the first experiment I carried out was to compare a WebSocket
-to a traditionnal Engine.io server. 
 
 
-The code I used for the client and server code I used to create the engine can
-is given in appendix INSERER LA REF ::: ref{}
 
-\begin{center}
-  \begin{tabular}{ | l | l |}
-  \hline
-  \multicolumn{2}{|c|}{Parameters} \\
-  \hline
-    Instance type &  amazon s3 m3.2xlarge\\ 
-    Experiment time & 120 s \\
-    Number of new communication created at each iteration & 15 \\
-    Client creation period & 1 s \\
-    Type of ping & random number \\ 
-    Ping period & 2.5 s \\ 
-  \hline
-  \end{tabular}
-\end{center}
-( copier coller code engine.io )
-
-1 -
-
-One balancer / worker 
-engine.io
-
-2 - 
-
-two balancer / worker
-engine.io
-
-3 - context switching
-
-server 1 core
-
-B] section most influence frequence pings / size message / number communications
-
-c] General rule
-
-load balancer / store / worker
 
 
 

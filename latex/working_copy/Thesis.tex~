@@ -20,7 +20,7 @@
 
 % Set up the Title Page
 \title  {HTML5 WebSocket protocol and its application to distributed computing}
-\authors  {Gabriel Muller}
+\authors  {Gabriel L. Muller}
 \addresses  {\groupname\\\DEPTNAME\\\univname\\\coursename}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
 \date       {\today}
 \subject    {}
@@ -57,7 +57,6 @@ I, Gabriel L. Muller, declare that this thesis titled, HTML5 WebSocket protocol 
 \item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
  
 \item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.
-\\
 \end{itemize}
  
  
@@ -66,7 +65,6 @@ I, Gabriel L. Muller, declare that this thesis titled, HTML5 WebSocket protocol 
  
 %Date:\\
 %\rule[1em]{25em}{0.5pt}  % This prints a line to write the date
-
 
 }
 \clearpage  % Declaration ended, now start a new page
@@ -90,10 +88,7 @@ I, Gabriel L. Muller, declare that this thesis titled, HTML5 WebSocket protocol 
 % The Abstract Page
 \chapter{Abstract}
 
-%\input{./Chapters/Abstract}
-The Thesis Abstract is written here (and usually kept to just this page). The
-page is kept centered vertically so can expand into the blank space above the
-title too\ldots
+\input{./Chapters/Abstract}
 
 
 \clearpage  % Abstract ended, start a new page
@@ -149,19 +144,16 @@ title too\ldots
 % Include the chapters of the thesis, as separate files
 % Just uncomment the lines as you write the chapters
 
-\input{./Chapters/Chapter1} % Introduction
+\input{./Chapters/Chapter1} 
 
-\input{./Chapters/Chapter2} % literrature review
+%\input{./Chapters/Chapter2}
 
-\input{./Chapters/Chapter3} % Experimental Setup
+%\input{./Chapters/Chapter3} 
 
-%\input{./Chapters/Chapter4} % Experiment 1
+%\input{./Chapters/Chapter4} 
 
-%\input{./Chapters/Chapter5} % Experiment 2
+%\input{./Chapters/Chapter5} 
 
-%\input{./Chapters/Chapter6} % Results and Discussion
-
-%\input{./Chapters/Chapter7} % Conclusion
 
 %% ----------------------------------------------------------------
 % Now begin the Appendices, including them as separate files

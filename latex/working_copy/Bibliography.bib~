@@ -11,7 +11,7 @@
 	Pages = {},
 	Title = {Hypertext Transfer Protocol -- HTTP/1.1 },
 	Volume = {1.4 Overall operation},
-	/* Url = {http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1}, */
+	Url = {http://goo.gl/f0ajSb},
 	Year = {2004}}
 	
   @article{Reference2,
@@ -23,7 +23,7 @@
 	Pages = {},
 	Title = {Mobile HTML5: Efficiency and Performance of WebSockets and Server-Sent Events},
 	Volume = {3.3 Web techniques},
-	/* Url = {http://nordsecmob.aalto.fi/en/publications/theses2013/thesis_estep/}, */
+	/* Url = {}, */
 	Year = {2013}}
 	
 	@article{Reference3,
@@ -137,7 +137,7 @@
 	@article{Reference12,
 	Author = {I. Fette and A. Melkinov},
 	Journal = {Request for Comments 6455},
-	Month = {December 2011},
+	Month = {December},
 	Number = {},
 	Numpages = {},
 	Pages = {},
@@ -146,8 +146,13 @@
 	/* Url = {http://tools.ietf.org/html/rfc6455}, */
 	Year = {2011}}
 
-	
-	
+	@article{Reference13,
+	Author = {Kaazing company},
+	Journal = {white paper},
+	Month = {},
+	Title = {Fastest million},
+	/* Url = {http://kaazingcorp.cachefly.net/com/file/Kaazing-Dell-TIBCO-FastestMillion.pdf}, */
+	Year = {2012}}
 
 /* ------------
 /* WEB PAGES */

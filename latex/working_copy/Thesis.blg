@@ -3,70 +3,17 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
-I was expecting an "="---line 14 of file Bibliography.bib
- :  /* 
- :     Url = {http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 26 of file Bibliography.bib
- :  /* 
- :     Url = {http://nordsecmob.aalto.fi/en/publications/theses2013/thesis_estep/}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 38 of file Bibliography.bib
- :  /* 
- :     Url = {http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6507030}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 50 of file Bibliography.bib
- :  /* 
- :     Url = {http://khronosgroup.github.io/siggraph2012course/WebCL/WebCL%20Course%20Notes.pdf}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 62 of file Bibliography.bib
- :  /* 
- :     Url = {http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5457293&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5457293}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 74 of file Bibliography.bib
- :  /* 
- :     Url = {http://dev.bowdenweb.com/html/api/webcl/webcl-for-hardware-accelerated-web-applications-dev-track-008.pdf}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 86 of file Bibliography.bib
- :  /* 
- :     Url = {http://www.mosix.cs.huji.ac.il/vcl/VCL_wp.pdf}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 98 of file Bibliography.bib
- :  /* 
- :     Url = {http://sunfishstudio.com/downloads/MeridianWhitePaper.pdf}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 110 of file Bibliography.bib
- :  /* 
- :     Url = {http://spartan.cis.temple.edu/shi/public_html/docs/amdahl/amdahl.html}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 122 of file Bibliography.bib
- :  /* 
- :     Url = {http://www.futurechips.org/wp-content/uploads/2011/06/5_amdahl.pdf}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 134 of file Bibliography.bib
- :  /* 
- :     Url = {http://www.diva-portal.org/smash/get/diva2:354621/FULLTEXT01.pdf}, */
-I'm skipping whatever remains of this entry
-I was expecting an "="---line 146 of file Bibliography.bib
- :  /* 
- :     Url = {http://tools.ietf.org/html/rfc6455}, */
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "Reference20"
 Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
 while executing---line 1233 of file unsrtnat.bst
 Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
 while executing---line 1233 of file unsrtnat.bst
 Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
 while executing---line 1233 of file unsrtnat.bst
-Warning--empty year in Reference1
-Warning--empty year in Reference2
 Warning--empty journal in Reference32
-Warning--empty year in Reference12
 Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
 while executing---line 1315 of file unsrtnat.bst
 Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
 while executing---line 1315 of file unsrtnat.bst
-Warning--empty year in Reference5
 Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
 while executing---line 1315 of file unsrtnat.bst
 Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
@@ -75,55 +22,47 @@ Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pie
 while executing---line 1315 of file unsrtnat.bst
 Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
 while executing---line 1315 of file unsrtnat.bst
-Warning--empty year in Reference3
-Warning--empty year in Reference4
-Warning--empty year in Reference6
-Warning--empty year in Reference7
-Warning--empty year in Reference7
-Warning--empty year in Reference10
-Warning--empty year in Reference10
-Warning--empty year in Reference8
 Warning--empty journal in Reference9
-Warning--empty year in Reference9
-You've used 17 entries,
+Warning--empty author in Reference39
+You've used 20 entries,
             2481 wiz_defined-function locations,
-            653 strings with 6918 characters,
-and the built_in function-call counts, 5211 in all, are:
-= -- 458
-> -- 167
-< -- 19
-+ -- 80
-- -- 46
-* -- 312
-:= -- 830
-add.period$ -- 57
-call.type$ -- 17
-change.case$ -- 34
-chr.to.int$ -- 17
-cite$ -- 32
-duplicate$ -- 325
-empty$ -- 511
-format.name$ -- 75
-if$ -- 1109
+            682 strings with 7182 characters,
+and the built_in function-call counts, 6113 in all, are:
+= -- 566
+> -- 181
+< -- 21
++ -- 90
+- -- 50
+* -- 366
+:= -- 985
+add.period$ -- 79
+call.type$ -- 20
+change.case$ -- 40
+chr.to.int$ -- 20
+cite$ -- 24
+duplicate$ -- 379
+empty$ -- 597
+format.name$ -- 81
+if$ -- 1314
 int.to.chr$ -- 1
-int.to.str$ -- 18
-missing$ -- 17
-newline$ -- 99
-num.names$ -- 51
-pop$ -- 169
+int.to.str$ -- 21
+missing$ -- 20
+newline$ -- 127
+num.names$ -- 57
+pop$ -- 159
 preamble$ -- 1
-purify$ -- 17
+purify$ -- 20
 quote$ -- 0
-skip$ -- 180
+skip$ -- 233
 stack$ -- 0
-substring$ -- 105
-swap$ -- 63
+substring$ -- 112
+swap$ -- 71
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 119
-warning$ -- 15
-while$ -- 41
+type$ -- 140
+warning$ -- 3
+while$ -- 45
 width$ -- 0
-write$ -- 224
-(There were 21 error messages)
+write$ -- 288
+(There were 9 error messages)

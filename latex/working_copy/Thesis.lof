@@ -1,0 +1,44 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Client-server communication}}{2}{figure.caption.14}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Polling}}{3}{figure.caption.16}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Long polling}}{4}{figure.caption.18}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Streaming}}{5}{figure.caption.20}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Frame overhead}}{9}{figure.caption.27}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces TLS overhead}}{9}{figure.caption.28}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces TCP overhead}}{9}{figure.caption.29}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Websocket messages sent individually}}{10}{figure.caption.30}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Batched WebSocket messages}}{10}{figure.caption.31}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Platform model}}{15}{figure.caption.37}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Memory model}}{15}{figure.caption.38}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Work - group}}{16}{figure.caption.39}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Amdahl law}}{21}{figure.caption.45}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Client throughout}}{27}{figure.caption.53}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Browser connection to SocketCluster}}{28}{figure.caption.55}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces WebSocket implementation}}{29}{figure.caption.57}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Engine.io implementation}}{30}{figure.caption.58}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Context switching}}{32}{figure.caption.60}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Simple WebSocket client}}{33}{figure.caption.62}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces WebSocket server on three cores}}{34}{figure.caption.63}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces WebSocket server on five cores}}{34}{figure.caption.64}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces WebSocket server on seven cores}}{35}{figure.caption.65}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Reference experiment}}{37}{figure.caption.67}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Pings' period experiment}}{38}{figure.caption.68}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Amount of WebSocket communication experiment}}{38}{figure.caption.69}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces File size experiment}}{39}{figure.caption.70}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Maximum number of WebSocket communication}}{40}{figure.caption.72}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Simple WebSocket client code}}{44}{figure.caption.76}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Simple WebSocket server code}}{45}{figure.caption.77}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Client code for file transfers with WebSocket }}{46}{figure.caption.79}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Server code for file transfers with Websocket}}{46}{figure.caption.80}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Engine.io client code}}{47}{figure.caption.82}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Engine.io server code}}{48}{figure.caption.83}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Modification to index.html}}{49}{figure.caption.85}
