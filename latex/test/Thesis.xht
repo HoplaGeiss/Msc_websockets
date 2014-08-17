@@ -1,0 +1,2816 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" 
+[ 
+<!ENTITY % MATHML.prefixed "INCLUDE"> 
+<!ENTITY % MATHML.prefix "m"> 
+] 
+> 
+<?xml-stylesheet type="text/css" href="Thesis.css"?> 
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" 
+ 
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>HTML5 WebSocket protocol and its application to distributed computing</title> 
+<!-- 
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1" /> 
+see http://lists.w3.org/Archives/Public/www-math/2007May/0056.html  
+--> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- html,mathplayer,xhtml,mozilla,htex4ht,xht --> 
+<meta name="src" content="Thesis.tex" /> 
+<meta name="date" content="2014-08-14 13:33:00" /> 
+<link rel="stylesheet" type="text/css" href="Thesis.css" /> 
+</head><body 
+>
+<script type="text/javascript"> 
+<!-- 
+if( navigator.appName=="Microsoft Internet Explorer"  
+&& navigator.platform=="Win32"  
+){  
+if( parseFloat(navigator.appVersion.substr(  
+navigator.appVersion.indexOf("MSIE ")+5))>="5.5"  
+){ try {  
+var oMP = new ActiveXObject("MathPlayer.Factory.1");  
+}  
+catch(e) { alert("Can't find Design Science's MathPalyer" +  
+"(http://www.dessci.com/webmath/mathplayer)");}  
+} else {  
+alert("Requires MSIE version 5.5 or later");  
+} }  
+ 
+--> 
+</script> 
+
+                                                                                
+                                                                                
+<div class="maketitle">
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<span 
+class="cmbx-12x-x-120">CRANFIELD UNIVERSITY</span>
+<span 
+class="cmr-17x-x-120">Gabriel L. Muller</span>
+
+<h2 class="titleHead">HTML5 WebSocket protocol and
+its application to distributed
+computing</h2>
+<span 
+class="cmr-17x-x-120">SCHOOL OF ENGINEERING</span>
+<span 
+class="cmr-12x-x-120">Computational Software Techniques in Engineering</span>
+<span 
+class="cmr-12x-x-120">MSc</span>
+<span 
+class="cmr-12x-x-120">Academic Year: 2013 - 2014</span>
+<span 
+class="cmr-12x-x-120">Supervisor: Mark Stillwell</span>
+<div class="date" ><span 
+class="cmr-17">August 2014</span></div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+</div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<div class="center" 
+>
+<!--l. 30--><p class="noindent" >
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmbx-12x-x-120">CRANFIELD UNIVERSITY</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-17x-x-120">SCHOOL OF ENGINEERING</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-12x-x-120">Computational Software Techniques in Engineering</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-17x-x-120">MSc</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-12x-x-120">Academic Year: 2013 - 2014</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-17x-x-120">Gabriel L. Muller</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmbx-12x-x-172">HTML5 WebSocket protocol and its</span>
+<span 
+class="cmbx-12x-x-172">application to distributed computing</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-12x-x-120">Supervisor: Mark Stillwell</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-17">August 2014</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-12x-x-120">This thesis is submitted in partial fulfilment of the requirements for</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="cmr-12x-x-120">the degree of Master of Science</span>
+</p><!--l. 30--><p class="noindent" ><span 
+class="tcrm-1440">&#x24B8; </span><span 
+class="cmr-12x-x-120">Cranfield University, 2014. All rights reserved. No part of this</span>
+<span 
+class="cmr-12x-x-120">publication may be reproduced without the written permission of</span>
+<span 
+class="cmr-12x-x-120">the copyright owner.</span> </p></div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x1-2r1"></a>
+<a 
+ id="Q1-1-1"></a>
+<div class="center" 
+>
+<!--l. 69--><p class="noindent" >
+</p><!--l. 69--><p class="noindent" ><span 
+class="cmbx-12x-x-207">Declaration of Authorship</span>
+</p>
+</div>
+<!--l. 69--><p class="noindent" >I, Gabriel L. Muller, declare that this thesis titled, HTML5 WebSocket protocol and its
+application to distributed computing and the work presented in it are my own. I
+confirm that:
+</p>
+<ul class="itemize1">
+<li class="itemize">This work was done wholly or mainly while in candidature for a research
+degree at this University.
+</li>
+<li class="itemize">Where any part of this thesis has previously been submitted for a degree or
+any other qualification at this University or any other institution, this has
+been clearly stated.
+</li>
+<li class="itemize">Where I have consulted the published work of others, this is always clearly
+attributed.
+</li>
+<li class="itemize">Where I have quoted from the work of others, the source is always given.
+With the exception of such quotations, this thesis is entirely my own work.
+</li>
+<li class="itemize">I have acknowledged all main sources of help.
+                                                                                
+                                                                                
+</li>
+<li class="itemize">Where the thesis is based on work done by myself jointly with others, I have
+made clear exactly what was done by others and what I have contributed
+myself.</li></ul>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<h2 class="chapterHead"><a 
+ id="x1-10001"></a>Abstract</h2>
+<!--l. 1--><p class="noindent" >HTML5 WebSocket protocol brings real time communication in web browsers to a new
+level. Daily, new products are designed to stay permanently connected to the
+web. WebSocket is the technology enabling this revolution. WebSockets are
+supported by all current browsers, but it is still a new technology in constant
+evolution.
+</p><!--l. 7--><p class="noindent" >WebSockets are slowly remplacing older client-server communication technologies. As
+opposed to comet-like technologies WebSockets&#x2019; remarkable performances is a resulst
+of the protocol&#x2019;s fully duplex nature and because it doesn&#x2019;t rely on HTPP
+communications.
+</p><!--l. 12--><p class="noindent" >The first part of this paper studies the WebSocket protocol and different WebSocket
+servers implementations. This first theoretic part focuses more deeply on heterogeneous
+implementations and OpenCL. The second part is a benchmark of a new promising
+library.
+</p><!--l. 17--><p class="noindent" >The real-time engine used for testing purposes is SocketCluster. SocketCluster
+provides a highly scalable WebSocket server that makes use of all available cpu
+cores on an instance. The scope of this work is reduced to vertical scaling of
+SocketCluster.
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+</p>
+<h2 class="chapterHead"><a 
+ id="x1-20001"></a>Acknowledgements</h2>
+<!--l. 1--><p class="noindent" >I wish to thank my supervisor Mark Stillwell for accepting to work with me on this
+project. His positive suggestions and willingness to repeadtedly meet and discuss the
+progress of this thesis have been invaluable.
+</p><!--l. 5--><p class="noindent" >Naturally, I am also grateful for the continuous support of my family and
+of my housemates. Always available and willing to provide either advises or
+distractions.
+</p><!--l. 9--><p class="noindent" >Lastly I would like to thank my colleage L&#x00E9;o Unbekannt. Not only did he help me in
+the very begenning when I was looking for a subject, but also later on through the
+whole thesis. More importantly our daily lunch conversations confirmed and raised my
+interest in computer science. Thanks L&#x00E9;o.
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+</p>
+<h2 class="likechapterHead"><a 
+ id="x1-30001"></a>Contents</h2> <div class="tableofcontents">
+<span class="chapterToc" ><a 
+href="#Q1-1-1">Declaration of Authorship</a></span>
+<br /><span class="chapterToc" ><a 
+href="#x1-10001" id="QQ2-1-2">Abstract</a></span>
+<br /><span class="chapterToc" ><a 
+href="#x1-20001" id="QQ2-1-3">Acknowledgements</a></span>
+<br /><span class="chapterToc" ><a 
+href="#Q1-1-5">List of Figures</a></span>
+<br /><span class="chapterToc" ><a 
+href="#Q1-1-7">Abbreviations</a></span>
+<br /><span class="chapterToc" ><a 
+href="#Q1-1-10">Introduction</a></span>
+<br /><span class="chapterToc" >1 <a 
+href="#x1-70001" id="QQ2-1-11">Literature review</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.1 <a 
+href="#x1-80001.1" id="QQ2-1-12">Client-server communications</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.1.1 <a 
+href="#x1-90001.1.1" id="QQ2-1-13">HTTP protocol</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.1.2 <a 
+href="#x1-100001.1.2" id="QQ2-1-14">Page by page model</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.1.3 <a 
+href="#x1-110001.1.3" id="QQ2-1-16">Polling</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.1.4 <a 
+href="#x1-120001.1.4" id="QQ2-1-18">Long polling</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.1.5 <a 
+href="#x1-130001.1.5" id="QQ2-1-20">Streaming</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.1.6 <a 
+href="#x1-140001.1.6" id="QQ2-1-22">Current technologies in browsers</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.2 <a 
+href="#x1-150001.2" id="QQ2-1-23">WebSocket protocol</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.2.1 <a 
+href="#x1-160001.2.1" id="QQ2-1-24">Definition</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.2.2 <a 
+href="#x1-170001.2.2" id="QQ2-1-25">The WebSocket handshake</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.2.3 <a 
+href="#x1-180001.2.3" id="QQ2-1-26">Transport layer protocol</a></span>
+                                                                                
+                                                                                
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.2.4 <a 
+href="#x1-190001.2.4" id="QQ2-1-27">The WebSocket frame anatomy</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.2.5 <a 
+href="#x1-200001.2.5" id="QQ2-1-33">Proxies</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.3 <a 
+href="#x1-210001.3" id="QQ2-1-34">Implementation</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.1 <a 
+href="#x1-220001.3.1" id="QQ2-1-35">WebSocket server implementation</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.2 <a 
+href="#x1-230001.3.2" id="QQ2-1-36">Heterogeneous implementation with OpenCL</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.3 <a 
+href="#x1-240001.3.3" id="QQ2-1-40">WebCL</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.4 <a 
+href="#x1-250001.3.4" id="QQ2-1-41">GPU clusters</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.4 <a 
+href="#x1-260001.4" id="QQ2-1-42">Scalability</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.4.1 <a 
+href="#x1-270001.4.1" id="QQ2-1-43">Scaling up</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.4.2 <a 
+href="#x1-280001.4.2" id="QQ2-1-44">Scaling out</a></span>
+<br /><span class="chapterToc" >2 <a 
+href="#x1-290002" id="QQ2-1-46">Design and Implementation</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.1 <a 
+href="#x1-300002.1" id="QQ2-1-47">SocketCluster library</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.2 <a 
+href="#x1-310002.2" id="QQ2-1-48">Challenges encountered using SocketCluster</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.3 <a 
+href="#x1-320002.3" id="QQ2-1-49">Monitoring tool</a></span>
+<br /><span class="chapterToc" >3 <a 
+href="#x1-330003" id="QQ2-1-50">Experiment</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.1 <a 
+href="#x1-340003.1" id="QQ2-1-51">Client throughout</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.1.1 <a 
+href="#x1-350003.1.1" id="QQ2-1-52">Client scalability</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.1.2 <a 
+href="#x1-360003.1.2" id="QQ2-1-54">browser testing</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.2 <a 
+href="#x1-370003.2" id="QQ2-1-56">Comparison with engine.io</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.3 <a 
+href="#x1-380003.3" id="QQ2-1-59">SocketCluster context switching</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.4 <a 
+href="#x1-390003.4" id="QQ2-1-61">Horizontal scaling of SocketCluster </a></span>
+<br />&#x00A0;<span class="sectionToc" >3.5 <a 
+href="#x1-400003.5" id="QQ2-1-66">Parameters&#x2019; influence</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.6 <a 
+href="#x1-410003.6" id="QQ2-1-71">Concurrent connections experiment</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.7 <a 
+href="#x1-420003.7" id="QQ2-1-73">Experiment summary</a></span>
+                                                                                
+                                                                                
+<br /><span class="chapterToc" >4 <a 
+href="#x1-430004" id="QQ2-1-74">Conclusion</a></span>
+<br /><span class="appendixToc" >A <a 
+href="#x1-44000A" id="QQ2-1-75">SocketCluster</a></span>
+<br />&#x00A0;<span class="sectionToc" >A.1 <a 
+href="#x1-45000A.1" id="QQ2-1-76">Simple ping-pong exchange</a></span>
+<br />&#x00A0;<span class="sectionToc" >A.2 <a 
+href="#x1-46000A.2" id="QQ2-1-79">File transfer</a></span>
+<br /><span class="appendixToc" >B <a 
+href="#x1-47000B" id="QQ2-1-82">Engine.io</a></span>
+<br /><span class="appendixToc" >C <a 
+href="#x1-48000C" id="QQ2-1-85">Real time throughout check</a></span>
+<br /><span class="chapterToc" ><a 
+href="#Q1-1-87">Bibliography</a></span>
+</div>
+<a 
+ id="x1-3001r2"></a>
+<a 
+ id="Q1-1-5"></a>
+                                                                                
+                                                                                
+<h2 class="likechapterHead"><a 
+ id="x1-40002"></a>List of Figures</h2> <div class="tableofcontents"><span class="lofToc" >1.1&#x00A0;<a 
+href="#x1-10001r1">Client-server communication</a></span><br /><span class="lofToc" >1.2&#x00A0;<a 
+href="#x1-11001r2">Polling</a></span><br /><span class="lofToc" >1.3&#x00A0;<a 
+href="#x1-12001r3">Long
+polling</a></span><br /><span class="lofToc" >1.4&#x00A0;<a 
+href="#x1-13001r4">Streaming</a></span><br /><span class="lofToc" >1.5&#x00A0;<a 
+href="#x1-19001r5">Frame overhead</a></span><br /><span class="lofToc" >1.6&#x00A0;<a 
+href="#x1-19002r6">TLS overhead</a></span><br /><span class="lofToc" >1.7&#x00A0;<a 
+href="#x1-19003r7">TCP
+overhead</a></span><br /><span class="lofToc" >1.8&#x00A0;<a 
+href="#x1-19004r8">Websocket messages sent individually</a></span><br /><span class="lofToc" >1.9&#x00A0;<a 
+href="#x1-19005r9">Batched
+WebSocket messages</a></span><br /><span class="lofToc" >1.10&#x00A0;<a 
+href="#x1-23001r10">Platform model</a></span><br /><span class="lofToc" >1.11&#x00A0;<a 
+href="#x1-23002r11">Memory model</a></span><br /><span class="lofToc" >1.12&#x00A0;<a 
+href="#x1-23003r12">Work
+- group</a></span><br /><span class="lofToc" >1.13&#x00A0;<a 
+href="#x1-28001r13">Amdahl law</a></span><br /><span class="lofToc" >3.1&#x00A0;<a 
+href="#x1-35001r1">Client throughout</a></span><br /><span class="lofToc" >3.2&#x00A0;<a 
+href="#x1-36001r2">Browser connection
+to SocketCluster</a></span><br /><span class="lofToc" >3.3&#x00A0;<a 
+href="#x1-37001r3">WebSocket  implementation</a></span><br /><span class="lofToc" >3.4&#x00A0;<a 
+href="#x1-37002r4">Engine.io
+implementation</a></span><br /><span class="lofToc" >3.5&#x00A0;<a 
+href="#x1-38001r5">Context   switching</a></span><br /><span class="lofToc" >3.6&#x00A0;<a 
+href="#x1-39001r6">Simple   WebSocket
+client</a></span><br /><span class="lofToc" >3.7&#x00A0;<a 
+href="#x1-39002r7">WebSocket server on three cores</a></span><br /><span class="lofToc" >3.8&#x00A0;<a 
+href="#x1-39003r8">WebSocket server
+on five cores</a></span><br /><span class="lofToc" >3.9&#x00A0;<a 
+href="#x1-39004r9">WebSocket server on seven cores</a></span><br /><span class="lofToc" >3.10&#x00A0;<a 
+href="#x1-40001r10">Reference
+experiment</a></span><br /><span class="lofToc" >3.11&#x00A0;<a 
+href="#x1-40002r11">Pings&#x2019; period experiment</a></span><br /><span class="lofToc" >3.12&#x00A0;<a 
+href="#x1-40003r12">Amount of WebSocket
+communication experiment</a></span><br /><span class="lofToc" >3.13&#x00A0;<a 
+href="#x1-40004r13">File size experiment</a></span><br /><span class="lofToc" >3.14&#x00A0;<a 
+href="#x1-41001r14">Maximum
+number of WebSocket communication</a></span><br /><span class="lofToc" >A.1&#x00A0;<a 
+href="#x1-45001r1">Simple WebSocket client
+code</a></span><br /><span class="lofToc" >A.2&#x00A0;<a 
+href="#x1-45002r2">Simple WebSocket server code</a></span><br /><span class="lofToc" >A.3&#x00A0;<a 
+href="#x1-46001r3">Client code for file transfers with
+WebSocket </a></span><br /><span class="lofToc" >A.4&#x00A0;<a 
+href="#x1-46002r4">Server code for file transfers with Websocket</a></span><br /><span class="lofToc" >B.1&#x00A0;<a 
+href="#x1-47001r1">Engine.io
+client code</a></span><br /><span class="lofToc" >B.2&#x00A0;<a 
+href="#x1-47002r2">Engine.io server code</a></span><br /><span class="lofToc" >C.1&#x00A0;<a 
+href="#x1-48001r1">Modification to index.html</a></span><br />
+</div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x1-4001r3"></a>
+<a 
+ id="Q1-1-7"></a>
+                                                                                
+                                                                                
+<h2 class="likechapterHead"><a 
+ id="x1-50003"></a>Abbreviations</h2>
+<a 
+ id="x1-5001r1"></a><!--l. 21--><div class="longtable"><table id="TBL-1" class="longtable" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1" /><col 
+id="TBL-1-2" /></colgroup>
+<tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="text-align:left"  id="TBL-1-1-1"  
+class="td11"><span 
+class="cmbx-12">RFC </span></td><td  style="text-align:left"  id="TBL-1-1-2"  
+class="td11">Request For Comment                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="text-align:left"  id="TBL-1-2-1"  
+class="td11"><span 
+class="cmbx-12">HTTP </span></td><td  style="text-align:left"  id="TBL-1-2-2"  
+class="td11">HyperText Transfert Protocol            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="text-align:left"  id="TBL-1-3-1"  
+class="td11"><span 
+class="cmbx-12">HTML </span></td><td  style="text-align:left"  id="TBL-1-3-2"  
+class="td11">HyperText Markup Language            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-4-"><td  style="text-align:left"  id="TBL-1-4-1"  
+class="td11"><span 
+class="cmbx-12">TCP </span></td><td  style="text-align:left"  id="TBL-1-4-2"  
+class="td11">Transmission control protocol            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-5-"><td  style="text-align:left"  id="TBL-1-5-1"  
+class="td11"><span 
+class="cmbx-12">IP </span></td><td  style="text-align:left"  id="TBL-1-5-2"  
+class="td11">Internet Protocol                             </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-6-"><td  style="text-align:left"  id="TBL-1-6-1"  
+class="td11"><span 
+class="cmbx-12">UDP </span></td><td  style="text-align:left"  id="TBL-1-6-2"  
+class="td11">User Datagram Protocol                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-7-"><td  style="text-align:left"  id="TBL-1-7-1"  
+class="td11"><span 
+class="cmbx-12">OpenCL </span></td><td  style="text-align:left"  id="TBL-1-7-2"  
+class="td11">Open Computing Language               </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-8-"><td  style="text-align:left"  id="TBL-1-8-1"  
+class="td11"><span 
+class="cmbx-12">OpenGL </span></td><td  style="text-align:left"  id="TBL-1-8-2"  
+class="td11">Open Graphic Library                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-9-"><td  style="text-align:left"  id="TBL-1-9-1"  
+class="td11"><span 
+class="cmbx-12">API </span></td><td  style="text-align:left"  id="TBL-1-9-2"  
+class="td11">Application Programming Interface     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-10-"><td  style="text-align:left"  id="TBL-1-10-1"  
+class="td11"><span 
+class="cmbx-12">GPU </span></td><td  style="text-align:left"  id="TBL-1-10-2"  
+class="td11">Graphic Processing Unit                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-11-"><td  style="text-align:left"  id="TBL-1-11-1"  
+class="td11"><span 
+class="cmbx-12">GPGPU </span></td><td  style="text-align:left"  id="TBL-1-11-2"  
+class="td11">General Purpose computation on GPU</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-12-"><td  style="text-align:left"  id="TBL-1-12-1"  
+class="td11"><span 
+class="cmbx-12">CPU </span></td><td  style="text-align:left"  id="TBL-1-12-2"  
+class="td11">Computing Processor Unit                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-13-"><td  style="text-align:left"  id="TBL-1-13-1"  
+class="td11"><span 
+class="cmbx-12">SIMD </span></td><td  style="text-align:left"  id="TBL-1-13-2"  
+class="td11">Single Instruction Multiple Data        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-14-"><td  style="text-align:left"  id="TBL-1-14-1"  
+class="td11"><span 
+class="cmbx-12">MIME </span></td><td  style="text-align:left"  id="TBL-1-14-2"  
+class="td11">Multi purpose Internet Mail Extension</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-15-"><td  style="text-align:left"  id="TBL-1-15-1"  
+class="td11"><span 
+class="cmbx-12">DSP </span></td><td  style="text-align:left"  id="TBL-1-15-2"  
+class="td11">Digital Signal Processing                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-16-"><td  style="text-align:left"  id="TBL-1-16-1"  
+class="td11"><span 
+class="cmbx-12">VCL </span></td><td  style="text-align:left"  id="TBL-1-16-2"  
+class="td11">Virtual open Computing Language     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-17-"><td  style="text-align:left"  id="TBL-1-17-1"  
+class="td11"><span 
+class="cmbx-12">TFLOPS</span></td><td  style="text-align:left"  id="TBL-1-17-2"  
+class="td11">Tera FLoating Operation Per Seconds </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-18-"><td  style="text-align:left"  id="TBL-1-18-1"  
+class="td11"> </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-19-"><td  style="text-align:left"  id="TBL-1-19-1"  
+class="td11"> </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-20-"><td  style="text-align:left"  id="TBL-1-20-1"  
+class="td11"> </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-21-"><td  style="text-align:left"  id="TBL-1-21-1"  
+class="td11"> </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-22-"><td  style="text-align:left"  id="TBL-1-22-1"  
+class="td11"></td><td  style="text-align:left"  id="TBL-1-22-2"  
+class="td11">
+</td></tr>
+</table></div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<h2 class="likechapterHead"><a 
+ id="x1-60003"></a>Introduction</h2>
+<!--l. 6--><p class="noindent" ><span 
+class="cmbx-12">Problem statement</span>
+</p><!--l. 8--><p class="noindent" >WebSockets are implemented in a wide range of applications. As a result, a lot of
+different languages and specific libraries have been specifically developed for
+WebSockets.
+</p><!--l. 12--><p class="noindent" >The first part of this paper is an introduction to the WebSocket protocol and on the
+different implementation options when building a WebSocket cluster. In a second part,
+it focuses on the new real-time engine: SocketCluster and makes a benchmark of this
+library.
+</p><!--l. 18--><p class="noindent" ><span 
+class="cmbx-12">Thesis structure</span>
+</p><!--l. 20--><p class="noindent" >The first chapter is a literature review. The goal is to inform the reader about the
+WebSocket protocol and to go through the different WebSocket implementations.
+Therefore studying scalability and heterogeneous implementations.
+</p><!--l. 25--><p class="noindent" >The third chapter is an introduction to the experiments. It is dedicated to the design
+and the implementation of the infrastructure used later on. It mostly introduces the
+benchmark library used.
+</p><!--l. 29--><p class="noindent" >The experiment chapter is a comprehensive benchmark of SocketCluster. It compares
+the performances to a classic engine.io implementation and also studies the limitations
+of the library.
+</p><!--l. 33--><p class="noindent" >To finish the last part concludes this thesis and suggest future work on SocketCluster.
+<a 
+ id="x1-6001r4"></a>
+<a 
+ id="Q1-1-10"></a>
+                                                                                
+                                                                                
+</p>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;1</span><br /><a 
+ id="x1-70001"></a>Literature review</h2>
+<!--l. 5--><p class="noindent" >This chapter is an introduction to the WebSocket protocol. It begins with a section
+which sums up client-server communication techniques. The second section is an in
+depth study of WebSockets.
+</p><!--l. 9--><p class="noindent" >This chapter present past and current research on WebSockets. The first section is
+about the implementation of WebSockets server, the second is about scalability.
+</p>
+<h3 class="sectionHead"><span class="titlemark">1.1 </span> <a 
+ id="x1-80001.1"></a>Client-server communications</h3>
+<!--l. 15--><p class="noindent" >This section studies the evolution of client-server communication, beginning with the
+page by page model until current technologies. However as an introduction, the first
+part is about HTPP which is the foundation of client-server communication.
+</p><!--l. 20--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.1 </span> <a 
+ id="x1-90001.1.1"></a>HTTP protocol</h4>
+<!--l. 22--><p class="noindent" >The HTTP protocol is a request/response protocol defined in the request for comment
+(RFC) [<a 
+href="#XReference1">1</a> ] as follows:
+                                                                                
+                                                                                
+</p>
+<div class="verbatim" id="verbatim-1">
+A&#x00A0;client&#x00A0;sends&#x00A0;a&#x00A0;request&#x00A0;to&#x00A0;the&#x00A0;server&#x00A0;in&#x00A0;the&#x00A0;form&#x00A0;of&#x00A0;a&#x00A0;request
+&#x00A0;<br />method,&#x00A0;URI,&#x00A0;and&#x00A0;protocol&#x00A0;version,&#x00A0;followed&#x00A0;by&#x00A0;a&#x00A0;MIME-like
+&#x00A0;<br />message&#x00A0;containing&#x00A0;request&#x00A0;modifiers,&#x00A0;client&#x00A0;information,&#x00A0;and
+&#x00A0;<br />possible&#x00A0;body&#x00A0;content&#x00A0;over&#x00A0;a&#x00A0;connection&#x00A0;with&#x00A0;a&#x00A0;server.&#x00A0;The
+&#x00A0;<br />server&#x00A0;responds&#x00A0;with&#x00A0;a&#x00A0;status&#x00A0;line,&#x00A0;including&#x00A0;the&#x00A0;message&#x2019;s
+&#x00A0;<br />protocol&#x00A0;version&#x00A0;and&#x00A0;a&#x00A0;success&#x00A0;or&#x00A0;error&#x00A0;code,&#x00A0;followed&#x00A0;by&#x00A0;a
+&#x00A0;<br />MIME-like&#x00A0;message&#x00A0;containing&#x00A0;server&#x00A0;information,&#x00A0;entity&#x00A0;meta
+&#x00A0;<br />information,&#x00A0;and&#x00A0;possible&#x00A0;entity-body&#x00A0;content.
+</div>
+<!--l. 34--><p class="nopar" >
+</p><!--l. 36--><p class="noindent" >Because HTTP was not designed for real time communication several workarounds
+have been developed over the years to overcome the so called page by page
+model. These techniques are Explained in details in Eliot Step master thesis
+[<a 
+href="#XReference2">2</a> ].
+</p><!--l. 41--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.2 </span> <a 
+ id="x1-100001.1.2"></a>Page by page model</h4>
+<!--l. 43--><p class="noindent" >Since HTTP&#x2019;s release in 1991, client-server communication have undergone continuous
+upgrades. In the early nineties, most web pages were static. As a consequence, the
+communication between client and server were rather limited. Typically, the client
+would send occasional request to the server. The server would then answer, but
+all communication would stop there until a new event was triggered by the
+user.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-10001r1"></a>
+                                                                                
+                                                                                
+
+<!--l. 53--><p class="noindent" ><img 
+src="./Figures/client_server_communication.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.1: </span><span  
+class="content">Client-server communication</span></div><!--tex4ht:label?: x1-10001r1 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 58--><p class="noindent" >The notion of dynamic web appeared in 2005 with the introduction of technologies like
+Comet. Peter Lubbers describes it as the Headache 2.0 in his article <span 
+class="cmtt-12">&#x0022;A quantum leap</span>
+<span 
+class="cmtt-12">in scalability for the web&#x0022; </span>[<a 
+href="#XReference32">3</a>].
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.3 </span> <a 
+ id="x1-110001.1.3"></a>Polling</h4>
+<!--l. 64--><p class="noindent" >Polling was the first attempt toward real-time communication. Instead of waiting for
+the client to manually ask for a page update, the browser would send regular HTTP
+GET requests to the server. This technique could be efficient if the exact interval of
+update on the server side was known.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-11001r2"></a>
+                                                                                
+                                                                                
+
+<!--l. 71--><p class="noindent" ><img 
+src="./Figures/polling.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.2: </span><span  
+class="content">polling</span></div><!--tex4ht:label?: x1-11001r2 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 76--><p class="noindent" >However real time information is unpredictable and in high updates rate situation like
+stock prices, news reports or tickets sales the response could be stale by the time the
+browser renders the page [<a 
+href="#XReference32">3</a>].
+</p><!--l. 81--><p class="noindent" >Also in low updates rate situation even if no data is available, the server will send an
+empty response. This would result in a large amount of unnecessary connections being
+established, which over time and with the clients increase would lead to decreased
+overall network throughput [<a 
+href="#XReference2">2</a>].
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.4 </span> <a 
+ id="x1-120001.1.4"></a>Long polling</h4>
+<!--l. 89--><p class="noindent" >Long polling is based on Comet technologies and is a slight step further toward server
+sent events and real time communication. Comet began to be popular in web browser
+around 2007, it is a family of web techniques that allows the server to hold an HTTP
+request open for prolonged periods of time.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-12001r3"></a>
+                                                                                
+                                                                                
+
+<!--l. 96--><p class="noindent" ><img 
+src="./Figures/long_polling.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.3: </span><span  
+class="content">Long polling</span></div><!--tex4ht:label?: x1-12001r3 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 101--><p class="noindent" >Long-polling is similar to polling, except that the server keeps the HTTP request
+open if data is not immediately available. The server determines how long to
+keep the request open, request also known as a <span 
+class="cmtt-12">hanging GET</span>. If new data
+is received within the time interval, a response containing the data is sent
+to the client and the connection is closed. If new data is not received within
+the time period, the server will respond with a notification to terminate the
+open request and close the connection. After the client browser receives the
+response, it will create another request to handle the next event, therefore always
+keeping a new long-polling request open for new events. This results in the
+server constantly responding with new data as soon as it is made available
+[<a 
+href="#XReference2">2</a> ].
+</p><!--l. 113--><p class="noindent" >However, in situations with high-message volume, long- polling does not provide
+increased performance benefits over regular polling. Performance could actually be
+decreased if long-polling requests turn into continuous, unthrottled loops of regular
+polling requests.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.5 </span> <a 
+ id="x1-130001.1.5"></a>Streaming</h4>
+<!--l. 121--><p class="noindent" >Streaming is based on a persistent HTTP connection. The communication still begins
+with a request from the browser, the difference is in the response. The server never
+signals the browser its message is finished. This way the connection is kept open and
+ready to deliver further data [<a 
+href="#XReference2">2</a>].
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-13001r4"></a>
+                                                                                
+                                                                                
+
+<!--l. 128--><p class="noindent" ><img 
+src="./Figures/streaming.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.4: </span><span  
+class="content">Streaming</span></div><!--tex4ht:label?: x1-13001r4 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 133--><p class="noindent" >If it wasn&#x2019;t for proxies, streaming would be perfectly adapted for real time
+communication. Because streaming is done over HTTP, proxy server may choose to
+buffer server responses and thus increasing greatly the latency of the message delivery.
+Therefore in case a proxy is detected most Comet-like solution fall back to long polling
+[<a 
+href="#XReference2">2</a> ].
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.6 </span> <a 
+ id="x1-140001.1.6"></a>Current technologies in browsers</h4>
+<!--l. 141--><p class="noindent" >At the moment, comet technologies are still the most popular way of communication
+between browsers and servers. Techniques has been improved to the point
+where it perfectly fakes server sent event. Comet technologies can be seen as a
+wonderful hack to reach real time communication. However little can be done to
+improve the latency. Comet technologies revolve around HTTP and carry its
+overhead.
+</p><!--l. 148--><p class="noindent" >The total overhead from the HTTP request and response header is at least 871 bytes
+without containing any data. In comparison, a small payload is 20 bytes. Contemporary
+application like on-line games can not be built on a technology wasting resources
+equivalent to 40 messages every time information is exchanged [<a 
+href="#XReference2">2</a>]. Therefore a brand
+new protocol has been developed: WebSocket.
+</p><!--l. 155--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">1.2 </span> <a 
+ id="x1-150001.2"></a>WebSocket protocol</h3>
+<!--l. 157--><p class="noindent" >The creation of the WebSocket protocol marks the beginning of the Living web. It is
+often referred to as the first major upgrade in the history of web communications. As
+the Web itself originally did, WebSocket enables entirely new kinds of applications.
+Daily, new products are designed to stay permanently connected to the web. Websocket
+is the language enabling this revolution.
+                                                                                
+                                                                                
+</p><!--l. 163--><p class="noindent" >This section is a study of the WebSocket protocol. Firstly it defines the protocol.
+Secondly it studies how to establish a WebSocket connection. Afterwards it
+goes on with an in depth study of WebSockets&#x2019; transport layer and frame
+anatomies. Lastly it provides a brief discussion of WebSockets&#x2019; interaction with
+proxies.
+</p><!--l. 169--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.2.1 </span> <a 
+ id="x1-160001.2.1"></a>Definition</h4>
+<!--l. 171--><p class="noindent" >The official Request For Comments [<a 
+href="#XReference12">4</a>] (RFC) describes the WebSocket protocol as
+follows:
+                                                                                
+                                                                                
+</p>
+<div class="verbatim" id="verbatim-2">
+The&#x00A0;WebSocket&#x00A0;Protocol&#x00A0;enables&#x00A0;two-way&#x00A0;communication&#x00A0;between&#x00A0;a
+&#x00A0;<br />client&#x00A0;running&#x00A0;untrusted&#x00A0;code&#x00A0;in&#x00A0;a&#x00A0;controlled&#x00A0;environment&#x00A0;to&#x00A0;a
+&#x00A0;<br />remote&#x00A0;host&#x00A0;that&#x00A0;has&#x00A0;opted-in&#x00A0;to&#x00A0;communications&#x00A0;from&#x00A0;that&#x00A0;code.
+&#x00A0;<br />The&#x00A0;security&#x00A0;model&#x00A0;used&#x00A0;for&#x00A0;this&#x00A0;is&#x00A0;the&#x00A0;origin-based&#x00A0;security
+&#x00A0;<br />model&#x00A0;commonly&#x00A0;used&#x00A0;by&#x00A0;web&#x00A0;browsers.&#x00A0;The&#x00A0;protocol&#x00A0;consists&#x00A0;of&#x00A0;an
+&#x00A0;<br />opening&#x00A0;handshake&#x00A0;followed&#x00A0;by&#x00A0;basic&#x00A0;message&#x00A0;framing,&#x00A0;layered&#x00A0;over
+&#x00A0;<br />TCP.&#x00A0;The&#x00A0;goal&#x00A0;of&#x00A0;this&#x00A0;technology&#x00A0;is&#x00A0;to&#x00A0;provide&#x00A0;a&#x00A0;mechanism&#x00A0;for
+&#x00A0;<br />browser-based&#x00A0;applications&#x00A0;that&#x00A0;need&#x00A0;two-way&#x00A0;communication&#x00A0;with
+&#x00A0;<br />servers&#x00A0;that&#x00A0;does&#x00A0;not&#x00A0;rely&#x00A0;on&#x00A0;opening&#x00A0;multiple&#x00A0;HTTP&#x00A0;connections.
+</div>
+<!--l. 184--><p class="nopar" >
+</p><!--l. 186--><p class="noindent" >To Initiate a WebSocket communication, first a HTTP handshake needs to be
+done.
+</p><!--l. 188--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.2.2 </span> <a 
+ id="x1-170001.2.2"></a>The WebSocket handshake</h4>
+<!--l. 190--><p class="noindent" >The Websocket protocol was to be released in an already existing web infrastructure.
+Therefore it has been designed to be backward-compatible. Before a Websocket
+communication can start, a HTTP connection must be initiated. The browser sends an
+Upgrade header to the server to inform him he wants to start a WebSocket connection.
+Switching from the HTTP protocol to the WebSocket protocol is referred to as a
+handshake [<a 
+href="#XReference12">4</a> ].
+                                                                                
+                                                                                
+</p>
+<div class="verbatim" id="verbatim-3">
+GET&#x00A0;ws://websocket.example.com/&#x00A0;HTTP/1.1
+&#x00A0;<br />Origin:&#x00A0;http://example.com
+&#x00A0;<br />Connection:&#x00A0;Upgrade
+&#x00A0;<br />Host:&#x00A0;websocket.example.com
+&#x00A0;<br />Upgrade:&#x00A0;websocket
+</div>
+<!--l. 203--><p class="nopar" >
+</p><!--l. 205--><p class="noindent" >If the server supports the WebSocket protocol, it sends the following header in
+response.
+                                                                                
+                                                                                
+</p>
+<div class="verbatim" id="verbatim-4">
+HTTP/1.1&#x00A0;101&#x00A0;WebSocket&#x00A0;Protocol&#x00A0;Handshake
+&#x00A0;<br />Date:&#x00A0;Wed,&#x00A0;5&#x00A0;May&#x00A0;2014&#x00A0;04:04:22&#x00A0;GMT
+&#x00A0;<br />Connection:&#x00A0;Upgrade
+&#x00A0;<br />Upgrade:&#x00A0;WebSocket
+</div>
+<!--l. 213--><p class="nopar" >
+</p><!--l. 215--><p class="noindent" >After the completion of the handshake the WebSocket connection is active
+and either the client or the server can send data. The data is contained in
+frames, each frame is pre-fixed with a 4-12 bytes to ensure the message can be
+reconstructed.
+</p><!--l. 220--><p class="noindent" >Once the server and the browser have agreed on beginning a WebSocket communication. A
+first request is made to begin an ethernet communication followed by a request to make
+an TCP / IP communication.
+</p><!--l. 224--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.2.3 </span> <a 
+ id="x1-180001.2.3"></a>Transport layer protocol</h4>
+<!--l. 226--><p class="noindent" >The internet is based on two transport layer protocols, the User Datagram Protocol
+(UDP) and the Transmission Control Protocol (TCP). Both use the network layer
+service provided by the internet protocol (IP).
+</p><!--l. 230--><p class="noindent" ><span 
+class="cmbx-12">TCP</span>
+</p><!--l. 232--><p class="noindent" >TCP is a reliable transmission protocol. The data is buffered byte by byte in segments
+and transmitted according to specific timers. This flow control ensure the consistency of
+the data. TCP is said to be a stream oriented because the data is sent in independent
+segments.
+                                                                                
+                                                                                
+</p><!--l. 237--><p class="noindent" ><span 
+class="cmbx-12">UDP</span>
+</p><!--l. 239--><p class="noindent" >UDP is unreliable but fast. The protocol offers no guaranty the data will be delivered in
+its integrality nor duplicated. It works on a best effort strategy with no flow
+control. Each segments are received independently, it is a message oriented
+protocol.
+</p><!--l. 244--><p class="noindent" >Websocket is build over TCP because of its reliability. Browser enabled games are the
+perfect example of WebSockets&#x2019; use cases. They require low latency and have a
+high rate of update. To achieve low latency, the communication protocol must
+make sure not to drop any packets. Otherwise, the exchange takes two times
+longer.
+</p><!--l. 250--><p class="noindent" >As can be inferred from the 2 previous subsections, the websockets protocol relies on a
+few other protocols. Namely HTTP to initialize the communication , ethernet,
+TCP/IP and finally TLS in case a secure connections is required. The next
+subsections studies the influence this protocols have in the anatomy of WebSockets
+frame.
+</p><!--l. 256--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.2.4 </span> <a 
+ id="x1-190001.2.4"></a>The WebSocket frame anatomy</h4>
+<!--l. 258--><p class="noindent" >The study conducted by Tobias Oberstein [<a 
+href="#XReference30">5</a>] looks into the overheads of websockets. As
+a matter of fact the overhead induced purely by WebSockets is extremely low. As can
+be seen in the figure <a 
+href="#x1-19001r5">1.5<!--tex4ht:ref: fig:frameOverhead --></a>, depending on the size of the payload the overhead varies
+between 8 and 20 bytes.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-19001r5"></a>
+                                                                                
+                                                                                
+
+<!--l. 266--><p class="noindent" ><img 
+src="./Figures/frame_overhead.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.5: </span><span  
+class="content">Frame overhead [<a 
+href="#XReference30">5</a>]</span></div><!--tex4ht:label?: x1-19001r5 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 271--><p class="noindent" >However, as pointed out in the article efficiency is lost on protocols of other layers
+required for WebSocket&#x2019;s functionment. Figure <a 
+href="#x1-19002r6">1.6<!--tex4ht:ref: fig:tlsOverhead --></a> and <a 
+href="#x1-19003r7">1.7<!--tex4ht:ref: fig:tcpOverhead --></a> respectively show the
+overhead induced by pure TCP/IP and TLS protocols.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-19002r6"></a>
+                                                                                
+                                                                                
+
+<!--l. 278--><p class="noindent" ><img 
+src="./Figures/tls_overhead.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.6: </span><span  
+class="content">TLS overhead [<a 
+href="#XReference30">5</a>]</span></div><!--tex4ht:label?: x1-19002r6 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-19003r7"></a>
+                                                                                
+                                                                                
+
+<!--l. 285--><p class="noindent" ><img 
+src="./Figures/tcp_overhead.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.7: </span><span  
+class="content">TCP overhead [<a 
+href="#XReference30">5</a>]</span></div><!--tex4ht:label?: x1-19003r7 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 290--><p class="noindent" >In this example, the payloads <span 
+class="cmtt-12">Hello world </span>is only thirteen bytes. In comparison
+ethernet, TCP/IP and TLS protocols each use height bytes. The conclusion of this
+article is to warn programmers about the size of the payloads so that all the
+protocols revolving around WebSockets don&#x2019;t dwarf the overhead of the WebSocket
+protocol itself. In case small payloads can not be avoided a possible solution
+is to serialize the messages in order to batch them in one single WebSocket
+message.
+</p><!--l. 298--><p class="noindent" >So instead of sending the each messages using the WebSocket protocol like shown in
+figure <a 
+href="#x1-19004r8">1.8<!--tex4ht:ref: fig:separateWebsocket --></a>. The individual messages are put in a queue and batched in a single
+Websocket message like in figure <a 
+href="#x1-19005r9">1.9<!--tex4ht:ref: fig:batched_websocket --></a>.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-19004r8"></a>
+                                                                                
+                                                                                
+
+<!--l. 306--><p class="noindent" ><img 
+src="./Figures/separate_websocket.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.8: </span><span  
+class="content">WebSocket messages sent individually [<a 
+href="#XReference30">5</a>]</span></div><!--tex4ht:label?: x1-19004r8 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-19005r9"></a>
+                                                                                
+                                                                                
+
+<!--l. 315--><p class="noindent" ><img 
+src="./Figures/batched_websocket.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.9: </span><span  
+class="content">Batched WebSocket messages [<a 
+href="#XReference30">5</a>]</span></div><!--tex4ht:label?: x1-19005r9 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 320--><p class="noindent" >Nevertheless, WebSockets carry way less overhead then comet technologies do. Another
+advantage of WebSocket its interaction with proxies.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.2.5 </span> <a 
+ id="x1-200001.2.5"></a>Proxies</h4>
+<!--l. 325--><p class="noindent" >Proxy servers are set up between a private network and the Internet. They act like an
+intermediary providing content caching, security and content filtering.
+</p><!--l. 329--><p class="noindent" >When a Websocket server detects the presence of a proxy server, it automatically sets
+up a tunnel to pass through the proxy. The tunnel is established by issuing an HTTP
+CONNECT statement to the proxy server, which requests for the proxy server to open a
+TCP/IP connection to a specific host and port. Once the tunnel is set up,
+communication can flow unimpeded through the proxy.
+</p><!--l. 336--><p class="noindent" >To sum up compared to comet technologies, WebSockets are:
+</p>
+<ul class="itemize1">
+<li class="itemize">As reliable, because they are also built over TCP
+</li>
+<li class="itemize">Way faster, because they don&#x2019;t carry the overhead of HTTP
+</li>
+<li class="itemize">Behaving better in presence of proxies
+</li>
+<li class="itemize">Fully bidirectional</li></ul>
+<!--l. 345--><p class="noindent" >The nexts sections of this chapter are dedicated to the implementation of WebSockets
+servers.
+                                                                                
+                                                                                
+</p><!--l. 348--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">1.3 </span> <a 
+ id="x1-210001.3"></a>Implementation</h3>
+<!--l. 350--><p class="noindent" >As in any project, in order to avoid future technical problems, it is better to first study
+similar projects. The goal of this implementation study is to find a suitable language
+and possibly a good library to run the experiment.
+</p><!--l. 354--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.3.1 </span> <a 
+ id="x1-220001.3.1"></a>WebSocket server implementation</h4>
+<!--l. 356--><p class="noindent" >In order to narrow the library study, first a language needs to be selected.
+</p><!--l. 358--><p class="noindent" ><span 
+class="cmbx-12">Language Selection</span>
+</p><!--l. 360--><p class="noindent" >Choosing a language for a project is often a compromise between the programmers
+development background and the necessity of the application. Furthermore, WebSocket
+servers can be developed in almost any languages.
+</p><!--l. 364--><p class="noindent" >This subsection does not aim at giving a comprehensive comparison of all existing
+WebSocket friendly languages. Node.js seems to be the perfect environment for this
+study, therefore other languages will deliberately be left out and the focus will be on
+explaining why Node.js is appropriate.
+</p><!--l. 369--><p class="noindent" >Node.js was specially invented to create real-time websites with push capabilities [<a 
+href="#XReference35">6</a>].
+Most languages run parallel tasks by using threads but threads are memory expensive.
+Node.js is fundamentally different, it runs as a single non-blocking and event-driven
+loop by using asynchronous call back loops [<a 
+href="#XReference37">7</a>]. For this reasons, compared to
+other languages, Node.js performs significantly better in highly concurrent
+environment.
+</p><!--l. 377--><p class="noindent" >Node.js has many real-time engines. The next step is to carefully make a choice between
+ws, Socket.io and Engine.io.
+</p><!--l. 380--><p class="noindent" ><span 
+class="cmbx-12">WebSocket implementation selection</span>
+                                                                                
+                                                                                
+</p><!--l. 382--><p class="noindent" >Deniz Ozger article&#x2019;s for medium.com [<a 
+href="#XReference36">8</a>] is a comprehensive study of node.js real-time
+engines.
+</p><!--l. 385--><p class="noindent" >Ws is a pure WebSocket implementation, therefore it is appropriate for testing purposes
+but seldom used in real life projects. The main drawback is the communication may not
+work in case the browser does not support WebSockets.
+</p><!--l. 389--><p class="noindent" >Socket.io has some appreciable features namely its connection procedure. First it tries
+to connect to a server via WebSocket, in case it fails it downgrades until it finds a
+suitable protocol. Moreover it tries to reconnect sockets when connections
+fail.
+</p><!--l. 394--><p class="noindent" >Engine.io is a lower library of Socket.io. The connection procedure is the opposite to
+Socket.io though. It first establishes a long polling connection and only later tries to
+upgrade it to a better transport protocol. Therefore it is more reliable because it
+establishes less connection.
+</p><!--l. 399--><p class="noindent" >In conclusion, Node.js and its real-time library engine.io seems to best choice for our
+study. However better performance could be reached using an heterogeneous
+implementation.
+</p><!--l. 404--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.3.2 </span> <a 
+ id="x1-230001.3.2"></a>Heterogeneous implementation with OpenCL</h4>
+<!--l. 406--><p class="noindent" >As suggest John Stone paper&#x2019;s title <span 
+class="cmtt-12">&#x0022;OpenCL: A parallel programming standard</span>
+<span 
+class="cmtt-12">for heterogeneous computing systems&#x0022; </span>[<a 
+href="#XReference5">9</a>] OpenCL is unanimously considered as
+the reference for heterogenous computing.
+</p><!--l. 410--><p class="noindent" >Historically, the first technology to take advantage of the massive parallel nature
+of GPUs was Open Graphic Library (OpenGL). OpenGL is an application
+programming interface (API) for rendering 2D and 3D vector graphics. Through the
+insertion of little pieces of C-like codes in shader, developers soon realized
+graphic processing units (GPUs) could also be used for general programming.
+This became known as General Purpose computation on GPUs (GPGPU)
+[<a 
+href="#XReference5">9</a> ].
+                                                                                
+                                                                                
+</p><!--l. 418--><p class="noindent" >However, shaders can only be modified so much. As the need for more complex
+applications arose, Apple proposed the Khronos Group to develop a more general
+framework: OpenCL. OpenCL is a low-level API accelerating applications with
+task-parallel or data-parallel computations in a heterogeneous computing environment.
+Indeed OpenCL not only allows the usage of CPUs but also any processing devices like
+GPUs, DSPs, accelerators and so on [<a 
+href="#XReference5">9</a>]. If generally, on desktops the diversity of
+processing devices is quite low, as opposed to mobile devices. Embedded systems for
+real-time multimedia journal published a paper [<a 
+href="#XReference3">10</a>] high lining the advantages of using
+OpenCl in mobile browser.
+</p><!--l. 429--><p class="noindent" >OpenCL doesn&#x2019;t guarantee a particular kernel will achieve peak performance on
+different architectures. The nature of the underlying hardware may induce different
+programming strategies. Multi-core CPU architecture is definitely the more popular.
+But the recent specification published by Khronos to take GPU computing to
+the web is bound to raise programmers interest toward GPUs architecture
+[<a 
+href="#XReference30">5</a> ].
+</p><!--l. 436--><p class="noindent" ><span 
+class="cmbx-12">CPUs architecture</span>
+</p><!--l. 438--><p class="noindent" >Modern CPUs are typically composed of a few high-frequency processor cores. CPUs
+perform well for a wide variety of applications, but they are optimal for latency
+sensitive workloads with minimal parallelism. However, to increase performance during
+arithmetic and multimedia workloads, many CPUs also incorporate small scale use of
+single instruction multiple data (SIMD).
+</p><!--l. 444--><p class="noindent" ><span 
+class="cmbx-12">GPUs architecture</span>
+</p><!--l. 446--><p class="noindent" >Contemporary GPUs are composed of hundreds of processing units running at low
+frequency.
+</p><!--l. 449--><p class="noindent" >As a result GPUs are able to execute tens of thousands of threads. It is this ability
+which makes them so much more effective then CPUs in a highly parallel environment.
+Some research even claim a speedup in the order of 200x over JavaScript.
+[<a 
+href="#XReference3">10</a> ]
+</p><!--l. 454--><p class="noindent" >The GPU processing units are typically organized in SIMD clusters controlled by single
+instruction decoders, with shared access to fast on-chip caches and shared memories.
+Massively parallel arithmetic-heavy hardware design enables GPUs to achieve
+single-precision floating point arithmetic rates approaching 2 trillions of instructions per
+second (TFLOPS). [<a 
+href="#XReference5">9</a>]
+                                                                                
+                                                                                
+</p><!--l. 460--><p class="noindent" >Although GPUs are powerful computing devices, currently they still often require to be
+management by a host CPU. Fortunately OpenCL is designed to be used in
+heterogeneous environment. It abstracts CPUs and GPUs as compute devices. This way,
+applications can query device attributes to determine the properties of the available
+compute units and memory systems. [<a 
+href="#XReference5">9</a>]
+</p><!--l. 467--><p class="noindent" >All the same, even if OpenCL&#x2019;s API hides the hardest part of parallel programming a
+good understanding of the underlying memory model leads to more efficient coding.
+Along with general advises on how to build an OpenCL cluster, details about the
+memory model are given in the following paper: [<a 
+href="#XReference4">11</a>].
+</p><!--l. 473--><p class="noindent" ><span 
+class="cmbx-12">Platform model</span>
+</p><!--l. 475--><p class="noindent" >CPU and GPU are called compute devices. A single host regroups one or more compute
+devices and has its own memory. Each compute device is composed of one or more cores
+also called compute units. Each compute unit has its own memory and is divided
+into one or more SIMD threads or processing elements with its own memory.
+[<a 
+href="#XReference4">11</a> ]
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-23001r10"></a>
+                                                                                
+                                                                                
+
+<!--l. 482--><p class="noindent" ><img 
+src="./Figures/plateform_model.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.10: </span><span  
+class="content">Platform model [<a 
+href="#XReference4">11</a>]</span></div><!--tex4ht:label?: x1-23001r10 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 487--><p class="noindent" ><span 
+class="cmbx-12">Memory model</span>
+</p><!--l. 489--><p class="noindent" >OpenCL defines 4 types of memory spaces within a compute device. A large
+high-latency global memory corresponding to the device RAM. This is a none cached
+memory where the data is stored and is available to all items. A small low-latency
+read-only constant memory which is cached. A shared local memory accessible from
+multiple processing elements within the same compute unit and a private memory
+accessible within each processing element. This last type of memory is very fast and is
+the register of the items [<a 
+href="#XReference4">11</a>].
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-23002r11"></a>
+                                                                                
+                                                                                
+
+<!--l. 499--><p class="noindent" ><img 
+src="./Figures/memory_model.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.11: </span><span  
+class="content">Memory model [<a 
+href="#XReference4">11</a>]</span></div><!--tex4ht:label?: x1-23002r11 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 504--><p class="noindent" >In conclusion, OpenCL provides a fairly easy way to write parallel code but to reach an
+optimal performance / memory access trade off programmers must choose carefully in
+where to save their variables in memory space.
+</p><!--l. 508--><p class="noindent" ><span 
+class="cmbx-12">Global and local IDs</span>
+</p><!--l. 510--><p class="noindent" >Finally, at an even lower level, work-items are scheduled in workgroups. This is the
+smallest unit of parallelism on a device. Individual work-items in a workgroup start
+together at the same program address, but they have their own address counter
+and register state and are therefore free to branch and execute independently
+[<a 
+href="#XReference4">11</a> ].
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-23003r12"></a>
+                                                                                
+                                                                                
+
+<!--l. 517--><p class="noindent" ><img 
+src="./Figures/id.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.12: </span><span  
+class="content">Work Group [<a 
+href="#XReference4">11</a>]</span></div><!--tex4ht:label?: x1-23003r12 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 523--><p class="noindent" >On a CPU, operating systems often swap two threads on and off execution channels.
+Threads (cores ) are generally heavyweight entities and those context switches are
+therefore expensive. By comparison, threads on a GPU ( work-items ) are extremely
+lightweight entities. Furthermore in GPUs, registers are allocated to active threads only.
+Once threads are complete, its resources are de-allocated. Thus no swapping of registers
+or state occurs between GPU threads. [<a 
+href="#XReference4">11</a>]
+</p><!--l. 531--><p class="noindent" >It can be deduced from this section that the underlying memory model, OpenCL is a
+fairly low-level API. In fact, the programming language used is a derivate of the C
+language based on C99. A language web developers will most likely be unfamiliar
+with. Khronos anticipated this and developed the web computing language
+(WebCL).
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.3.3 </span> <a 
+ id="x1-240001.3.3"></a>WebCL</h4>
+<!--l. 539--><p class="noindent" >WebGL and WebCL are JavaScript APIs over OpenGL and OpenCL&#x2019;s API. This
+allows web developers to create application in an environment they are used
+to.
+</p><!--l. 542--><p class="noindent" >In the first place, OpenCL was developed because of web browsers&#x2019; increasing need for
+more computational power. A necessity which arose from heavy 3D graphics
+applications such as on-line games and augmented reality. However, OpenCL doesnt
+provide any rendering capability, it only processes huge amounts of data. That is
+why OpenCL was designed for inter-operation with OpenGL. WebCL/WebGL
+interoperability builds on that available for OpenCL/OpenGL. WebCL provides an API
+for safely sharing buffers with OpenCL. This buffer is inside the GPU which avoids the
+back and forth copy of data when switching between OpenGL and OpenCL
+processes. Further precision about the interoperability are discussed in this paper:
+[<a 
+href="#XReference6">12</a> ].
+</p><!--l. 553--><p class="noindent" >GPU computing is quite a new notion. But it is a fast evolving field of research. Single
+GPUs are not enough anymore, the trend is moving towards GPU clusters.
+                                                                                
+                                                                                
+</p><!--l. 557--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.3.4 </span> <a 
+ id="x1-250001.3.4"></a>GPU clusters</h4>
+<!--l. 559--><p class="noindent" >Most OpenCL applications can utilize only devices of the hosting computer. In order to
+run an application on a cluster, the program needs to be split to take advantage of all
+devices. Virtual OpenCL (VirtualCL) is a wrapper for OpenCL. It provides a platform
+where all the cluster devices are seen as if located on the same hosting node. Basically,
+the user starts the application on the master node then VirtualCL transparently runs
+the kernels of the application on the worker nodes. Applications written with
+VirtualCL don&#x2019;t only benefit from the reduced programming complexity of a
+single computer, but also from the availability of shared memory and lower
+granularity parallelism. Mosix white paper [<a 
+href="#XReference7">13</a>] explains more in depth the VCL&#x2019;s
+functionment.
+</p><!--l. 571--><p class="noindent" >OpenCL and VirtualCL are powerful tool to create highly parallel clusters. But current
+implementation with CPUs only already reach a million concurrent connections [<a 
+href="#XReference13">14</a>]. So
+far there is simply no need for more powerful clusters.
+</p><!--l. 576--><p class="noindent" >However, all company don&#x2019;t have access to dual Quad-core Xeon CPUs used
+in Kaazing cluster to reach a million concurrent connections. Usual practice
+is to build a scalable cluster, to adjust computing power in function of the
+needs.
+</p><!--l. 580--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">1.4 </span> <a 
+ id="x1-260001.4"></a>Scalability</h3>
+<!--l. 582--><p class="noindent" >The growth of distributed computing has changed the way web application are designed
+and implemented. If compared with today standards, applications used to be deployed
+so as to say at prototype stage. That is, they were designed to work on a fixed number
+of servers and not able to adjust as the user base grows. As the number of connections
+increase, the load on the servers rises and thus the latency grows. Ideally, an
+application should aim at a stable latency, otherwise the application can miss
+behave.
+                                                                                
+                                                                                
+</p><!--l. 590--><p class="noindent" >On the server side, the nodes will begin to be overloaded and struggle to service the
+client with reasonable response time.
+</p><!--l. 593--><p class="noindent" >Also, if the servers are overwhelmed they buffer the responses to the clients and then
+catch up later on . As a result, the clients can be flooded when the load goes down. The
+sudden rush of message can provoke an unexpected behavior from the servers and can
+even lead to disconnections.
+</p><!--l. 598--><p class="noindent" >Nowadays, designing an application without scalability and load balancing in mind is
+unimaginable. Historically, the reaction to an overloaded server has always been to scale
+up.
+</p><!--l. 602--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.4.1 </span> <a 
+ id="x1-270001.4.1"></a>Scaling up</h4>
+<!--l. 604--><p class="noindent" >Scaling up or vertically basically means upgrading the infrastructure. Depending on the
+needs of the application, the processor, the memory, the storage or the network
+connectivity can be improved.
+</p><!--l. 608--><p class="noindent" >Further performance can be gained by dividing tasks. It only requires identification of
+the services running independently or the using message based communication. Those
+could then be relocated on different nodes.
+</p><!--l. 612--><p class="noindent" >The main advantage of scaling vertically is that is does not involve any software changes
+and little infrastructure changes. Therefore it is an easy way to increase performances.
+However for large applications, scaling up might prove impossible or at least not
+economically profitable. In case the infrastructure is already equipped with the
+latest hardware generation, the tiniest increase in performance will impact
+greatly the price. For example, a high range processor offering ten percent more
+computation power is going to be many times more expensive. Similarly, a
+memory upgrade could require replacing all current modules for higher density
+ones.
+</p><!--l. 622--><p class="noindent" >Moreover, scaling up neither answers availability nor uptime concerns. The system is
+monolithic and has a single point of failure. Therefore contemporary project usually
+scale out and use parallel computing.
+                                                                                
+                                                                                
+</p><!--l. 626--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.4.2 </span> <a 
+ id="x1-280001.4.2"></a>Scaling out</h4>
+<!--l. 628--><p class="noindent" >Scaling out or horizontally, answers most of the problems unsolved by scaling vertically.
+In a first approach lets ignore the software complexity. Scaling out offers almost
+unlimited performance increase and at low cost. If the application is designed to be
+spread out on multiple nodes, the performance of an infrastructure can be doubled by
+simply using twice as many servers. Also it is fairly easy to add some redundant server
+to insure uptime. Plus, compared to scaling up, once the software is developed the costs
+are linear.
+</p><!--l. 636--><p class="noindent" >When scaling out, the infrastructure implementation is not as much of a problem as the
+code implementation. The expenses are shifted from hardware to development
+costs.
+</p><!--l. 640--><p class="noindent" ><span 
+class="cmbx-12">Code implementation</span>
+</p><!--l. 642--><p class="noindent" >Developing a parallel code is quite complicated and all applications can not be
+paralyzed. In 1967 Gene M. Amdhal defined the so called Amdahl&#x2019;s law which is
+still used today to define the maximum to expect when parallelizing a code
+[<a 
+href="#XReference10">15</a> ].
+</p><!--l. 647--><p class="noindent" >Each software can be divided in two separate parts, the parallel part and the sequential
+part. Parallel computing does not improve the sequential part. If a the code is
+mainly sequential, then increasing the number of processors will only cause the
+parallel part to finish first and stay idle waiting for the sequential part to
+finish.
+</p><!--l. 653--><p class="noindent" >Assuming P is the portion of a program that can be parallelized and 1 - P is the portion
+that remains serial, then the maximum speedup that can be achieved using N
+processors is:
+</p><!--l. 657--><p class="noindent" >
+                                                                                
+                                                                                
+<!--tex4ht:inline--></p><!--l. 657--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" >
+                          <mi 
+>s</mi><mi 
+>p</mi><mi 
+>e</mi><mi 
+>e</mi><mi 
+>d</mi><mi 
+>u</mi><mi 
+>p</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>N</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo>        <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>P</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mfrac><mrow 
+><mi 
+>P</mi></mrow> 
+<mrow 
+><mi 
+>N</mi></mrow></mfrac></mrow></mfrac>
+</math>
+<!--l. 657--><p class="nopar" >
+</p><!--l. 659--><p class="noindent" >If 70% of the program can be run in parallel (P = 0.7) the maximum expected speedup
+with 4 processors would be:
+</p><!--l. 662--><p class="noindent" >
+<!--tex4ht:inline--></p><!--l. 662--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" >
+                         <mi 
+>s</mi><mi 
+>p</mi><mi 
+>e</mi><mi 
+>e</mi><mi 
+>d</mi><mi 
+>u</mi><mi 
+>p</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>N</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo>          <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>0</mn><mo 
+class="MathClass-punc">.</mo><mn>7</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mfrac><mrow 
+><mn>0</mn><mo 
+class="MathClass-punc">.</mo><mn>7</mn></mrow> 
+ <mrow 
+><mi 
+>N</mi></mrow></mfrac> </mrow></mfrac>
+</math>
+<!--l. 662--><p class="nopar" >
+</p><!--l. 664--><p class="noindent" >
+<!--tex4ht:inline--></p><!--l. 664--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" >
+                               <mi 
+>s</mi><mi 
+>p</mi><mi 
+>e</mi><mi 
+>e</mi><mi 
+>d</mi><mi 
+>u</mi><mi 
+>p</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>4</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mo 
+class="MathClass-punc">.</mo><mn>1</mn>
+</math>
+                                                                                
+                                                                                
+<!--l. 664--><p class="nopar" >
+</p><!--l. 666--><p class="noindent" >When the number of processors reaches a certain point, the speed up will
+be:
+</p><!--l. 669--><p class="noindent" >
+<!--tex4ht:inline--></p><!--l. 669--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" >
+                      <munder class="msub"><mrow 
+><mo class="qopname">lim</mo> </mrow><mrow 
+><mi 
+>N</mi><mo 
+class="MathClass-rel">&#x2192;</mo><mi 
+>&#x221E;</mi></mrow></munder 
+><mi 
+>s</mi><mi 
+>p</mi><mi 
+>e</mi><mi 
+>e</mi><mi 
+>d</mi><mi 
+>u</mi><mi 
+>p</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>N</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo>    <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>P</mi></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn><mo 
+class="MathClass-punc">.</mo><mn>3</mn>
+</math>
+<!--l. 669--><p class="nopar" >
+</p><!--l. 672--><p class="noindent" >Nathan T. Hayes&#x2019;s paper for Sunfish Studio [<a 
+href="#XReference8">16</a>] studies how parallel computing can
+profit the motion picture Industry. The following chart present the maximum speedup
+which can be expected from an application in function of the percentage of parallel code
+in the programme.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-28001r13"></a>
+                                                                                
+                                                                                
+
+<!--l. 679--><p class="noindent" ><img 
+src="./Figures/amdahl.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1.13: </span><span  
+class="content">Amdahl law [<a 
+href="#XReference8">16</a>]</span></div><!--tex4ht:label?: x1-28001r13 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 684--><p class="noindent" >The figure speaks for itself, to envisage parallel computing, the portion of parallel code
+must be very high.
+</p><!--l. 687--><p class="noindent" >However, Amdahl&#x2019;s law is based on assumption which are hardly verified in pratique.
+Following are summed up reasons not to give to much importance to Amdahl&#x2019;s law
+[<a 
+href="#XReference34">17</a> ]:
+</p>
+<ul class="itemize1">
+<li class="itemize">The number of threads is not always equivalent to the number of processors.
+</li>
+<li class="itemize">The parallel portion does not have a perfect speedup. Computation power is
+used for communication between processus. Also some resources like caches
+and bandwidth have to be shared across all the processors.
+</li>
+<li class="itemize">Allocating, deallocating and switching threads introduces overhead, overhead
+grows linearly with the number of thread.
+</li>
+<li class="itemize">Even an optimized code will not have perfectly synchronised threads, at some
+point some processus will have to wait for others to finish.</li></ul>
+<!--l. 703--><p class="noindent" >Amdahl&#x2019;s law has long been used as an argument against massively parallel processing.
+In 1988 Gustafson law came as an alternative to Amdahl&#x2019;s law to estimate the speedup.
+In both law, the sequential portion of the problem is supposed to stay constant. But in
+Gustafson&#x2019;s law the overall problem size grows proportionally to the number of cores.
+As a result, Gustafson&#x2019;s gives slightly different results to Amdahl&#x2019;s and encourage the
+use of parallel computing.
+</p><!--l. 711--><p class="noindent" >However later studies tends to contest the legitimacy of both laws. Yuan Shi&#x2019;s paper
+[<a 
+href="#XReference9">18</a> ] even proves both theories are but two different interpretations of the same law. He
+concludes his study by saying these laws are too minimalist and what computer scientist
+really need is a practical engineering tool that can help the community to identify
+performance critical factors.
+</p><!--l. 718--><p class="noindent" ><span 
+class="cmbx-12">Infrastructure implementation</span>
+                                                                                
+                                                                                
+</p><!--l. 720--><p class="noindent" >Beside coding complication, scaling out also brings infrastructure changes. A third
+party must be in command of all servers. This master server is also called load balancer.
+Its role is to distribute the work evenly between the workers and thus completely hides
+the complexity to the user.
+                                                                                
+                                                                                
+</p>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;2</span><br /><a 
+ id="x1-290002"></a>Design and Implementation</h2>
+<!--l. 6--><p class="noindent" >Current research around WebSocket is centered around distributed computing. Either
+on CPUs architecture, GPUs architecture or heterogeneous architecture. For the time
+being, clustering WebSocket servers is rather difficult and reserved to researcher or
+specialized companies. Actually in Node.js, there is hardly any library to simply and
+efficiently implement a multi-core server. Node.js single thread nature is a double edge
+sword. On one side it allows more concurrent connections to be established but it also
+means special attention needs to be given to run the code on all the servers cores.
+SocketCluster is a brand new real-time engine aiming exactly at that. At this point of
+my thesis I had to make a choice between either the theoretical study of WebSocket
+clusters or the benchmarking of SocketCluster. After contacting Jonathan
+Gros-Dubois, the creator of SocketCluster, I made up my mind for the latter. Indeed,
+SocketCluster being under development the tests carried out so far are rather
+sparse.
+</p>
+<h3 class="sectionHead"><span class="titlemark">2.1 </span> <a 
+ id="x1-300002.1"></a>SocketCluster library</h3>
+<!--l. 23--><p class="noindent" >As described on the github project [<a 
+href="#XReference38">19</a>], SocketCluster is a fast, highly scalable HTTP
+and WebSocket server. It facilitates the creation of multi-process real-time application
+that make use of all CPU cores on a machine/instance. Therefore removing the
+limitations of having to run a Node.js server as a single thread. SocketCluster&#x2019;s focus is
+on vertical scaling. If N is the number of cores available on the server, then
+SocketCluster is N time than any comparable single-threaded WebSocket server. Under
+the hood, the application deploys itself on all available cores as a cluster of
+process. The process can be grouped in three categories: stores, workers and load
+balancers.
+</p><!--l. 33--><p class="noindent" >
+</p>
+                                                                                
+                                                                                
+<h3 class="sectionHead"><span class="titlemark">2.2 </span> <a 
+ id="x1-310002.2"></a>Challenges encountered using SocketCluster</h3>
+<!--l. 35--><p class="noindent" >At first my study of SocketCluster was far from satisfactory. Past a total of 512
+communications channel, new sockets were inexplicably crashing.
+</p><!--l. 38--><p class="noindent" ><span 
+class="cmbx-12">U-limit</span>
+</p><!--l. 40--><p class="noindent" >This comes from a system limit set up on linux operating systems. By default the
+maximum number of file that can be sent over tcp is 1024.
+</p><!--l. 43--><p class="noindent" >Fortunately, this limit can be increased by appending this line: <span 
+class="cmtt-12">ubuntu soft nofile</span>
+<span 
+class="cmtt-12">&#x0022;number of file&#x0022; </span>in <span 
+class="cmtt-12">/etc/security/limits.conf</span>
+</p><!--l. 46--><p class="noindent" >Once this problem was fixed I looked into a benchmark to carry out, Jonathan
+Gros-Dubois advised me to focus on concurrent connections tests.
+</p><!--l. 49--><p class="noindent" ><span 
+class="cmbx-12">C 10K Problem</span>
+</p><!--l. 51--><p class="noindent" >The C 10K is an historic challenge issued in 1999 by Dan Kegel. It consist of reaching
+10 000 concurrent client connections. Engineers solved this problem by fixing operating
+systems kernel and creating new single threaded programming languages like
+Node.js.
+</p><!--l. 56--><p class="noindent" >Therefore one of my objectives while testing SocketCluster was to see how many
+concurrent connections it can handle.
+</p><!--l. 59--><p class="noindent" >However this should not be a problem for this library, contemporary objective is
+rather to achieve 10 000 000 concurrent connections like mentioned in the
+excellent article in highscalability.com [<a 
+href="#XReference39">20</a>]. Such amount of connections is
+beyond the scope of this thesis, but apparently the solution to improve the
+number of connections is to move heavy lifting from the kernel to the application
+itself.
+</p><!--l. 66--><p class="noindent" >Another topic to consider before begin testing was how to monitor the application.
+</p><!--l. 69--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">2.3 </span> <a 
+ id="x1-320002.3"></a>Monitoring tool</h3>
+                                                                                
+                                                                                
+<!--l. 71--><p class="noindent" >Monitoring tools can be divided in two categories. Basic Real time monitoring and more
+convenient tool saving statics in spreadsheets and eventually even directly plotting
+graphs. Most of them can be configured to record processor load on each cores. But
+ideally SocketCluster tests would require to record each threads load&#x2019;s. This way, if run
+less process than available cores are being run the exact usage of each thread can still
+be found.
+</p><!--l. 79--><p class="noindent" >For this reason and also to have more freedom on how data is being processed, out
+of the box tool have been cast aside for more basic tools like top and htop.
+htop has been used to visualize data in real time and check if the test was
+running flawlessly. top has been used in batched mode to output the data in
+files.
+</p><!--l. 85--><p class="noindent" >In a latter phase, bash operation is used to format the raw data extracted from top&#x2019;s
+file. And finally, graphs are plotted with gnuplot.
+                                                                                
+                                                                                
+</p>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;3</span><br /><a 
+ id="x1-330003"></a>Experiment</h2>
+<!--l. 5--><p class="noindent" >This chapter is a comprehensive benchmark of SocketCluster. to begin with, the
+scalability of the client code will be checked with a client throughout test. Then once
+the the client has been proof checked, the first experiment will compare SocketCluster
+and engine.io.
+</p><!--l. 10--><p class="noindent" >Then the experiment will purely focus on SocketCluster. The first one will evaluate the
+influence of adding more cores on the performances. The second one will study the
+influence of external parameters like the period of pings, the size of the messages and
+the number of communications. And to finish a concurrent experiment will be carried
+out in order to have an idea of SocketCluster&#x2019;s behavior in highly parallel
+environment.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.1 </span> <a 
+ id="x1-340003.1"></a>Client throughout</h3>
+<!--l. 19--><p class="noindent" >This first section is composed of two experiment to check the client code is behaving
+like expected.
+</p><!--l. 22--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.1 </span> <a 
+ id="x1-350003.1.1"></a>Client scalability</h4>
+<!--l. 24--><p class="noindent" >SocketCluster-client makes the instantiation of a WebSocket clients on one core quite
+straightforward. To deploy it on all available nodes, node.js <span 
+class="cmtt-12">fork() </span>function is used. A
+client code example is given in appendix <a 
+href="#x1-45001r1">A.1<!--tex4ht:ref: fig:WS_client_simplePing --></a>.
+</p><!--l. 29--><p class="noindent" >The first experiment is a safety test. It checks if <span 
+class="cmtt-12">fork() </span>distributes evenly the work
+among the cores.
+</p>
+                                                                                
+                                                                                
+<div class="center" 
+>
+<!--l. 32--><p class="noindent" >
+</p>
+<div class="tabular"><table id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /></colgroup><colgroup id="TBL-2-2g"><col 
+id="TBL-2-2" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td colspan="2" style="text-align:center"  id="TBL-2-1-1"  
+class="td11">                             <div class="multicolumn"  style="text-align:center" >Parameters</div></td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="text-align:left"  id="TBL-2-2-1"  
+class="td11">Instance type             </td><td  style="text-align:left"  id="TBL-2-2-2"  
+class="td11">amazon s3 m3.2xlarge</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="text-align:left"  id="TBL-2-3-1"  
+class="td11">Experiment time                                                    </td><td  style="text-align:left"  id="TBL-2-3-2"  
+class="td11">120 s                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="text-align:left"  id="TBL-2-4-1"  
+class="td11">Number of new communication created at each iteration</td><td  style="text-align:left"  id="TBL-2-4-2"  
+class="td11">15                          </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="text-align:left"  id="TBL-2-5-1"  
+class="td11">Client creation period </td><td  style="text-align:left"  id="TBL-2-5-2"  
+class="td11">1 s</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="text-align:left"  id="TBL-2-6-1"  
+class="td11">Type of ping                                                         </td><td  style="text-align:left"  id="TBL-2-6-2"  
+class="td11">random number        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td  style="text-align:left"  id="TBL-2-7-1"  
+class="td11">Ping period                                                           </td><td  style="text-align:left"  id="TBL-2-7-2"  
+class="td11">2.5 s                       </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-8-"><td  style="text-align:left"  id="TBL-2-8-1"  
+class="td11">                                               </td>
+</tr></table></div></div>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-35001r1"></a>
+                                                                                
+                                                                                
+
+<!--l. 49--><p class="noindent" ><img 
+src="./Figures/1_client.png" alt="PIC"  
+ /> <img 
+src="./Figures/2_client.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.1: </span><span  
+class="content">Client throughout</span></div><!--tex4ht:label?: x1-35001r1 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 56--><p class="noindent" >From Figure <a 
+href="#x1-35001r1">3.1<!--tex4ht:ref: fig:1+2_client --></a> it can be inferred that the client implementation works flawlessly.
+Adding a second core enables twice as much communication to be established.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.2 </span> <a 
+ id="x1-360003.1.2"></a>browser testing</h4>
+<!--l. 62--><p class="noindent" >As mentioned in Appendix <a 
+href="#x1-48001r1">C.1<!--tex4ht:ref: fig:index_script --></a>, by operating minor changes in the <span 
+class="cmtt-12">index.html </span>file, the
+browser can be configured to display in real time the number of pings received by a
+particular worker. If the experiment is running locally, typing <span 
+class="cmtt-12">localhost:8080 </span>in the
+url will link the browser to one worker.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-36001r2"></a>
+                                                                                
+                                                                                
+
+<!--l. 70--><p class="noindent" ><img 
+src="./Figures/browser.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.2: </span><span  
+class="content">Browser connection to SocketCluster</span></div><!--tex4ht:label?: x1-36001r2 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 75--><p class="noindent" >By doing so we can embody a user connected to our WebSocket server and have a
+better idea of the reactivity of the server.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.2 </span> <a 
+ id="x1-370003.2"></a>Comparison with engine.io</h3>
+<!--l. 84--><p class="noindent" >SocketCluster has been created to ease the creation of multi-core WebSocket server.
+Logically the first experiment carried out on the server was to compare a WebSocket to
+a traditional Engine.io server.
+</p><!--l. 88--><p class="noindent" >Engine.io and SocketCluster codes can be found in Appendix <a 
+href="#x1-44000A">A<!--tex4ht:ref: SocketCluster --></a> and <a 
+href="#x1-47000B">B<!--tex4ht:ref: engine --></a>.
+</p>
+<div class="center" 
+>
+<!--l. 90--><p class="noindent" >
+</p>
+<div class="tabular"><table id="TBL-3" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1" /></colgroup><colgroup id="TBL-3-2g"><col 
+id="TBL-3-2" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td colspan="2" style="text-align:center"  id="TBL-3-1-1"  
+class="td11">                             <div class="multicolumn"  style="text-align:center" >Parameters</div></td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="text-align:left"  id="TBL-3-2-1"  
+class="td11">Instance type            </td><td  style="text-align:left"  id="TBL-3-2-2"  
+class="td11">amazon ec2 m3.2xlarge</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-3-"><td  style="text-align:left"  id="TBL-3-3-1"  
+class="td11">Experiment time                                                    </td><td  style="text-align:left"  id="TBL-3-3-2"  
+class="td11">60 s                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-4-"><td  style="text-align:left"  id="TBL-3-4-1"  
+class="td11">Number of new communication created at each iteration</td><td  style="text-align:left"  id="TBL-3-4-2"  
+class="td11">20                           </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-5-"><td  style="text-align:left"  id="TBL-3-5-1"  
+class="td11">Client creation period </td><td  style="text-align:left"  id="TBL-3-5-2"  
+class="td11">1 s</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-6-"><td  style="text-align:left"  id="TBL-3-6-1"  
+class="td11">Type of ping                                                         </td><td  style="text-align:left"  id="TBL-3-6-2"  
+class="td11">random number          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-7-"><td  style="text-align:left"  id="TBL-3-7-1"  
+class="td11">Ping period                                                           </td><td  style="text-align:left"  id="TBL-3-7-2"  
+class="td11">2.5 s                        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-8-"><td  style="text-align:left"  id="TBL-3-8-1"  
+class="td11">Number of clients                                                   </td><td  style="text-align:left"  id="TBL-3-8-2"  
+class="td11">2                             </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-9-"><td  style="text-align:left"  id="TBL-3-9-1"  
+class="td11">                                               </td>
+</tr></table></div></div>
+<!--l. 106--><p class="noindent" ><span 
+class="cmbx-12">SocketCluster implementation</span>
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-37001r3"></a>
+                                                                                
+                                                                                
+
+<!--l. 110--><p class="noindent" ><img 
+src="./Figures/WS_client_comparaison.png" alt="PIC"  
+ /> <img 
+src="./Figures/WS_server_comparaison.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.3: </span><span  
+class="content">WebSocket implementation</span></div><!--tex4ht:label?: x1-37001r3 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 116--><p class="noindent" >In this experience, two clients are used to achieve a maximum of 2400 WebSocket
+communications. The server was configured to use one storage, one load balancer and
+one worker. While the store processor is quite idle, the two other processors on the
+other hand are almost used at full capacity.
+</p><!--l. 121--><p class="noindent" ><span 
+class="cmbx-12">Engine.io implementation</span> </p><hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-37002r4"></a>
+                                                                                
+                                                                                
+
+<!--l. 124--><p class="noindent" ><img 
+src="./Figures/engine_client_comparaison.png" alt="PIC"  
+ /> <img 
+src="./Figures/engine_server_comparaison.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.4: </span><span  
+class="content">Engine.io implementation</span></div><!--tex4ht:label?: x1-37002r4 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 130--><p class="noindent" >Surprisingly, pure engine.io implementation seems to be more efficient. Clients are
+hitting a maximum of 50% processor usage compared to 90% for WebSockets.
+</p><!--l. 133--><p class="noindent" >On the server side, engine.io processor peaks at 75% compared to almost 100% for
+WebSockets. Also even if both code have been deployed on similar virtual
+machines: <span 
+class="cmtt-12">amazon ec2 m3.2xlarge </span>the engine.io server is running only on one core
+compared to three for SocketCluster (one storage, one load balancer and one
+worker). This seems to show, SocketCluster is not adapted to low number of
+communication.
+</p><!--l. 140--><p class="noindent" >An interesting study worth doing at this point, is to try to use SocketCluster on one
+core.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.3 </span> <a 
+ id="x1-380003.3"></a>SocketCluster context switching</h3>
+<!--l. 149--><p class="noindent" >For this experiment a single core virtual machine is used for the server: <span 
+class="cmtt-12">amazon ec2</span>
+<span 
+class="cmtt-12">m3.medium</span>.
+</p>
+<div class="center" 
+>
+<!--l. 152--><p class="noindent" >
+</p>
+<div class="tabular"><table id="TBL-4" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-4-1g"><col 
+id="TBL-4-1" /></colgroup><colgroup id="TBL-4-2g"><col 
+id="TBL-4-2" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-1-"><td colspan="2" style="text-align:center"  id="TBL-4-1-1"  
+class="td11">                             <div class="multicolumn"  style="text-align:center" >Parameters</div></td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-2-"><td  style="text-align:left"  id="TBL-4-2-1"  
+class="td11">Server instance type            </td><td  style="text-align:left"  id="TBL-4-2-2"  
+class="td11">amazon ec2 m3.medium</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-3-"><td  style="text-align:left"  id="TBL-4-3-1"  
+class="td11">Client instance type                                                </td><td  style="text-align:left"  id="TBL-4-3-2"  
+class="td11">amazon ec2 m3.2xlarge </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-4-"><td  style="text-align:left"  id="TBL-4-4-1"  
+class="td11">Experiment time                                                    </td><td  style="text-align:left"  id="TBL-4-4-2"  
+class="td11">80 s                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-5-"><td  style="text-align:left"  id="TBL-4-5-1"  
+class="td11">Number of new communication created at each iteration</td><td  style="text-align:left"  id="TBL-4-5-2"  
+class="td11">40                             </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-6-"><td  style="text-align:left"  id="TBL-4-6-1"  
+class="td11">Client creation period                                             </td><td  style="text-align:left"  id="TBL-4-6-2"  
+class="td11">1 s                            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-7-"><td  style="text-align:left"  id="TBL-4-7-1"  
+class="td11">Type of ping                                                         </td><td  style="text-align:left"  id="TBL-4-7-2"  
+class="td11">random number           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-8-"><td  style="text-align:left"  id="TBL-4-8-1"  
+class="td11">Ping period                                                           </td><td  style="text-align:left"  id="TBL-4-8-2"  
+class="td11">2.5 s                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-9-"><td  style="text-align:left"  id="TBL-4-9-1"  
+class="td11">Number of clients                                                   </td><td  style="text-align:left"  id="TBL-4-9-2"  
+class="td11">2                              </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-10-"><td  style="text-align:left"  id="TBL-4-10-1"  
+class="td11">                                               </td>
+</tr></table></div></div>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-38001r5"></a>
+                                                                                
+                                                                                
+
+<!--l. 171--><p class="noindent" ><img 
+src="./Figures/WS_client_context.png" alt="PIC"  
+ /> <img 
+src="./Figures/WS_server_context.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.5: </span><span  
+class="content">Context switching</span></div><!--tex4ht:label?: x1-38001r5 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 177--><p class="noindent" >At first glimpse, anyone can immediately tell there is a problem with the server graph.
+The Load seems to vary randomly at an average of 40%. What really happens, is that
+most WebSocket connections are dropped shortly after being created or they not are
+even created. The problem is a single core needs to handle four threads. So each time
+another application is called the context changes. The result is even worse in the
+case of a multi-processor server, because threads are then balanced between
+processors. Threads are heavy weight units, moving them introduces consequent
+overheads.
+</p><!--l. 185--><p class="noindent" >In conclusion, this experiment proves SocketCluster is not aimed to be used with
+project which involve more threads than available cores.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.4 </span> <a 
+ id="x1-390003.4"></a>Horizontal scaling of SocketCluster </h3>
+<!--l. 194--><p class="noindent" >This section evaluates the performances of SocketCluster for a growing number of
+processors.
+</p><!--l. 197--><p class="noindent" ><span 
+class="cmbx-12">Client code</span>
+</p><!--l. 199--><p class="noindent" >The client code used in all this part is the same. Two clients are used to produce a
+maximum of 2400 WebSocket communications.
+</p>
+<div class="center" 
+>
+<!--l. 203--><p class="noindent" >
+</p>
+                                                                                
+                                                                                
+<div class="tabular"><table id="TBL-5" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-5-1g"><col 
+id="TBL-5-1" /></colgroup><colgroup id="TBL-5-2g"><col 
+id="TBL-5-2" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-1-"><td colspan="2" style="text-align:center"  id="TBL-5-1-1"  
+class="td11">                             <div class="multicolumn"  style="text-align:center" >Parameters</div></td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-2-"><td  style="text-align:left"  id="TBL-5-2-1"  
+class="td11">Instance type            </td><td  style="text-align:left"  id="TBL-5-2-2"  
+class="td11">amazon ec2 m3.2xlarge</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-3-"><td  style="text-align:left"  id="TBL-5-3-1"  
+class="td11">Experiment time                                                    </td><td  style="text-align:left"  id="TBL-5-3-2"  
+class="td11">60 s                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-4-"><td  style="text-align:left"  id="TBL-5-4-1"  
+class="td11">Number of new communication created at each iteration</td><td  style="text-align:left"  id="TBL-5-4-2"  
+class="td11">20                           </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-5-"><td  style="text-align:left"  id="TBL-5-5-1"  
+class="td11">Client creation period </td><td  style="text-align:left"  id="TBL-5-5-2"  
+class="td11">1 s</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-6-"><td  style="text-align:left"  id="TBL-5-6-1"  
+class="td11">Type of ping                                                         </td><td  style="text-align:left"  id="TBL-5-6-2"  
+class="td11">random number          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-7-"><td  style="text-align:left"  id="TBL-5-7-1"  
+class="td11">Ping period                                                           </td><td  style="text-align:left"  id="TBL-5-7-2"  
+class="td11">2.5 s                        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-8-"><td  style="text-align:left"  id="TBL-5-8-1"  
+class="td11">Number of clients                                                   </td><td  style="text-align:left"  id="TBL-5-8-2"  
+class="td11">2                             </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-9-"><td  style="text-align:left"  id="TBL-5-9-1"  
+class="td11">                                               </td>
+</tr></table></div></div>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-39001r6"></a>
+                                                                                
+                                                                                
+
+<!--l. 222--><p class="noindent" ><img 
+src="./Figures/WS_client_rising.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.6: </span><span  
+class="content">client code</span></div><!--tex4ht:label?: x1-39001r6 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 227--><p class="noindent" ><span 
+class="cmbx-12">Experiment on three cores</span>
+</p><!--l. 229--><p class="noindent" >The first test is run a server using a one store, one load balancer and one
+worker.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-39002r7"></a>
+                                                                                
+                                                                                
+
+<!--l. 234--><p class="noindent" ><img 
+src="./Figures/WS_server_1rising.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.7: </span><span  
+class="content">Server with three cores</span></div><!--tex4ht:label?: x1-39002r7 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 239--><p class="noindent" >Figure <a 
+href="#x1-39002r7">3.7<!--tex4ht:ref: fig:WS_server_1rising --></a> clearly shows the worker and load balancer cores are almost used to
+their full extent. In order to handle more communication more cores should be
+added.
+</p><!--l. 243--><p class="noindent" ><span 
+class="cmbx-12">Experiment on five cores</span>
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-39003r8"></a>
+                                                                                
+                                                                                
+
+<!--l. 247--><p class="noindent" ><img 
+src="./Figures/WS_server_2rising.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.8: </span><span  
+class="content">server with five cores</span></div><!--tex4ht:label?: x1-39003r8 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 252--><p class="noindent" >In this experiment two more cores have been added. Load balancers and workers
+nicely balance the work between themselves and the maximum load drops to
+50%.<br 
+class="newline" />
+</p><!--l. 255--><p class="noindent" ><span 
+class="cmbx-12">Experiment on seven cores</span>
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-39004r9"></a>
+                                                                                
+                                                                                
+
+<!--l. 259--><p class="noindent" ><img 
+src="./Figures/WS_server_3rising.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.9: </span><span  
+class="content">server with seven cores</span></div><!--tex4ht:label?: x1-39004r9 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 264--><p class="noindent" >This last test is less conclusive. With a total of 3 cores for load balancers and three for
+workers the processors load varies between 30% and 50% depending on the
+task.
+</p><!--l. 268--><p class="noindent" >As expected, in the long run by adding more processor SocketCluster&#x2019;s performance get
+better then engine.io. However in case n is the number of available processor,
+SocketCluster is not n times more effective then engine.io.
+</p><!--l. 273--><p class="noindent" >
+                                                                                
+                                                                                
+</p><!--l. 275--><p class="noindent" >Actually in this experiment it seems that an equivalent number of workers
+and load balancers are needed for the application to run seamlessly. In case
+the application doesn&#x2019;t use a store, to gain twice as much computational
+power, twice as many processor are required. This makes SocketCluster
+<!--l. 278--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mfrac><mrow 
+><mi 
+>n</mi></mrow>
+<mrow 
+><mn>2</mn></mrow></mfrac> </math> time
+more efficient then engine.io.
+</p><!--l. 281--><p class="noindent" >Furthermore, it showed adding too many cores is a waste of resources. This stresses the
+importance of finding a load balancer/worker/store ratio rule.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.5 </span> <a 
+ id="x1-400003.5"></a>Parameters&#x2019; influence</h3>
+<!--l. 289--><p class="noindent" >This section aims at determining which parameter between the number of WebSocket
+communications, the period of the pings and the size of the message exchanged has the
+most influence on the server processor usage.
+</p><!--l. 293--><p class="noindent" >The library <span 
+class="cmtt-12">delivery </span>has been used to transfer file over WebSocket. The code can be
+found in Appendix <a 
+href="#x1-46002r4">A.4<!--tex4ht:ref: fig:WS_server_delivery --></a>.
+</p>
+<div class="center" 
+>
+<!--l. 296--><p class="noindent" >
+</p>
+<div class="tabular"><table id="TBL-6" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-6-1g"><col 
+id="TBL-6-1" /></colgroup><colgroup id="TBL-6-2g"><col 
+id="TBL-6-2" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-1-"><td colspan="2" style="text-align:center"  id="TBL-6-1-1"  
+class="td11">                           <div class="multicolumn"  style="text-align:center" >Fixed parameters</div>
+</td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-2-"><td  style="text-align:left"  id="TBL-6-2-1"  
+class="td11">Instance type                                                        </td><td  style="text-align:left"  id="TBL-6-2-2"  
+class="td11">amazon ec2 m3.2xlarge</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-3-"><td  style="text-align:left"  id="TBL-6-3-1"  
+class="td11">Experiment time                                                    </td><td  style="text-align:left"  id="TBL-6-3-2"  
+class="td11">60 s                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-4-"><td  style="text-align:left"  id="TBL-6-4-1"  
+class="td11">Number of new communication created at each iteration</td><td  style="text-align:left"  id="TBL-6-4-2"  
+class="td11">20                           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-5-"><td  style="text-align:left"  id="TBL-6-5-1"  
+class="td11">Client creation period                                             </td><td  style="text-align:left"  id="TBL-6-5-2"  
+class="td11">1 s                           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-6-"><td  style="text-align:left"  id="TBL-6-6-1"  
+class="td11">Type of ping                                                         </td><td  style="text-align:left"  id="TBL-6-6-2"  
+class="td11">random number          </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-7-"><td  style="text-align:left"  id="TBL-6-7-1"  
+class="td11">                                               </td>
+</tr></table></div></div>
+<!--l. 310--><p class="noindent" >
+                                                                                
+                                                                                
+</p><!--l. 312--><p class="noindent" ><span 
+class="cmbx-12">Reference experiment</span>
+</p><!--l. 314--><p class="noindent" >This first experience will be taken as a reference for the next ones. It has been carried
+out with 2 clients establishing together a total of 2400 communications. The period of
+the pings is in average four seconds and the size of the file exchanged is 81
+bytes.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-40001r10"></a>
+                                                                                
+                                                                                
+
+<!--l. 321--><p class="noindent" ><img 
+src="./Figures/base_client_influence.png" alt="PIC"  
+ /> <img 
+src="./Figures/base_server_influence.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.10: </span><span  
+class="content">Reference experiment</span></div><!--tex4ht:label?: x1-40001r10 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 327--><p class="noindent" >
+                                                                                
+                                                                                
+</p><!--l. 329--><p class="noindent" ><span 
+class="cmbx-12">Pings&#x2019; period experiment</span>
+</p><!--l. 331--><p class="noindent" >In this experiment, the average time separating two pings has been decreased from four
+to three seconds.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-40002r11"></a>
+                                                                                
+                                                                                
+
+<!--l. 336--><p class="noindent" ><img 
+src="./Figures/ping_server_influence.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.11: </span><span  
+class="content">Pings&#x2019; period experiment</span></div><!--tex4ht:label?: x1-40002r11 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 341--><p class="noindent" ><span 
+class="cmbx-12">Amount of WebSocket communication experiment</span>
+</p><!--l. 343--><p class="noindent" >The following Figure stresses the influence of the number of WebSocket communication
+channel. To obtain more communication, a third client has been added compared to the
+reference experience <a 
+href="#x1-40001r10">3.10<!--tex4ht:ref: fig:base_influence --></a>.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-40003r12"></a>
+                                                                                
+                                                                                
+
+<!--l. 349--><p class="noindent" ><img 
+src="./Figures/communication_server_influence.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.12: </span><span  
+class="content">Amount of WebSocket communication experiment</span></div><!--tex4ht:label?: x1-40003r12 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 354--><p class="noindent" ><span 
+class="cmbx-12">Size of exchanged files experiment</span>
+</p><!--l. 356--><p class="noindent" >This last graph underlines the influence of the size of files. The file transferred in this
+experiment is 500 kbytes compared to 1 kbytes for the reference experience.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-40004r13"></a>
+                                                                                
+                                                                                
+
+<!--l. 361--><p class="noindent" ><img 
+src="./Figures/file_server_influence.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.13: </span><span  
+class="content">File size experiment</span></div><!--tex4ht:label?: x1-40004r13 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 367--><p class="noindent" >In conclusion, it seems that the size of the exchanged files isn&#x2019;t as important as the rate
+of pings and the number of WebSockets communications.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.6 </span> <a 
+ id="x1-410003.6"></a>Concurrent connections experiment</h3>
+<!--l. 376--><p class="noindent" >This study was done to investigate the number of connections a single server can
+handle. As seen in the previous section, the number of connections is tightly bound to
+the parameters used to simulated the clients interactions with the server. Lets
+suppose each client receives a small file from the server every 2.5 seconds in
+average.
+</p>
+<div class="center" 
+>
+<!--l. 382--><p class="noindent" >
+</p>
+<div class="tabular"><table id="TBL-7" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-7-1g"><col 
+id="TBL-7-1" /></colgroup><colgroup id="TBL-7-2g"><col 
+id="TBL-7-2" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-1-"><td colspan="2" style="text-align:center"  id="TBL-7-1-1"  
+class="td11">                             <div class="multicolumn"  style="text-align:center" >Parameters</div></td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-2-"><td  style="text-align:left"  id="TBL-7-2-1"  
+class="td11">Server instance type             </td><td  style="text-align:left"  id="TBL-7-2-2"  
+class="td11">amazon ec2 c3.8xlarge</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-3-"><td  style="text-align:left"  id="TBL-7-3-1"  
+class="td11">Client instance type                                                </td><td  style="text-align:left"  id="TBL-7-3-2"  
+class="td11">amazon ec2 c3.4xlarge</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-4-"><td  style="text-align:left"  id="TBL-7-4-1"  
+class="td11">Experiment time                                                    </td><td  style="text-align:left"  id="TBL-7-4-2"  
+class="td11">150 s                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-5-"><td  style="text-align:left"  id="TBL-7-5-1"  
+class="td11">Number of new communication created at each iteration</td><td  style="text-align:left"  id="TBL-7-5-2"  
+class="td11">10                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-6-"><td  style="text-align:left"  id="TBL-7-6-1"  
+class="td11">Client creation period                                             </td><td  style="text-align:left"  id="TBL-7-6-2"  
+class="td11">1 s                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-7-"><td  style="text-align:left"  id="TBL-7-7-1"  
+class="td11">Ping period                                                           </td><td  style="text-align:left"  id="TBL-7-7-2"  
+class="td11">6 s                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-8-"><td  style="text-align:left"  id="TBL-7-8-1"  
+class="td11">Size of the file exchanged                                         </td><td  style="text-align:left"  id="TBL-7-8-2"  
+class="td11">small                      </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-9-"><td  style="text-align:left"  id="TBL-7-9-1"  
+class="td11">                                               </td>
+</tr></table></div></div>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-41001r14"></a>
+                                                                                
+                                                                                
+
+<!--l. 401--><p class="noindent" ><img 
+src="./Figures/9balancer.png" alt="PIC"  
+ /> <img 
+src="./Figures/12balancer.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3.14: </span><span  
+class="content">Maximum number of WebSocket communication</span></div><!--tex4ht:label?: x1-41001r14 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 407--><p class="noindent" >This experiment has been carried out on the biggest server made available by amazon
+ec2. SocketCluster will hardly be used in this conditions during normal usages. It is way
+cheaper to make clusters of SocketClusters server then to use a beastly server like this
+one.
+</p><!--l. 412--><p class="noindent" >This experiment confirmed SocketCluster is able to support around 25 000 concurrent
+connections. It also pointed out an imperfection of SocketCluster. The first graph is an
+experiment with 9 load balancers and 21 workers. The second with 12 load
+balancers and 18 workers. In the first experiment the load balancers&#x2019; load is
+quite high. Adding more communication will result in communication to be
+dropped, as a result the second experiment has been carried out with more load
+balancers. But the previous figures clearly show that some load balancer are still
+using way too much computing power and some on the other hand are almost
+idle.
+</p><!--l. 422--><p class="noindent" >This points out a bad load balancing between the load balancers themselves.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.7 </span> <a 
+ id="x1-420003.7"></a>Experiment summary</h3>
+<!--l. 426--><p class="noindent" >The client throughout tests showed the number of communications are scaling linearly
+when adding more cores. It also gave an insight into the user experience when using
+SocketCluster.
+</p><!--l. 430--><p class="noindent" >The second section was a little disappointing, one would expect a SocketCluster code
+running on three cores to achieve better then a regular engine.io code running on one
+core. However it is not the case, engine.io is significantly better.
+</p><!--l. 435--><p class="noindent" >The third section stresses the importance of running SocketCluster on a less processus
+then available cores. Otherwise the operating system as to operate heavy weight context
+switching.
+</p><!--l. 439--><p class="noindent" >The forth section studies the horizontal scaling of SocketCluster. Apparently, in a
+relatively low parallel environment, the application needs as much load-balancers as
+worker. And once they get saturated, adding a load-balancer and a worker will
+                                                                                
+                                                                                
+efficiently increase the performances.
+</p><!--l. 444--><p class="noindent" >The fifth experiment demonstrated the number of communication and the periods of
+pings increase the processor usage more quickly then the size of the messages
+exchanged.
+</p><!--l. 448--><p class="noindent" >The last experiment which was intended as a pure concurrent experiment, proved
+SocketCluster can handle 25k communications on a single server. But more importantly
+it showed that in a highly parallel environment, the load balancers begin to miss
+behave.
+                                                                                
+                                                                                
+</p>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;4</span><br /><a 
+ id="x1-430004"></a>Conclusion</h2>
+<!--l. 6--><p class="noindent" >After studying the current research around WebSocket in a distributed environment,
+this thesis focused on benchmarking of the node.js&#x2019;s real time engine SocketCluster.
+</p><!--l. 10--><p class="noindent" >SocketCluster is a promising library still actively under development. it efficiently
+provides a highly scalable WebSocket server that makes use of all available cpu cores on
+an instance. it removes the limitation of having to run node.js code on single
+cores.
+</p><!--l. 15--><p class="noindent" ><span 
+class="cmbx-12">Experiment conclusion</span>
+</p><!--l. 17--><p class="noindent" >Experiments carried out on SocketCluster revealed two main limitations. If running
+on comparable hardware, a SocketCluster worker will be less efficient then a
+basic engine.io implementation. Also SocketCluster efficiency dramatically
+drops if it is run with more process then available cores because of context
+switching.
+</p><!--l. 23--><p class="noindent" >SocketCluster should be used in highly parallel environment and therefore these limitations
+rarely apply. SocketCluster theoretically enables user to scale an application vertically
+without limits. N being the number of cores the server has, SocketCluster has been proved to
+be at least <!--l. 27--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mfrac><mrow 
+><mi 
+>N</mi></mrow>
+ <mrow 
+><mn>2</mn></mrow></mfrac> </math>
+more efficient then a basic node.js implementation. As the number of
+cores rises, it looks like the performance could be slightly better then
+<!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mfrac><mrow 
+><mi 
+>N</mi></mrow>
+ <mrow 
+><mn>2</mn></mrow></mfrac> </math>. The
+load balancers begins to misbehave and performance is limited by a few overloaded load
+balancers. However, it is probably only a question of time until a patch fixes this
+issue.
+</p><!--l. 33--><p class="noindent" >
+                                                                                
+                                                                                
+</p><!--l. 34--><p class="noindent" ><span 
+class="cmbx-12">Future work</span>
+</p><!--l. 36--><p class="noindent" >While benchmarking SocketCluster, useful SocketCluster features were considered.
+System administrators could benefit from a real-time monitoring tool to check the state
+of each threads and thus help them manage the size of the cluster. The monitoring tool
+could even be linked with an algorithm to automatically append or delete threads.
+SocketCluster would then be an autonom entity. Scaling on its own without any human
+interaction.
+</p><!--l. 43--><p class="noindent" >Also further studies could be carried on SocketCluster on more then on server. Since
+each cores already operates as a separate thread, the perforance shouldn&#x2019;t decrease if
+spread on many servers. But it might be worth checking.
+                                                                                
+                                                                                
+<a 
+ id="x1-43001r74"></a>
+</p>
+<h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;A</span><br /><a 
+ id="x1-44000A"></a>SocketCluster</h2>
+<h3 class="sectionHead"><span class="titlemark">A.1 </span> <a 
+ id="x1-45000A.1"></a>Simple ping-pong exchange</h3>
+<!--l. 6--><p class="noindent" ><span 
+class="cmbx-12">Client code</span>
+</p><!--l. 9--><p class="noindent" >This is an example of a WebSocket client code spread on all available cores. New clients
+are spawned every <span 
+class="cmtt-12">numberClientsEachSecond</span>. Thereafter, every <span 
+class="cmtt-12">intv </span>each clients
+sends a ping event cast to a Javascript JSON object.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-45001r1"></a>
+                                                                                
+                                                                                
+
+<!--l. 16--><p class="noindent" ><img 
+src="./Figures/WS_client_simplePing.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;A.1: </span><span  
+class="content">Pings from client</span></div><!--tex4ht:label?: x1-45001r1 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 21--><p class="noindent" >To best simulate clients interaction with a websocket server, new sockets are created at
+random intervals <span 
+class="cmtt-12">intv = Math.round(Math.random()*5000)</span>.
+</p><!--l. 24--><p class="noindent" ><span 
+class="cmbx-12">Server code</span>
+</p><!--l. 26--><p class="noindent" >The server listens for pings event and answers back with pongs event. In this case the
+pong event is an integer counting the number of pings this particular worker had during
+the whole experiment.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-45002r2"></a>
+                                                                                
+                                                                                
+
+<!--l. 32--><p class="noindent" ><img 
+src="./Figures/WS_server_simplePong.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;A.2: </span><span  
+class="content">Server answering with pongs</span></div><!--tex4ht:label?: x1-45002r2 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<h3 class="sectionHead"><span class="titlemark">A.2 </span> <a 
+ id="x1-46000A.2"></a>File transfer</h3>
+<!--l. 39--><p class="noindent" ><span 
+class="cmbx-12">Client code</span>
+</p><!--l. 41--><p class="noindent" >In this example, the goal is to exchange a file using the WebSocket protocol. For this
+purpose, the node.js <span 
+class="cmtt-12">delivery </span>library is used.
+</p><!--l. 44--><p class="noindent" >New clients are created on the same model as the previous example. Each new client is
+stored in the <span 
+class="cmtt-12">clients </span>array. Each clients are also periodically sending pings. The only
+add on is the <span 
+class="cmtt-12">map </span>function to enable the each socket to retrieve the document sent by
+the server.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-46001r3"></a>
+                                                                                
+                                                                                
+
+<!--l. 50--><p class="noindent" ><img 
+src="./Figures/WS_client_delivery.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;A.3: </span><span  
+class="content">Clients receptionning files</span></div><!--tex4ht:label?: x1-46001r3 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 55--><p class="noindent" ><span 
+class="cmbx-12">Server code</span>
+</p><!--l. 57--><p class="noindent" >The server listens for pings. And sends back a file, <span 
+class="cmtt-12">foo.txt </span>in this example.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-46002r4"></a>
+                                                                                
+                                                                                
+
+<!--l. 62--><p class="noindent" ><img 
+src="./Figures/WS_server_delivery.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;A.4: </span><span  
+class="content">Server sending files</span></div><!--tex4ht:label?: x1-46002r4 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+                                                                                
+                                                                                
+<a 
+ id="x1-46003r74"></a>
+<h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;B</span><br /><a 
+ id="x1-47000B"></a>Engine.io</h2>
+<!--l. 6--><p class="noindent" >This appendix gives the code used to create a simple engine.io server and client.
+Comparison with SocketCluster code in appendix <a 
+href="#x1-44000A">A<!--tex4ht:ref: SocketCluster --></a> shows the difference between both
+implementation is small.
+</p><!--l. 10--><p class="noindent" >In fairness, SocketCluster API is very close to engine.io.
+</p><!--l. 12--><p class="noindent" ><span 
+class="cmbx-12">Client code</span>
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-47001r1"></a>
+                                                                                
+                                                                                
+
+<!--l. 16--><p class="noindent" ><img 
+src="./Figures/engine_client_simplePong.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;B.1: </span><span  
+class="content">Pings from client</span></div><!--tex4ht:label?: x1-47001r1 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 21--><p class="noindent" >
+                                                                                
+                                                                                
+</p><!--l. 23--><p class="noindent" ><span 
+class="cmbx-12">Server code</span>
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-47002r2"></a>
+                                                                                
+                                                                                
+
+<!--l. 28--><p class="noindent" ><img 
+src="./Figures/engine_server_simplePing.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;B.2: </span><span  
+class="content">Server answering with pongs</span></div><!--tex4ht:label?: x1-47002r2 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+                                                                                
+                                                                                
+<a 
+ id="x1-47003r74"></a>
+<h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;C</span><br /><a 
+ id="x1-48000C"></a>Real time throughout check</h2>
+<!--l. 5--><p class="noindent" >By inserting the following script in <span 
+class="cmtt-12">index.html </span>the browser will display in real-time the
+number of pings received by a WebSocket server.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                
+                                                                                
+<a 
+ id="x1-48001r1"></a>
+                                                                                
+                                                                                
+
+<!--l. 9--><p class="noindent" ><img 
+src="./Figures/index_script.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;C.1: </span><span  
+class="content">Modification to <span 
+class="cmtt-12">index.html</span></span></div><!--tex4ht:label?: x1-48001r1 -->
+                                                                                
+                                                                                
+</div><hr class="endfigure" />
+<!--l. 13--><p class="noindent" >All it does is emitting a ping, then listening to the pong event and displaying it directly
+in the html page. The pong payload as can be seen in <a 
+href="#x1-45002r2">A.2<!--tex4ht:ref: fig:WS_server_simplePong --></a> is <span 
+class="cmtt-12">count</span>, an integer
+incremented each new ping.
+                                                                                
+                                                                                
+<a 
+ id="x1-48002r5"></a>
+<a 
+ id="Q1-1-87"></a>
+                                                                                
+                                                                                
+</p>
+<h2 class="likechapterHead"><a 
+ id="x1-490005"></a>Bibliography</h2>
+<div class="thebibliography">
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference1"></a>[1]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>J.&#x00A0;Mogul  R.&#x00A0;Fielding  and  J.&#x00A0;Gettys.    Hypertext  transfer  protocol  &#x2013;
+http/1.1. <span 
+class="cmti-12">Request for Comments 2616</span>, 1.4 Overall operation, September 2004.
+URL <a 
+href="http://goo.gl/f0ajSb" class="url" ><span 
+class="cmtt-12">http://goo.gl/f0ajSb</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference2"></a>[2]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Eliot  Estep.   Mobile  html5:  Efficiency  and  performance  of  websockets
+and server-sent events.  <span 
+class="cmti-12">Master thesis</span>, 3.3 Web techniques, June 2013.  URL
+<a 
+href="http://goo.gl/n0TTHo" class="url" ><span 
+class="cmtt-12">http://goo.gl/n0TTHo</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference32"></a>[3]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Peter Lubbers and Frank Greco. Html5 web sockets: A quantum leap in
+scalability      for      the      web.               March      2010.               URL
+<a 
+href="http://www.websocket.org/quantum.html" class="url" ><span 
+class="cmtt-12">http://www.websocket.org/quantum.html</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference12"></a>[4]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>I.&#x00A0;Fette and A.&#x00A0;Melkinov. The websocket protocol. <span 
+class="cmti-12">Request for Comments</span>
+<span 
+class="cmti-12">6455 </span>, December 2011. URL <a 
+href="http://goo.gl/4A7zlK" class="url" ><span 
+class="cmtt-12">http://goo.gl/4A7zlK</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference30"></a>[5]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Tobias Oberstein.  Dissecting websocket&#x2019;s overhead.  <span 
+class="cmti-12">Tavendo</span>, January
+2014. URL <a 
+href="http://goo.gl/hPFoqq" class="url" ><span 
+class="cmtt-12">http://goo.gl/hPFoqq</span></a>.
+</p>
+                                                                                
+                                                                                
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference35"></a>[6]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Tomislav Capan. Why the hell would i use node.js. <span 
+class="cmti-12">toptal</span>, February 2013.
+URL <a 
+href="http://goo.gl/bDMKeS" class="url" ><span 
+class="cmtt-12">http://goo.gl/bDMKeS</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference37"></a>[7]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Mikito  Takada.   Understanding  the  node.js  event  loop.   <span 
+class="cmti-12">Mixu&#x2019;s  tech</span>,
+February 2011. URL <a 
+href="http://goo.gl/5yAspS" class="url" ><span 
+class="cmtt-12">http://goo.gl/5yAspS</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference36"></a>[8]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Deniz  Ozger.    Finding  the  right  node.js  websocket  implementation.
+<span 
+class="cmti-12">medium</span>, January 2014. URL <a 
+href="http://goo.gl/VvXLKh" class="url" ><span 
+class="cmtt-12">http://goo.gl/VvXLKh</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference5"></a>[9]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>David&#x00A0;Gohara  John  E.&#x00A0;Stone  and  Guochun  Shi.   Opencl:  A  parallel
+programming standard for heterogeneous computing systems. <span 
+class="cmti-12">Computing in</span>
+<span 
+class="cmti-12">Science &#x0026; Engineering</span>, 12:66&#x2013;73, June 2010. URL <a 
+href="http://goo.gl/zRyXiq" class="url" ><span 
+class="cmtt-12">http://goo.gl/zRyXiq</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference3"></a>[10]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Tomi Aarnio Janne Pietiinen Jari&#x00A0;Nikara Eero&#x00A0;Aho, Kimmo&#x00A0;Kuusilinna.
+Towards   real-time   applications   in   mobile   web   browsers.      <span 
+class="cmti-12">Embedded</span>
+<span 
+class="cmti-12">Systems  for  Real-time  Multimedia</span>,  pages  57&#x2013;66,  October  2012.     URL
+<a 
+href="http://goo.gl/YK0lNT" class="url" ><span 
+class="cmtt-12">http://goo.gl/YK0lNT</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference4"></a>[11]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Mikal Bourges-Svenier. Graphics programming on the web, webcl course
+note. <span 
+class="cmti-12">Special  Interest  Group  on  GRAPHics  and  Interactive  Technique</span>
+<span 
+class="cmti-12">conference</span>, October 2012. URL <a 
+href="http://goo.gl/98JGPm" class="url" ><span 
+class="cmtt-12">http://goo.gl/98JGPm</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference6"></a>[12]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Tasneem&#x00A0;Brutch     Won&#x00A0;Jeon     and     Simon     Gibbs.            Webcl
+for hardware-accelerated web applications.  <span 
+class="cmti-12">Tizen developer conference</span>, May
+2012. URL <a 
+href="http://goo.gl/PUao7v" class="url" ><span 
+class="cmtt-12">http://goo.gl/PUao7v</span></a>.
+</p>
+                                                                                
+                                                                                
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference7"></a>[13]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>A.&#x00A0;Barak and A.&#x00A0;Shiloh. The virtualcl (vcl) cluster platform. <span 
+class="cmti-12">Mosix white</span>
+<span 
+class="cmti-12">paper</span>, 2012. URL <a 
+href="http://goo.gl/eSXKgZ" class="url" ><span 
+class="cmtt-12">http://goo.gl/eSXKgZ</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference13"></a>[14]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Kaazing  company.     Fastest  million.     <span 
+class="cmti-12">white  paper</span>,  2012.     URL
+<a 
+href="http://goo.gl/PsNNur" class="url" ><span 
+class="cmtt-12">http://goo.gl/PsNNur</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference10"></a>[15]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Gene&#x00A0;M. Amdahl. Validity of the single processor approach to achieving
+large scale computing capabilities.   <span 
+class="cmti-12">AFIPS Conference Proceedings</span>, pages
+483&#x2013;485, 1967. URL <a 
+href="http://goo.gl/k4F2aQ" class="url" ><span 
+class="cmtt-12">http://goo.gl/k4F2aQ</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference8"></a>[16]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Nathan&#x00A0;T   Hayes.      High   performance   parallel   computing   in   the
+motion picture  industry.    <span 
+class="cmti-12">Sunfish  white  paper</span>,  February  2012.    URL
+<a 
+href="http://goo.gl/FXWGcg" class="url" ><span 
+class="cmtt-12">http://goo.gl/FXWGcg</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference34"></a>[17]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Aaeter  Suleman.      Parallel  programming:   When  amdahl&#x2019;s  law  is
+inapplicable. <span 
+class="cmti-12">Future chips</span>, June 2011. URL <a 
+href="http://goo.gl/LPwcpt" class="url" ><span 
+class="cmtt-12">http://goo.gl/LPwcpt</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference9"></a>[18]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Yuan Shi. Reevaluating amdahl&#x2019;s law and gustafson&#x2019;s law. October 1996.
+URL <a 
+href="http://goo.gl/JCChOc" class="url" ><span 
+class="cmtt-12">http://goo.gl/JCChOc</span></a>.
+</p>
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference38"></a>[19]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Jonathan Gros-Dubois.  Highly scalable realtime websocket engine based
+on engine.io.               <span 
+class="cmti-12">Github</span>,      September      2013.               URL
+<a 
+href="https://github.com/topcloud/socketcluster" class="url" ><span 
+class="cmtt-12">https://github.com/topcloud/socketcluster</span></a>.
+</p>
+                                                                                
+                                                                                
+<p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReference39"></a>[20]<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>The secret to 10 million concurrent connections. <span 
+class="cmti-12">highscalabilty.com</span>, May
+2013. URL <a 
+href="http://goo.gl/aUdP5l" class="url" ><span 
+class="cmtt-12">http://goo.gl/aUdP5l</span></a>.
+</p>
+</div>
+ 
+</body> 
+</html> 
+
+                                                                                
+
+

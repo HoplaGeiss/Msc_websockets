@@ -1,0 +1,15 @@
+\chapter{SocketCluster code}
+\label{SocketCluster}
+\lhead{Appendix A. \emph{SocketCluster}}
+
+This is an example of a WebSocket client code spread on all available cores.
+New clients are spawned every \texttt{numberClientsEachSecond}. Thereafter,
+every \texttt{intv} each clients sends a ping event cast to a Javascript JSON
+object.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth]{./Figures/client_code.png}
+	\caption[client_code]{Client code}
+	\label{fig:client_code}
+\end{figure}

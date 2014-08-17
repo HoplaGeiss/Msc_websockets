@@ -1,0 +1,90 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-1}{}{Declaration of Authorship}}{ii}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{x1-10001}{QQ2-1-2}{Abstract}}{5}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{x1-20001}{QQ2-1-3}{Acknowledgements}}{7}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-30001}{QQ2-1-4}{Contents}}{9}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-5}{}{List of Figures}}{xi}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-40002}{QQ2-1-6}{List of Figures}}{12}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-7}{}{Abbreviations}}{xiv}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-50003}{QQ2-1-8}{Abbreviations}}{15}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-60003}{QQ2-1-9}{Introduction}}{2}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-10}{}{Introduction}}{2}\relax 
+\doTocEntry\tocchapter{1}{\csname a:TocLink\endcsname{1}{x1-70001}{QQ2-1-11}{Literature review}}{3}\relax 
+\doTocEntry\tocsection{1.1}{\csname a:TocLink\endcsname{1}{x1-80001.1}{QQ2-1-12}{Client-server communications}}{3}\relax 
+\doTocEntry\tocsubsection{1.1.1}{\csname a:TocLink\endcsname{1}{x1-90001.1.1}{QQ2-1-13}{HTTP protocol}}{3}\relax 
+\doTocEntry\tocsubsection{1.1.2}{\csname a:TocLink\endcsname{1}{x1-100001.1.2}{QQ2-1-14}{Page by page model}}{4}\relax 
+\doTocEntry\toclof{1.1}{\csname a:TocLink\endcsname{1}{x1-10001r1}{}{\ignorespaces Client-server communication}}{figure}\relax 
+\doTocEntry\tocsubsection{1.1.3}{\csname a:TocLink\endcsname{1}{x1-110001.1.3}{QQ2-1-16}{Polling}}{7}\relax 
+\doTocEntry\toclof{1.2}{\csname a:TocLink\endcsname{1}{x1-11001r2}{}{\ignorespaces Polling}}{figure}\relax 
+\doTocEntry\tocsubsection{1.1.4}{\csname a:TocLink\endcsname{1}{x1-120001.1.4}{QQ2-1-18}{Long polling}}{10}\relax 
+\doTocEntry\toclof{1.3}{\csname a:TocLink\endcsname{1}{x1-12001r3}{}{\ignorespaces Long polling}}{figure}\relax 
+\doTocEntry\tocsubsection{1.1.5}{\csname a:TocLink\endcsname{1}{x1-130001.1.5}{QQ2-1-20}{Streaming}}{13}\relax 
+\doTocEntry\toclof{1.4}{\csname a:TocLink\endcsname{1}{x1-13001r4}{}{\ignorespaces Streaming}}{figure}\relax 
+\doTocEntry\tocsubsection{1.1.6}{\csname a:TocLink\endcsname{1}{x1-140001.1.6}{QQ2-1-22}{Current technologies in browsers}}{16}\relax 
+\doTocEntry\tocsection{1.2}{\csname a:TocLink\endcsname{1}{x1-150001.2}{QQ2-1-23}{WebSocket protocol}}{16}\relax 
+\doTocEntry\tocsubsection{1.2.1}{\csname a:TocLink\endcsname{1}{x1-160001.2.1}{QQ2-1-24}{Definition}}{17}\relax 
+\doTocEntry\tocsubsection{1.2.2}{\csname a:TocLink\endcsname{1}{x1-170001.2.2}{QQ2-1-25}{The WebSocket handshake}}{18}\relax 
+\doTocEntry\tocsubsection{1.2.3}{\csname a:TocLink\endcsname{1}{x1-180001.2.3}{QQ2-1-26}{Transport layer protocol}}{20}\relax 
+\doTocEntry\tocsubsection{1.2.4}{\csname a:TocLink\endcsname{1}{x1-190001.2.4}{QQ2-1-27}{The WebSocket frame anatomy}}{21}\relax 
+\doTocEntry\toclof{1.5}{\csname a:TocLink\endcsname{1}{x1-19001r5}{}{\ignorespaces Frame overhead}}{figure}\relax 
+\doTocEntry\toclof{1.6}{\csname a:TocLink\endcsname{1}{x1-19002r6}{}{\ignorespaces TLS overhead}}{figure}\relax 
+\doTocEntry\toclof{1.7}{\csname a:TocLink\endcsname{1}{x1-19003r7}{}{\ignorespaces TCP overhead}}{figure}\relax 
+\doTocEntry\toclof{1.8}{\csname a:TocLink\endcsname{1}{x1-19004r8}{}{\ignorespaces Websocket messages sent individually}}{figure}\relax 
+\doTocEntry\toclof{1.9}{\csname a:TocLink\endcsname{1}{x1-19005r9}{}{\ignorespaces Batched WebSocket messages}}{figure}\relax 
+\doTocEntry\tocsubsection{1.2.5}{\csname a:TocLink\endcsname{1}{x1-200001.2.5}{QQ2-1-33}{Proxies}}{36}\relax 
+\doTocEntry\tocsection{1.3}{\csname a:TocLink\endcsname{1}{x1-210001.3}{QQ2-1-34}{Implementation}}{37}\relax 
+\doTocEntry\tocsubsection{1.3.1}{\csname a:TocLink\endcsname{1}{x1-220001.3.1}{QQ2-1-35}{WebSocket server implementation}}{37}\relax 
+\doTocEntry\tocsubsection{1.3.2}{\csname a:TocLink\endcsname{1}{x1-230001.3.2}{QQ2-1-36}{Heterogeneous implementation with OpenCL}}{38}\relax 
+\doTocEntry\toclof{1.10}{\csname a:TocLink\endcsname{1}{x1-23001r10}{}{\ignorespaces Platform model}}{figure}\relax 
+\doTocEntry\toclof{1.11}{\csname a:TocLink\endcsname{1}{x1-23002r11}{}{\ignorespaces Memory model}}{figure}\relax 
+\doTocEntry\toclof{1.12}{\csname a:TocLink\endcsname{1}{x1-23003r12}{}{\ignorespaces Work - group}}{figure}\relax 
+\doTocEntry\tocsubsection{1.3.3}{\csname a:TocLink\endcsname{1}{x1-240001.3.3}{QQ2-1-40}{WebCL}}{49}\relax 
+\doTocEntry\tocsubsection{1.3.4}{\csname a:TocLink\endcsname{1}{x1-250001.3.4}{QQ2-1-41}{GPU clusters}}{50}\relax 
+\doTocEntry\tocsection{1.4}{\csname a:TocLink\endcsname{1}{x1-260001.4}{QQ2-1-42}{Scalability}}{50}\relax 
+\doTocEntry\tocsubsection{1.4.1}{\csname a:TocLink\endcsname{1}{x1-270001.4.1}{QQ2-1-43}{Scaling up}}{51}\relax 
+\doTocEntry\tocsubsection{1.4.2}{\csname a:TocLink\endcsname{1}{x1-280001.4.2}{QQ2-1-44}{Scaling out}}{52}\relax 
+\doTocEntry\toclof{1.13}{\csname a:TocLink\endcsname{1}{x1-28001r13}{}{\ignorespaces Amdahl law}}{figure}\relax 
+\doTocEntry\tocchapter{2}{\csname a:TocLink\endcsname{1}{x1-290002}{QQ2-1-46}{Design and Implementation}}{59}\relax 
+\doTocEntry\tocsection{2.1}{\csname a:TocLink\endcsname{1}{x1-300002.1}{QQ2-1-47}{SocketCluster library}}{59}\relax 
+\doTocEntry\tocsection{2.2}{\csname a:TocLink\endcsname{1}{x1-310002.2}{QQ2-1-48}{Challenges encountered using SocketCluster}}{60}\relax 
+\doTocEntry\tocsection{2.3}{\csname a:TocLink\endcsname{1}{x1-320002.3}{QQ2-1-49}{Monitoring tool}}{60}\relax 
+\doTocEntry\tocchapter{3}{\csname a:TocLink\endcsname{1}{x1-330003}{QQ2-1-50}{Experiment}}{62}\relax 
+\doTocEntry\tocsection{3.1}{\csname a:TocLink\endcsname{1}{x1-340003.1}{QQ2-1-51}{Client throughout}}{62}\relax 
+\doTocEntry\tocsubsection{3.1.1}{\csname a:TocLink\endcsname{1}{x1-350003.1.1}{QQ2-1-52}{Client scalability}}{62}\relax 
+\doTocEntry\toclof{3.1}{\csname a:TocLink\endcsname{1}{x1-35001r1}{}{\ignorespaces Client throughout}}{figure}\relax 
+\doTocEntry\tocsubsection{3.1.2}{\csname a:TocLink\endcsname{1}{x1-360003.1.2}{QQ2-1-54}{browser testing}}{66}\relax 
+\doTocEntry\toclof{3.2}{\csname a:TocLink\endcsname{1}{x1-36001r2}{}{\ignorespaces Browser connection to SocketCluster}}{figure}\relax 
+\doTocEntry\tocsection{3.2}{\csname a:TocLink\endcsname{1}{x1-370003.2}{QQ2-1-56}{Comparison with engine.io}}{69}\relax 
+\doTocEntry\toclof{3.3}{\csname a:TocLink\endcsname{1}{x1-37001r3}{}{\ignorespaces WebSocket implementation}}{figure}\relax 
+\doTocEntry\toclof{3.4}{\csname a:TocLink\endcsname{1}{x1-37002r4}{}{\ignorespaces Engine.io implementation}}{figure}\relax 
+\doTocEntry\tocsection{3.3}{\csname a:TocLink\endcsname{1}{x1-380003.3}{QQ2-1-59}{SocketCluster context switching}}{75}\relax 
+\doTocEntry\toclof{3.5}{\csname a:TocLink\endcsname{1}{x1-38001r5}{}{\ignorespaces Context switching}}{figure}\relax 
+\doTocEntry\tocsection{3.4}{\csname a:TocLink\endcsname{1}{x1-390003.4}{QQ2-1-61}{Horizontal scaling of SocketCluster }}{78}\relax 
+\doTocEntry\toclof{3.6}{\csname a:TocLink\endcsname{1}{x1-39001r6}{}{\ignorespaces Simple WebSocket client}}{figure}\relax 
+\doTocEntry\toclof{3.7}{\csname a:TocLink\endcsname{1}{x1-39002r7}{}{\ignorespaces WebSocket server on three cores}}{figure}\relax 
+\doTocEntry\toclof{3.8}{\csname a:TocLink\endcsname{1}{x1-39003r8}{}{\ignorespaces WebSocket server on five cores}}{figure}\relax 
+\doTocEntry\toclof{3.9}{\csname a:TocLink\endcsname{1}{x1-39004r9}{}{\ignorespaces WebSocket server on seven cores}}{figure}\relax 
+\doTocEntry\tocsection{3.5}{\csname a:TocLink\endcsname{1}{x1-400003.5}{QQ2-1-66}{Parameters' influence}}{92}\relax 
+\doTocEntry\toclof{3.10}{\csname a:TocLink\endcsname{1}{x1-40001r10}{}{\ignorespaces Reference experiment}}{figure}\relax 
+\doTocEntry\toclof{3.11}{\csname a:TocLink\endcsname{1}{x1-40002r11}{}{\ignorespaces Pings' period experiment}}{figure}\relax 
+\doTocEntry\toclof{3.12}{\csname a:TocLink\endcsname{1}{x1-40003r12}{}{\ignorespaces Amount of WebSocket communication experiment}}{figure}\relax 
+\doTocEntry\toclof{3.13}{\csname a:TocLink\endcsname{1}{x1-40004r13}{}{\ignorespaces File size experiment}}{figure}\relax 
+\doTocEntry\tocsection{3.6}{\csname a:TocLink\endcsname{1}{x1-410003.6}{QQ2-1-71}{Concurrent connections experiment}}{106}\relax 
+\doTocEntry\toclof{3.14}{\csname a:TocLink\endcsname{1}{x1-41001r14}{}{\ignorespaces Maximum number of WebSocket communication}}{figure}\relax 
+\doTocEntry\tocsection{3.7}{\csname a:TocLink\endcsname{1}{x1-420003.7}{QQ2-1-73}{Experiment summary}}{109}\relax 
+\doTocEntry\tocchapter{4}{\csname a:TocLink\endcsname{1}{x1-430004}{QQ2-1-74}{Conclusion}}{111}\relax 
+\doTocEntry\tocappendix{A}{\csname a:TocLink\endcsname{1}{x1-44000A}{QQ2-1-75}{SocketCluster}}{113}\relax 
+\doTocEntry\tocsection{A.1}{\csname a:TocLink\endcsname{1}{x1-45000A.1}{QQ2-1-76}{Simple ping-pong exchange}}{113}\relax 
+\doTocEntry\toclof{A.1}{\csname a:TocLink\endcsname{1}{x1-45001r1}{}{\ignorespaces Simple WebSocket client code}}{figure}\relax 
+\doTocEntry\toclof{A.2}{\csname a:TocLink\endcsname{1}{x1-45002r2}{}{\ignorespaces Simple WebSocket server code}}{figure}\relax 
+\doTocEntry\tocsection{A.2}{\csname a:TocLink\endcsname{1}{x1-46000A.2}{QQ2-1-79}{File transfer}}{119}\relax 
+\doTocEntry\toclof{A.3}{\csname a:TocLink\endcsname{1}{x1-46001r3}{}{\ignorespaces Client code for file transfers with WebSocket }}{figure}\relax 
+\doTocEntry\toclof{A.4}{\csname a:TocLink\endcsname{1}{x1-46002r4}{}{\ignorespaces Server code for file transfers with Websocket}}{figure}\relax 
+\doTocEntry\tocappendix{B}{\csname a:TocLink\endcsname{1}{x1-47000B}{QQ2-1-82}{Engine.io}}{126}\relax 
+\doTocEntry\toclof{B.1}{\csname a:TocLink\endcsname{1}{x1-47001r1}{}{\ignorespaces Engine.io client code}}{figure}\relax 
+\doTocEntry\toclof{B.2}{\csname a:TocLink\endcsname{1}{x1-47002r2}{}{\ignorespaces Engine.io server code}}{figure}\relax 
+\doTocEntry\tocappendix{C}{\csname a:TocLink\endcsname{1}{x1-48000C}{QQ2-1-85}{Real time throughout check}}{134}\relax 
+\doTocEntry\toclof{C.1}{\csname a:TocLink\endcsname{1}{x1-48001r1}{}{\ignorespaces Modification to index.html}}{figure}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-87}{}{Bibliography}}{138}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-490005}{QQ2-1-88}{Bibliography}}{139}\relax 
+\par 

@@ -1,0 +1,730 @@
+\chapter{Literature review} 
+\label{Chapter1} 
+\lhead{Chapter 1. \emph{Literature review}}
+
+This chapter is an introduction to the WebSocket protocol.  It begins with a
+section which sums up client-server communication techniques.  The second
+section is an in depth study of WebSockets.
+
+This chapter present past and current research on WebSockets. The first
+section is about the implementation of WebSockets server, the second is about
+scalability. 
+
+\section{Client-server communications}
+
+This section studies the evolution of client-server communication, beginning
+with the page by page model until current technologies. However as an
+introduction, the first part is about HTPP which is the foundation of
+client-server communication.
+
+\subsection{HTTP protocol}
+
+The HTTP protocol is a request/response protocol defined in the request for
+comment (RFC) \cite{Reference1} as follows:
+
+\begin{verbatim} 
+A client sends a request to the server in the form of a request 
+method, URI, and protocol version, followed by a MIME-like 
+message containing request modifiers, client information, and 
+possible body content over a connection with a server. The 
+server responds with a status line, including the message's
+protocol version and a success or error code, followed by a 
+MIME-like message containing server information, entity meta 
+information, and possible entity-body content.  
+\end{verbatim}
+
+Because HTTP was not designed for real time communication several workarounds
+have been developed over the years to overcome the so called page by page
+model. These techniques are Explained in details in Eliot Step master thesis
+\citep{Reference2}.
+
+\subsection{Page by page model}
+
+Since HTTP's release in 1991, client-server communication have undergone
+continuous upgrades. In the early nineties, most web pages were static. As a
+consequence, the communication between client and server  were rather limited.
+Typically, the client would send occasional request to the server. The server
+would then answer, but all communication would stop there until a new event was
+triggered by the user. 
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{./Figures/client_server_communication.png}
+\caption[Client-server communication]{Client-server communication}
+\label{fig:client_server_communication}
+\end{figure}
+
+The notion of dynamic web appeared in 2005 with the introduction of technologies
+like Comet. Peter Lubbers describes it as the Headache 2.0 in his article
+\texttt{"A quantum leap in scalability for the web"} \citep{Reference32}.
+
+\subsection{Polling}
+
+Polling was the first attempt toward real-time communication. Instead of waiting
+for the client to manually ask for a page update, the browser would send regular
+HTTP GET requests to the server. This technique could be efficient if the exact
+interval of update on the server side was known.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{./Figures/polling.png}
+\caption[Polling]{polling}
+\label{fig:polling}
+\end{figure}
+
+However real time information is unpredictable and in high updates rate
+situation like stock prices, news reports or tickets sales the
+response could be stale by the time the browser renders the page
+\citep{Reference32}.
+
+Also in low updates rate situation even if no data is available, the server
+will send an empty response. This would result in a large amount of unnecessary
+connections being established, which over time and with the clients increase
+would lead to decreased overall network throughput \citep{Reference2}. 
+
+
+\subsection{Long polling}
+
+Long polling is based on Comet technologies and is a slight step further toward
+server sent events and real time communication. Comet began to be popular in web
+browser around 2007, it is a family of web techniques that allows the server to
+hold an HTTP request open for prolonged periods of time.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{./Figures/long_polling.png}
+\caption[Long polling]{Long polling}
+\label{fig:long_polling}
+\end{figure}
+
+Long-polling is similar to polling, except that the server keeps the HTTP
+request open if data is not immediately available. The server determines how
+long to keep the request open, request also known as a \texttt{hanging GET}. If
+new data is received within the time interval, a response containing the data
+is sent to the client and the connection is closed. If new data is not received
+within the time period, the server will respond with a notification to
+terminate the open request and close the connection. After the client browser
+receives the response, it will create another  request to handle the next
+event, therefore always keeping a new long-polling request open for new events.
+This results in the server constantly responding with new data as soon as it is
+made available \citep{Reference2}.
+
+However, in situations with high-message volume, long- polling does not provide
+increased performance benefits over regular polling. Performance could actually
+be decreased if long-polling requests turn into continuous, unthrottled loops
+of regular polling requests.
+
+
+\subsection{Streaming}
+
+Streaming is based on a persistent HTTP connection. The communication still
+begins with a request from the browser, the difference is in the response. The
+server never signals the browser its message is finished. This way the
+connection is kept open and ready to deliver further data \citep{Reference2}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{./Figures/streaming.png}
+\caption[Streaming]{Streaming}
+\label{fig:streaming}
+\end{figure}
+
+If it wasn't for proxies, streaming would be perfectly adapted for real time
+communication. Because streaming is done over HTTP, proxy server may choose to
+buffer server responses and thus increasing greatly the latency of the message
+delivery. Therefore in case a proxy is detected most Comet-like solution fall
+back to long polling \citep{Reference2}.
+
+\subsection{Current technologies in browsers}
+
+At the moment, comet technologies are still the most popular way of
+communication between browsers and servers. Techniques has been improved to
+the point where it perfectly fakes server sent event. Comet technologies can be
+seen as a wonderful hack to reach real time communication. However little can
+be done to improve the latency. Comet technologies revolve around HTTP and
+carry its overhead.
+
+The total overhead from the HTTP request and response header is at least 871
+bytes without containing any data. In comparison, a small payload is 20 bytes.
+Contemporary application like on-line games can not be built on a technology
+wasting resources equivalent to 40 messages every time information is 
+exchanged \citep{Reference2}. Therefore a brand new protocol has been
+developed: WebSocket.
+
+\section{WebSocket protocol}
+
+The creation of the WebSocket protocol marks the beginning of the Living web.
+It is often referred to as the first major upgrade in the history of web
+communications. As the Web itself originally did, WebSocket enables entirely
+new kinds of applications. Daily, new products are designed to stay permanently
+connected to the web. Websocket is the language enabling this revolution.
+
+This section is a study of the WebSocket protocol. Firstly it defines the
+protocol. Secondly it studies how to establish a WebSocket connection.
+Afterwards it goes on with an in depth study of WebSockets' transport layer and
+frame anatomies. Lastly it provides a brief discussion of WebSockets'
+interaction with proxies.
+
+\subsection{Definition}
+
+The official Request For Comments \citep{Reference12} (RFC) describes the
+WebSocket protocol as follows:
+
+\begin{verbatim}
+The WebSocket Protocol enables two-way communication between a 
+client running untrusted code in a controlled environment to a 
+remote host that has opted-in to communications from that code.
+The security model used for this is the origin-based security 
+model commonly used by web browsers. The protocol consists of an
+opening handshake followed by basic message framing, layered over
+TCP. The goal of this technology is to provide a mechanism for
+browser-based applications that need two-way communication with
+servers that does not rely on opening multiple HTTP connections.
+\end{verbatim}
+
+To Initiate a WebSocket communication, first a HTTP handshake needs to be done.
+
+\subsection{The WebSocket handshake}
+
+The Websocket protocol was to be released in an already existing web
+infrastructure. Therefore it has been designed to be backward-compatible. Before
+a Websocket communication can start, a HTTP connection must be initiated. The
+browser sends an Upgrade header to the server to inform him he wants to start a
+WebSocket connection. Switching from the HTTP protocol to the WebSocket
+protocol is referred to as a handshake \citep{Reference12}.
+
+\begin{verbatim}
+GET ws://websocket.example.com/ HTTP/1.1
+Origin: http://example.com
+Connection: Upgrade
+Host: websocket.example.com
+Upgrade: websocket
+\end{verbatim}
+
+If the server supports the WebSocket protocol, it sends the following header in
+response.
+
+\begin{verbatim}
+HTTP/1.1 101 WebSocket Protocol Handshake
+Date: Wed, 5 May 2014 04:04:22 GMT
+Connection: Upgrade
+Upgrade: WebSocket
+\end{verbatim}
+
+After the completion of the handshake the WebSocket connection is active and
+either the client or the server can send data. The data is contained in frames,
+each frame is pre-fixed with a 4-12 bytes to ensure the message can be
+reconstructed. 
+
+Once the server and the browser have agreed on beginning a WebSocket
+communication. A first request is made to begin an ethernet communication
+followed by a request to make an TCP / IP communication.
+
+\subsection{Transport layer protocol}
+
+The internet is based on two transport layer protocols, the User Datagram
+Protocol (UDP) and the Transmission Control Protocol (TCP). Both use the
+network layer service provided by the internet protocol (IP). 
+
+\textbf{TCP}
+
+TCP is a reliable transmission protocol. The data is buffered byte by byte in
+segments and transmitted according to specific timers. This flow control ensure
+the consistency of the data. TCP is said to be a stream oriented because the
+data is sent in independent segments.
+
+\textbf{UDP}
+
+UDP is unreliable but fast. The protocol offers no guaranty the data will be
+delivered in its integrality nor duplicated. It works on a best effort strategy
+with no flow control. Each segments are received independently, it is a message
+oriented protocol.
+
+Websocket is build over TCP because of its reliability. Browser enabled games
+are the perfect example of WebSockets' use cases. They require low latency and
+have a high rate of update. To achieve low latency, the communication protocol
+must make sure not to drop any packets. Otherwise, the exchange takes two times
+longer.
+
+As can be inferred from the 2 previous subsections, the websockets protocol
+relies on a few other protocols. Namely HTTP to initialize the communication ,
+ethernet, TCP/IP and finally TLS in case a secure connections is required.  The
+next subsections studies the influence this protocols have in the anatomy of
+WebSockets frame.
+
+\subsection{The WebSocket frame anatomy}
+
+The study conducted by Tobias Oberstein \citep{Reference30} looks into the
+overheads of websockets. As a matter of fact the overhead induced purely by
+WebSockets is extremely low. As can be seen in the figure
+\ref{fig:frameOverhead}, depending on the size of the payload the overhead
+varies between 8 and 20 bytes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{./Figures/frame_overhead.png}
+\caption[Frame overhead]{Frame overhead \citep{Reference30}}
+\label{fig:frameOverhead}
+\end{figure}
+
+However, as pointed out in the article efficiency is lost on protocols of other layers
+required for WebSocket's functionment. Figure \ref{fig:tlsOverhead} and
+\ref{fig:tcpOverhead} respectively show the overhead induced by pure TCP/IP and
+TLS protocols.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{./Figures/tls_overhead.png}
+\caption[TLS overhead]{TLS overhead \citep{Reference30}}
+\label{fig:tlsOverhead}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{./Figures/tcp_overhead.png}
+\caption[TCP overhead]{TCP overhead \citep{Reference30}}
+\label{fig:tcpOverhead}
+\end{figure}
+
+In this example, the payloads \texttt{Hello world} is only thirteen bytes. In
+comparison ethernet, TCP/IP and TLS protocols each use height bytes. The
+conclusion of this article is to warn programmers about the size of the
+payloads so that all the protocols revolving around WebSockets don't dwarf the
+overhead of the WebSocket protocol itself. In case small payloads can not be
+avoided a possible solution is to serialize the messages in order to batch them
+in one single WebSocket message.
+
+So instead of sending the each messages using the WebSocket protocol like shown
+in figure \ref{fig:separateWebsocket}. The individual messages are put in a
+queue and batched in a single Websocket message like in figure
+\ref{fig:batched_websocket}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{./Figures/separate_websocket.png}
+\caption[Websocket messages sent individually]{WebSocket messages sent individually \citep{Reference30}}
+\label{fig:separateWebsocket}
+\end{figure}
+
+\vspace{10 mm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{./Figures/batched_websocket.png}
+\caption[Batched WebSocket messages]{Batched WebSocket messages \citep{Reference30}}
+\label{fig:batched_websocket}
+\end{figure}
+
+Nevertheless, WebSockets carry way less overhead then comet technologies do.
+Another advantage of WebSocket its interaction with proxies.
+
+\subsection{Proxies}
+
+Proxy servers are set up between a private network and the Internet. They act
+like an intermediary providing content caching, security and content
+filtering.
+
+When a Websocket server detects the presence of a proxy server, it
+automatically sets up a tunnel to pass through the proxy. The tunnel is
+established by issuing an HTTP CONNECT statement to the proxy server, which
+requests for the proxy server to open a TCP/IP connection to a specific host
+and port. Once the tunnel is set up, communication can flow unimpeded through
+the proxy.
+
+To sum up compared to comet technologies, WebSockets are: 
+
+\begin{itemize}
+    \item As reliable, because they are also built over TCP
+    \item Way faster, because they don't carry the overhead of HTTP
+    \item Behaving better in presence of proxies
+    \item Fully bidirectional
+\end{itemize}
+
+The nexts sections of this chapter are dedicated to the implementation of 
+WebSockets servers.
+
+\section{Implementation}
+
+As in any project, in order to avoid future technical problems, it is better to
+first study similar projects. The goal of this implementation study is to find a
+suitable language and possibly a good library to run the experiment.
+
+\subsection{WebSocket server implementation}
+
+In order to narrow the library study, first a language needs to be selected.
+
+\textbf{Language Selection}
+
+Choosing a language for a project is often a compromise between the programmers
+development background and the necessity of the application. Furthermore,
+WebSocket servers can be developed in almost any languages.
+
+This subsection does not aim at giving a comprehensive comparison of all
+existing WebSocket friendly languages. Node.js seems to be the perfect
+environment for this study, therefore other languages will deliberately be left
+out and the focus will be on explaining why Node.js is appropriate.
+
+Node.js was specially invented to create real-time websites with push
+capabilities \citep{Reference35}. Most languages run parallel tasks by using
+threads but threads are memory expensive. Node.js is fundamentally different,
+it runs as a single non-blocking and event-driven loop by using asynchronous
+call back loops \citep{Reference37}. For this reasons, compared to other
+languages, Node.js performs significantly better in highly concurrent
+environment.
+
+Node.js has many real-time engines. The next step is to carefully make a choice
+between ws, Socket.io and Engine.io.  
+
+\textbf{WebSocket implementation selection}
+
+Deniz Ozger article's for medium.com \citep{Reference36} is a comprehensive study
+of node.js real-time engines.
+
+Ws is a pure WebSocket implementation, therefore it is appropriate for testing
+purposes but seldom used in real life projects.  The main drawback is the
+communication may not work in case the browser does not support WebSockets.
+
+Socket.io has some appreciable features namely its connection procedure. First
+it tries to connect to a server via WebSocket, in case it fails it downgrades
+until it finds a suitable protocol. Moreover it tries to reconnect sockets
+when connections fail. 
+
+Engine.io is a lower library of Socket.io. The connection procedure is the
+opposite to Socket.io though. It first establishes a long polling connection
+and only later tries to upgrade it to a better transport protocol. Therefore it
+is more reliable because it establishes less connection.
+
+In conclusion, Node.js and its real-time library engine.io seems to best choice
+for our study. However better performance could be reached using an
+heterogeneous implementation.
+
+
+\subsection{Heterogeneous implementation with OpenCL}
+
+As suggest John Stone paper's title \texttt{"OpenCL: A parallel programming standard
+for heterogeneous computing systems"} \citep{Reference5} OpenCL is unanimously
+considered as the reference for heterogenous computing.
+
+Historically, the first technology to take advantage of the massive parallel
+nature of GPUs was Open Graphic Library (OpenGL). OpenGL is an application
+programming interface (API) for rendering 2D and 3D vector graphics. Through
+the insertion of little pieces of C-like codes in shader, developers soon
+realized graphic processing units (GPUs) could also be used for general
+programming. This became known as General Purpose computation on GPUs (GPGPU)
+\citep{Reference5}.
+
+However, shaders can only be modified so much. As the need for more complex
+applications arose, Apple proposed the Khronos Group to develop a more general
+framework: OpenCL. OpenCL is a low-level API accelerating applications with
+task-parallel or data-parallel computations in a heterogeneous computing
+environment. Indeed OpenCL not only allows the usage of CPUs but also any
+processing devices like GPUs, DSPs, accelerators and so on \citep{Reference5}.
+If generally, on desktops the diversity of processing devices is quite low, as
+opposed to mobile devices. Embedded systems for real-time multimedia journal
+published a paper \citep{Reference3} high lining the advantages of using OpenCl
+in mobile browser.
+
+OpenCL doesn't guarantee a particular kernel will achieve peak performance on
+different architectures. The nature of the underlying hardware may induce
+different programming strategies. Multi-core CPU architecture is definitely the
+more popular. But the recent specification published by Khronos to take GPU
+computing to the web is bound to raise programmers interest toward GPUs
+architecture \citep{Reference30}. 
+
+\textbf{CPUs architecture}
+
+Modern CPUs are typically composed of a few high-frequency processor cores.
+CPUs perform well for a wide variety of applications, but they are optimal for
+latency sensitive workloads with minimal parallelism. However, to increase
+performance during arithmetic and multimedia workloads,  many CPUs also
+incorporate small scale use of single instruction multiple data (SIMD).
+
+\textbf{GPUs architecture}
+
+Contemporary GPUs are composed of hundreds of processing units running at low
+frequency. 
+
+As a result GPUs are able to execute tens of thousands of threads. It is this
+ability which makes them so much more effective then CPUs in a highly parallel
+environment. Some research even claim a speedup in the order of 200x over
+JavaScript. \citep{Reference3}
+
+The GPU processing units are typically organized in SIMD clusters controlled by
+single instruction decoders, with shared access to fast on-chip caches and
+shared memories. Massively parallel arithmetic-heavy hardware design enables
+GPUs to achieve single-precision floating point arithmetic rates approaching 2
+trillions of instructions per second (TFLOPS). \citep{Reference5}
+
+Although GPUs are powerful computing devices, currently they still often
+require to be management by a host CPU. Fortunately OpenCL is designed to be used in
+heterogeneous environment. It abstracts CPUs and GPUs as “compute devices”.
+This way, applications can query device attributes to determine the
+properties of the available compute units and memory systems.
+\citep{Reference5}
+
+All the same, even if OpenCL's API hides the hardest part of parallel
+programming a good understanding of the underlying memory model leads to more
+efficient coding. Along with general advises on how to build an OpenCL
+cluster, details about the memory model are given in the following paper:
+\citep{Reference4}.
+
+\textbf{Platform model}
+
+CPU and GPU are called “compute devices”. A single host regroups one or more
+compute devices and has its own memory. Each compute device is composed of one
+or more cores also called “compute units”. Each compute unit has its own memory
+and is divided into one or more SIMD threads or “processing elements” with its
+own memory. \citep{Reference4}
+
+\begin{figure}[H] \centering
+\includegraphics[width=\textwidth]{./Figures/plateform_model.png}
+\caption[Platform model]{Platform model \citep{Reference4}}
+\label{fig:plateform_model} \end{figure}
+
+
+\textbf{Memory model}
+
+OpenCL defines 4 types of memory spaces within a compute device. A large
+high-latency “global” memory corresponding to the device RAM. This is a none
+cached memory  where the data is stored and is available to all items. A small
+low-latency read-only “constant” memory which is cached. A shared “local”
+memory accessible from multiple processing elements within the same compute
+unit and a “private” memory accessible within each processing element. This
+last type of memory is very fast and is the register of the items
+\citep{Reference4}.
+
+\begin{figure}[H] \centering
+  \includegraphics[width=0.6\textwidth]{./Figures/memory_model.png}
+  \caption[Memory model]{Memory model \citep{Reference4}}
+  \label{fig:memory_model} 
+\end{figure}
+
+In conclusion, OpenCL provides a fairly easy way to write parallel code but to
+reach an optimal performance / memory access trade off programmers must choose
+carefully in where to save their variables in memory space.
+
+\textbf{Global and local IDs}
+
+Finally, at an even lower level, work-items are scheduled in work–groups.
+This is the smallest unit of parallelism on a device. Individual work-items in
+a work–group  start together at the same program address, but they have their
+own address counter and register state and are therefore free to branch and
+execute independently \citep{Reference4}.
+
+\begin{figure}[H] \centering
+  \includegraphics[width=\textwidth]{./Figures/id.png} 
+  \caption[Work - group]{Work Group \citep{Reference4}} 
+  \label{fig:id} 
+\end{figure}
+
+
+On a CPU, operating systems often swap two threads on and off execution
+channels. Threads (cores ) are generally heavyweight entities and those context
+switches are therefore expensive. By comparison, threads on a GPU ( work-items
+) are extremely lightweight entities. Furthermore in GPUs, registers are
+allocated to active threads only. Once threads are complete, its resources are
+de-allocated.  Thus no swapping of registers or state occurs between GPU
+threads. \citep{Reference4}
+
+It can be deduced from this section that the underlying memory model, OpenCL is a
+fairly low-level API. In fact, the programming language used is a derivate of
+the C language based on C99. A language web developers will most likely be
+unfamiliar with. Khronos anticipated this and developed the web computing
+language (WebCL).
+
+\subsection{WebCL}
+
+WebGL and WebCL are JavaScript APIs over OpenGL and OpenCL's API. This allows
+web developers to create application in an environment they are used to.
+
+In the first place, OpenCL was developed because of web browsers' increasing
+need for more computational power. A necessity which arose from heavy 3D
+graphics applications such as on-line games and augmented reality. However,
+OpenCL doesn’t provide any rendering capability, it only processes huge amounts
+of data. That is why OpenCL was designed for inter-operation with OpenGL.
+WebCL/WebGL interoperability builds on that available for OpenCL/OpenGL. WebCL
+provides an API for safely sharing buffers with OpenCL. This buffer is inside
+the GPU which avoids the back and forth copy of data when switching between
+OpenGL and OpenCL processes. Further precision about the interoperability are
+discussed in this paper: \citep{Reference6}.
+
+GPU computing is quite a new notion. But it is a fast evolving field of
+research. Single GPUs are not enough anymore, the trend is moving towards GPU
+clusters.
+
+\subsection{GPU clusters}
+
+Most OpenCL applications can utilize only devices of the hosting computer. In
+order to run an application on a cluster, the program needs to be split to take
+advantage of all devices. Virtual OpenCL (VirtualCL) is a wrapper for OpenCL.
+It provides a platform where all the cluster devices are seen as if located on
+the same hosting node. Basically, the user starts the application on the master
+node then VirtualCL transparently runs the kernels of the application on the
+worker nodes. Applications written with VirtualCL don't only benefit from the
+reduced programming complexity of a single computer, but also from the
+availability of shared memory and lower granularity parallelism. Mosix white
+paper \citep{Reference7} explains more in depth the VCL's functionment.
+
+
+OpenCL and VirtualCL are powerful tool to create highly parallel clusters.  But
+current implementation with CPUs only already reach a million concurrent
+connections \citep{Reference13}. So far there is simply no need for more
+powerful clusters.
+
+However, all company don't have access to dual Quad-core Xeon CPUs used in
+Kaazing cluster to reach a million concurrent connections. Usual practice is to
+build a scalable cluster, to adjust computing power in function of the needs.
+
+\section{Scalability}
+
+The growth of distributed computing has changed the way web application are
+designed and implemented. If compared with today standards, applications used
+to be deployed so as to say at prototype stage. That is, they were designed to
+work on a fixed number of servers and not able to adjust as the user base grows.
+As the number of connections increase, the load on the servers rises and thus
+the latency grows. Ideally, an application should aim at a stable latency,
+otherwise the application can miss behave.
+
+On the server side, the nodes will begin to be overloaded and struggle to
+service the client with reasonable response time.
+
+Also, if the servers are overwhelmed they buffer the responses to the clients
+and then catch up later on . As a result, the clients can be flooded when the
+load goes down. The sudden rush of message can provoke an unexpected behavior
+from the servers and can even lead to disconnections.
+
+Nowadays, designing an application without scalability and load balancing in
+mind is unimaginable. Historically, the reaction to an overloaded server
+has always been to scale up.
+
+\subsection{Scaling up}
+
+Scaling up or vertically basically means upgrading the infrastructure.
+Depending on the needs of the application, the processor, the memory, the
+storage or the network connectivity can be improved.
+
+Further performance can be gained by dividing tasks. It only requires
+identification of the services  running independently or the using message
+based communication. Those could then be relocated on different nodes.
+
+The main advantage of scaling vertically is that is does not involve any software
+changes and little infrastructure changes. Therefore it is an easy way to
+increase performances. However for large applications, scaling up might prove
+impossible or at least not economically profitable. In case the infrastructure 
+is already equipped with the latest hardware generation, the tiniest
+increase in performance will impact greatly the price. For example, a high
+range processor offering ten percent more computation power is going to be
+many times more expensive. Similarly, a memory upgrade could require replacing
+all current modules for higher density ones.
+
+Moreover, scaling up neither answers availability nor uptime concerns. The
+system is monolithic and has a single point of failure. Therefore contemporary
+project usually scale out and use parallel computing.
+
+\subsection{Scaling out}
+				
+Scaling out or horizontally, answers most of the problems unsolved by scaling
+vertically. In a first approach lets ignore the software complexity.  Scaling
+out offers almost unlimited performance increase and at low cost. If the
+application is designed to be spread out on multiple nodes, the performance of
+an infrastructure can be doubled by simply using twice as many servers. Also it
+is fairly easy to add some redundant server to insure uptime. Plus, compared to
+scaling up, once the software is developed the costs are linear.
+
+When scaling out, the infrastructure implementation is not as much of a problem as
+the code implementation. The expenses are shifted from hardware to development
+costs.
+
+\textbf{Code implementation}
+
+Developing a parallel code is quite complicated and all applications can not
+be paralyzed. In 1967 Gene M. Amdhal defined the so called Amdahl's law which
+is still used today to define the maximum to expect when parallelizing a code
+\citep{Reference10}. 
+
+Each software can be divided in two separate parts, the parallel part and the
+sequential part. Parallel computing does not improve the sequential part. If a
+the code is mainly sequential, then increasing the number of processors will
+only cause the parallel part to finish first and stay idle waiting for the
+sequential part to finish.
+
+Assuming P is the portion of a program that can be parallelized and 1 - P  is
+the portion that remains serial, then the maximum speedup that can be achieved
+using N processors is: 
+
+$$speedup(N) = \frac{1}{(1-P) + \frac{P}{N}} $$
+
+If 70\% of the program can be run in parallel (P = 0.7) the maximum expected
+speedup with 4 processors would be:
+
+$$speedup(N) = \frac{1}{(1-0.7) + \frac{0.7}{N}}$$
+
+$$speedup(4) = 2.1$$
+
+When the number of processors reaches a certain point, the speed up will be:
+
+
+$$\lim\limits_{N \to \infty} speedup(N)= \frac{1}{1-P} = 3.3$$
+
+
+Nathan T. Hayes's paper for Sunfish Studio \citep{Reference8} studies how
+parallel computing can profit the motion picture Industry. The following chart
+present the maximum speedup which can be expected from an application in
+function of the percentage of parallel code in the programme.
+
+\begin{figure}[H] 
+  \centering
+  \includegraphics[width=0.5\textwidth]{./Figures/amdahl.png}
+  \caption[Amdahl law]{Amdahl law \citep{Reference8}} 
+  \label{fig:amdahl} 
+\end{figure}
+
+The figure speaks for itself, to envisage parallel computing, the portion of
+parallel code must be very high.
+
+However, Amdahl's law is based on assumption which are hardly verified in
+pratique. Following are summed up reasons not to give to much importance to
+Amdahl's law \citep{Reference34}:
+
+\begin{itemize} 
+  \item The number of threads is not always equivalent to the number of processors.  
+  \item The parallel portion does not have a perfect speedup. Computation power is used
+    for communication between processus. Also some resources like caches and bandwidth
+    have to be shared across all the processors.  
+  \item Allocating, deallocating and switching threads introduces overhead, overhead grows
+    linearly with the number of thread.  
+  \item Even an optimized code will not have perfectly synchronised threads, at some point
+    some processus will have to wait for others to finish.	
+\end{itemize}
+
+
+Amdahl's law has long been used as an argument against massively parallel
+processing. In 1988 Gustafson law came as an alternative to Amdahl's law to
+estimate the speedup. In both law, the sequential portion of the problem is
+supposed to stay constant. But in Gustafson's law the overall problem size
+grows proportionally to the number of cores. As a result, Gustafson's gives
+slightly different results to Amdahl's and encourage the use of parallel
+computing.
+
+However later studies tends to contest the legitimacy of both laws. Yuan Shi's
+paper \citep{Reference9} even proves both theories are but two different
+interpretations of the same law. He concludes his study by saying these laws
+are too minimalist and what computer scientist really need is a practical
+engineering tool that can help the community to identify performance critical
+factors.
+
+\textbf{Infrastructure implementation}
+
+Beside coding complication, scaling out also brings infrastructure changes.
+A third party must be in command of all servers. This master server is also called
+load balancer. Its role is to distribute the work evenly between the workers and thus
+completely hides the complexity to the user.
+
+
+
+
+
+
+

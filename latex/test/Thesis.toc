@@ -1,0 +1,52 @@
+\contentsline {chapter}{Declaration of Authorship}{i}{dummy.1}
+\contentsline {chapter}{Abstract}{ii}{chapter*.2}
+\contentsline {chapter}{Acknowledgements}{iii}{chapter*.3}
+\contentsline {chapter}{List of Figures}{vi}{dummy.5}
+\contentsline {chapter}{Abbreviations}{viii}{dummy.7}
+\vspace {2em}
+\contentsline {chapter}{Introduction}{1}{dummy.11}
+\contentsline {chapter}{\numberline {1}Literature review}{2}{chapter.12}
+\contentsline {section}{\numberline {1.1}Client-server communications}{2}{section.13}
+\contentsline {subsection}{\numberline {1.1.1}HTTP protocol}{2}{subsection.14}
+\contentsline {subsection}{\numberline {1.1.2}Page by page model}{3}{subsection.15}
+\contentsline {subsection}{\numberline {1.1.3}Polling}{4}{subsection.17}
+\contentsline {subsection}{\numberline {1.1.4}Long polling}{5}{subsection.19}
+\contentsline {subsection}{\numberline {1.1.5}Streaming}{6}{subsection.21}
+\contentsline {subsection}{\numberline {1.1.6}Current technologies in browsers}{7}{subsection.23}
+\contentsline {section}{\numberline {1.2}WebSocket protocol}{7}{section.24}
+\contentsline {subsection}{\numberline {1.2.1}Definition}{8}{subsection.25}
+\contentsline {subsection}{\numberline {1.2.2}The WebSocket handshake}{8}{subsection.26}
+\contentsline {subsection}{\numberline {1.2.3}Transport layer protocol}{9}{subsection.27}
+\contentsline {subsection}{\numberline {1.2.4}The WebSocket frame anatomy}{10}{subsection.28}
+\contentsline {subsection}{\numberline {1.2.5}Proxies}{11}{subsection.34}
+\contentsline {section}{\numberline {1.3}Implementation}{12}{section.35}
+\contentsline {subsection}{\numberline {1.3.1}WebSocket server implementation}{12}{subsection.36}
+\contentsline {subsection}{\numberline {1.3.2}Heterogeneous implementation with OpenCL}{13}{subsection.37}
+\contentsline {subsection}{\numberline {1.3.3}WebCL}{17}{subsection.41}
+\contentsline {subsection}{\numberline {1.3.4}GPU clusters}{18}{subsection.42}
+\contentsline {section}{\numberline {1.4}Scalability}{18}{section.43}
+\contentsline {subsection}{\numberline {1.4.1}Scaling up}{19}{subsection.44}
+\contentsline {subsection}{\numberline {1.4.2}Scaling out}{20}{subsection.45}
+\contentsline {chapter}{\numberline {2}Design and Implementation}{23}{chapter.47}
+\contentsline {section}{\numberline {2.1}SocketCluster library}{23}{section.48}
+\contentsline {section}{\numberline {2.2}Challenges encountered using SocketCluster}{24}{section.49}
+\contentsline {section}{\numberline {2.3}Monitoring tool}{25}{section.50}
+\contentsline {chapter}{\numberline {3}Experiment}{26}{chapter.51}
+\contentsline {section}{\numberline {3.1}Client throughout}{26}{section.52}
+\contentsline {subsection}{\numberline {3.1.1}Client scalability}{26}{subsection.53}
+\contentsline {subsection}{\numberline {3.1.2}browser testing}{29}{subsection.55}
+\contentsline {section}{\numberline {3.2}Comparison with engine.io}{29}{section.57}
+\contentsline {section}{\numberline {3.3}SocketCluster context switching}{32}{section.60}
+\contentsline {section}{\numberline {3.4}Horizontal scaling of SocketCluster }{34}{section.62}
+\contentsline {section}{\numberline {3.5}Parameters' influence}{37}{section.67}
+\contentsline {section}{\numberline {3.6}Concurrent connections experiment}{40}{section.72}
+\contentsline {section}{\numberline {3.7}Experiment summary}{42}{section.74}
+\contentsline {chapter}{\numberline {4}Conclusion}{44}{chapter.75}
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}SocketCluster}{46}{appendix.76}
+\contentsline {section}{\numberline {A.1}Simple ping-pong exchange}{46}{section.77}
+\contentsline {section}{\numberline {A.2}File transfer}{47}{section.80}
+\contentsline {chapter}{\numberline {B}Engine.io}{49}{appendix.83}
+\contentsline {chapter}{\numberline {C}Real time throughout check}{51}{appendix.86}
+\vspace {2em}
+\contentsline {chapter}{Bibliography}{52}{dummy.88}

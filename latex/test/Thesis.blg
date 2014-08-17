@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Thesis.aux
+The style file: unsrtnat.bst
+Database file #1: Bibliography.bib
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1233 of file unsrtnat.bst
+Warning--empty journal in Reference32
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "John E. Stone, David Gohara, and Guochun Shi" has a comma at the end for entry Reference5
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Eero Aho, Kimmo Kuusilinna, Tomi Aarnio, Janne Pietiäinen, Jari Nikara" for entry Reference3
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in Reference9
+Warning--empty author in Reference39
+You've used 20 entries,
+            2481 wiz_defined-function locations,
+            682 strings with 7182 characters,
+and the built_in function-call counts, 6113 in all, are:
+= -- 566
+> -- 181
+< -- 21
++ -- 90
+- -- 50
+* -- 366
+:= -- 985
+add.period$ -- 79
+call.type$ -- 20
+change.case$ -- 40
+chr.to.int$ -- 20
+cite$ -- 24
+duplicate$ -- 379
+empty$ -- 597
+format.name$ -- 81
+if$ -- 1314
+int.to.chr$ -- 1
+int.to.str$ -- 21
+missing$ -- 20
+newline$ -- 127
+num.names$ -- 57
+pop$ -- 159
+preamble$ -- 1
+purify$ -- 20
+quote$ -- 0
+skip$ -- 233
+stack$ -- 0
+substring$ -- 112
+swap$ -- 71
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 140
+warning$ -- 3
+while$ -- 45
+width$ -- 0
+write$ -- 288
+(There were 9 error messages)

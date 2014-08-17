@@ -1,0 +1,202 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {chapter}{Declaration of Authorship}{i}{dummy.1}}
+\@writefile{toc}{\contentsline {chapter}{Abstract}{ii}{chapter*.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{Acknowledgements}{iii}{chapter*.3}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{List of Figures}{v}{dummy.5}}
+\gdef \LT@i {\LT@entry 
+    {1}{62.39581pt}\LT@entry 
+    {1}{212.29242pt}}
+\@writefile{toc}{\contentsline {chapter}{Abbreviations}{vi}{dummy.7}}
+\citation{Reference1}
+\@writefile{toc}{\vspace  {2em}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.10}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{Chapter1}{{1}{1}{Introduction}{chapter.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Javascript}{1}{section.11}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Client server communications}{1}{section.12}}
+\citation{Reference2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}HTTP protocol}{2}{subsection.13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Page by page model}{2}{subsection.14}}
+\citation{Reference32}
+\citation{Reference32}
+\citation{Reference2}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Client server communication}}{3}{figure.caption.15}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:client_server_communication}{{1.1}{3}{Client server communication}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Polling}{3}{subsection.16}}
+\citation{Reference2}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Polling}}{4}{figure.caption.17}}
+\newlabel{fig:polling}{{1.2}{4}{Polling}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}Long polling}{4}{subsection.18}}
+\citation{Reference2}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Long polling}}{5}{figure.caption.19}}
+\newlabel{fig:long_polling}{{1.3}{5}{Long polling}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.5}Streaming}{5}{subsection.20}}
+\citation{Reference2}
+\citation{Reference2}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Streaming}}{6}{figure.caption.21}}
+\newlabel{fig:streaming}{{1.4}{6}{Streaming}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.6}Current technologies in browser}{6}{subsection.22}}
+\citation{Reference12}
+\citation{Reference12}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}WebSocket protocol}{7}{section.23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}The WebSocket handshake}{7}{subsection.24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Transport layer protocol}{8}{subsection.25}}
+\citation{Reference30}
+\citation{Reference30}
+\citation{Reference30}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}The WebSocket frame anatomy}{9}{subsection.26}}
+\citation{Reference30}
+\citation{Reference30}
+\citation{Reference30}
+\citation{Reference30}
+\citation{Reference30}
+\citation{Reference30}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces Frame overhead}}{10}{figure.caption.27}}
+\newlabel{fig:frame_overhead}{{1.5}{10}{Frame overhead}{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces TLS overhead}}{10}{figure.caption.28}}
+\newlabel{fig:tls_overhead}{{1.6}{10}{TLS overhead}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces TCP overhead}}{10}{figure.caption.29}}
+\newlabel{fig:tcp_overhead}{{1.7}{10}{TCP overhead}{figure.caption.29}{}}
+\citation{Reference30}
+\citation{Reference30}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces Websocket messages sent individualy}}{11}{figure.caption.30}}
+\newlabel{fig:separate_websocket}{{1.8}{11}{Websocket messages sent individualy}{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.9}{\ignorespaces Batched WebSocket messages}}{11}{figure.caption.31}}
+\newlabel{fig:batched_websocket}{{1.9}{11}{Batched WebSocket messages}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Proxies}{11}{subsection.32}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Scope of the thesis}{11}{section.33}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}Thesis structure}{11}{section.34}}
+\citation{Reference35}
+\citation{Reference37}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Literrature review}{12}{chapter.35}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{Chapter2}{{2}{12}{Literrature review}{chapter.35}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Implementation}{12}{section.36}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}WebSocket server implementation}{12}{subsection.37}}
+\citation{Reference36}
+\citation{Reference5}
+\citation{Reference5}
+\citation{Reference5}
+\citation{Reference3}
+\citation{Reference20}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Heterogeneous implementation with OpenCL}{14}{subsection.38}}
+\citation{Reference3}
+\citation{Reference5}
+\citation{Reference5}
+\citation{Reference4}
+\citation{Reference4}
+\citation{Reference4}
+\citation{Reference4}
+\citation{Reference4}
+\citation{Reference4}
+\citation{Reference4}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Plateform model}}{16}{figure.caption.39}}
+\newlabel{fig:plateform_model}{{2.1}{16}{Plateform model}{figure.caption.39}{}}
+\citation{Reference4}
+\citation{Reference4}
+\citation{Reference4}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Memory model}}{17}{figure.caption.40}}
+\newlabel{fig:memory_model}{{2.2}{17}{Memory model}{figure.caption.40}{}}
+\citation{Reference4}
+\citation{Reference6}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces id}}{18}{figure.caption.41}}
+\newlabel{fig:id}{{2.3}{18}{id}{figure.caption.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}WebCL}{18}{subsection.42}}
+\citation{Reference7}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.4}GPU clusters}{19}{subsection.43}}
+\citation{Reference1}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Scalability}{20}{section.44}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Scaling up}{20}{subsection.45}}
+\citation{Reference10}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Scaling out}{21}{subsection.46}}
+\citation{Reference8}
+\citation{Reference8}
+\citation{Reference8}
+\citation{Reference34}
+\citation{Reference9}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Amdahl law}}{23}{figure.caption.47}}
+\newlabel{fig:amdahl}{{2.4}{23}{Amdahl law}{figure.caption.47}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Load balancing}{24}{subsection.48}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experiment}{25}{chapter.49}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{Chapter3}{{3}{25}{Experiment}{chapter.49}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Client throughout}{25}{section.50}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Client scalability}{25}{subsection.51}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Client throughout}}{26}{figure.caption.52}}
+\newlabel{fig:1+2_client}{{3.1}{26}{Client throughout}{figure.caption.52}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}browser testing}{27}{subsection.53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Browser connection to SocketCluster}}{27}{figure.caption.54}}
+\newlabel{fig:browser}{{3.2}{27}{Browser connection to SocketCluster}{figure.caption.54}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Comparaison with engine.io}{27}{section.55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces WebSocket implementation}}{28}{figure.caption.56}}
+\newlabel{fig:WS_comparaison}{{3.3}{28}{WebSocket implementation}{figure.caption.56}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Engine.io implementation}}{29}{figure.caption.57}}
+\newlabel{fig:engine_comparaison}{{3.4}{29}{Engine.io implementation}{figure.caption.57}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}SocketCluster context switching}{30}{section.58}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}}{30}{section.59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Simple WebSocket client}}{31}{figure.caption.60}}
+\newlabel{fig:WS_client_rising}{{3.5}{31}{Simple WebSocket client}{figure.caption.60}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces WebSocket server on three cores}}{31}{figure.caption.61}}
+\newlabel{fig:WS_server_1rising}{{3.6}{31}{WebSocket server on three cores}{figure.caption.61}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces WebSocket server on five cores}}{32}{figure.caption.62}}
+\newlabel{fig:WS_server_2rising}{{3.7}{32}{WebSocket server on five cores}{figure.caption.62}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces WebSocket server on seven cores}}{32}{figure.caption.63}}
+\newlabel{fig:WS_server_3rising}{{3.8}{32}{WebSocket server on seven cores}{figure.caption.63}{}}
+\@writefile{toc}{\vspace  {2em}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}SocketCluster}{34}{appendix.64}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{SocketCluster}{{A}{34}{SocketCluster}{appendix.64}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Simple ping-pong exchange}{34}{section.65}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Simple WebSocket client code}}{34}{figure.caption.66}}
+\newlabel{fig:WS_client_simplePing}{{A.1}{34}{Simple WebSocket client code}{figure.caption.66}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces Simple WebSocket server code}}{35}{figure.caption.67}}
+\newlabel{fig:WS_server_simplePong}{{A.2}{35}{Simple WebSocket server code}{figure.caption.67}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}File transfer}{35}{section.68}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces Client code for file transfers with WebSocket }}{36}{figure.caption.69}}
+\newlabel{fig:WS_client_delivery}{{A.3}{36}{Client code for file transfers with WebSocket}{figure.caption.69}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces Server code for file transfers with Websocket}}{36}{figure.caption.70}}
+\newlabel{fig:WS_server_delivery}{{A.4}{36}{Server code for file transfers with Websocket}{figure.caption.70}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Engine.io}{37}{appendix.71}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{engine}{{B}{37}{Engine.io}{appendix.71}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Engine.io client code}}{37}{figure.caption.72}}
+\newlabel{fig:engine_client_simplePing}{{B.1}{37}{Engine.io client code}{figure.caption.72}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Engine.io server code}}{38}{figure.caption.73}}
+\newlabel{fig:engine_server_simplePong}{{B.2}{38}{Engine.io server code}{figure.caption.73}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Real time throughout check}{39}{appendix.74}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{indexHTML}{{C}{39}{Real time throughout check}{appendix.74}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces Modification to index.html}}{39}{figure.caption.75}}
+\newlabel{fig:index_script}{{C.1}{39}{Modification to index.html}{figure.caption.75}{}}
+\@writefile{toc}{\vspace  {2em}}
+\bibstyle{unsrtnat}
+\bibdata{Bibliography}
+}
